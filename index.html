@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KPay CRM 原型导航</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-badge">K</span>KPay CRM</div>
+
+      <div class="nav-group">
+        <p class="nav-title">导航首页</p>
+        <a class="nav-link level-1" href="index.html">原型总览</a>
+      </div>
+
+      <div class="nav-group">
+        <p class="nav-title">第一批</p>
+        <a class="nav-link level-1" href="pages/overview-scope.html">全局说明</a>
+        <div class="nav-sub">
+          <a class="nav-link level-2" href="pages/company-list.html">企业管理</a>
+          <a class="nav-link level-2" href="pages/store-list.html">商铺管理</a>
+          <a class="nav-link level-2" href="pages/merchant-list.html">商户管理</a>
+        </div>
+      </div>
+
+      <div class="nav-group">
+        <p class="nav-title">第二批</p>
+        <a class="nav-link level-1" href="pages/aft-task-list.html">AFP 进件</a>
+        <div class="nav-sub">
+          <a class="nav-link level-2" href="pages/os-list.html">O/S 补件</a>
+          <a class="nav-link level-2" href="pages/afp-mapping.html">AFP 字段映射</a>
+          <a class="nav-link level-2" href="pages/channel-afp-detail.html">AFP 通道详情</a>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="page-head">
+        <div class="page-head-left">
+          <div class="breadcrumb">首页 / 原型导航</div>
+          <h1 class="page-title">KPay CRM 原型总览</h1>
+          <p class="page-subtitle">第一批与第二批页面统一样式系统，支持静态评审与流程演示。</p>
+        </div>
+      </header>
+
+      <div class="grid-2">
+        <section class="card">
+          <h3>第一批：主体管理</h3>
+          <p><a href="pages/overview-scope.html">项目范围与边界说明</a></p>
+          <p><a href="pages/overview-data-model.html">主体模型与取值规则说明</a></p>
+          <p><a href="pages/company-list.html">企业管理列表 / 详情 / 编辑</a></p>
+          <p><a href="pages/store-list.html">商铺管理列表 / 详情 / 编辑</a></p>
+          <p><a href="pages/merchant-list.html">商户管理列表 / 详情 / 功能说明</a></p>
+        </section>
+
+        <section class="card">
+          <h3>第二批：AFP 与补件 / 配置</h3>
+          <p><a href="pages/aft-task-list.html">商户进件列表</a></p>
+          <p><a href="pages/aft-task-detail.html">商户进件详情</a></p>
+          <p><a href="pages/aft-snapshot.html">进件数据快照</a></p>
+          <p><a href="pages/os-list.html">O/S 补件列表</a></p>
+          <p><a href="pages/os-detail.html">O/S 补件详情</a></p>
+          <p><a href="pages/afp-mapping.html">AFP 字段映射配置</a></p>
+          <p><a href="pages/channel-afp-detail.html">AFP 通道详情</a></p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
