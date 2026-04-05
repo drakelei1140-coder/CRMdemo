@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>进件数据快照</title><link rel="stylesheet" href="../styles.css" /></head>
+<body>
+<div class="layout">
+  <aside class="sidebar"><div class="brand"><span class="brand-badge">K</span>KPay CRM</div><div class="nav-group"><p class="nav-title">AFP 进件</p><a class="nav-link level-1" href="aft-task-list.html">商户进件列表</a><div class="nav-sub"><a class="nav-link level-2" href="aft-task-detail.html">商户进件详情</a><a class="nav-link level-2" href="aft-snapshot.html">进件数据快照</a></div></div><div class="nav-group"><a class="nav-link level-1" href="../index.html">返回首页</a></div></aside>
+  <main class="main">
+    <header class="page-head"><div class="page-head-left"><div class="breadcrumb">AFP进件 / 进件数据快照 / SNAP-240405-7781</div><h1 class="page-title">进件数据快照</h1><p class="page-subtitle">展示 LE/AH/BL/BA payload 与调用结果摘要，用于问题回溯。</p></div></header>
+
+    <section class="card"><h3>快照基础信息</h3><div class="status-strip"><div class="metric"><div class="label">快照编号</div><div class="value">SNAP-240405-7781</div></div><div class="metric"><div class="label">关联进件单</div><div class="value">AFT-20260405-3011</div></div><div class="metric"><div class="label">通道</div><div class="value">Adyen_AFP</div></div><div class="metric"><div class="label">时间</div><div class="value">2026-04-05 09:33</div></div></div></section>
+
+    <section class="card"><h3>调用结果摘要</h3><dl class="kv"><dt>总请求数</dt><dd>4（LE / AH / BL / BA）</dd></dl><dl class="kv"><dt>成功</dt><dd>2（LE、BL）</dd></dl><dl class="kv"><dt>失败</dt><dd>1（AH）</dd></dl><dl class="kv"><dt>未触发</dt><dd>1（BA，受上游阻塞）</dd></dl></section>
+
+    <section class="card">
+      <h3>Payload 数据</h3>
+      <div class="tabs">
+        <button class="tab active" data-tab-group="payload" data-tab-target="panel-le">LE</button>
+        <button class="tab" data-tab-group="payload" data-tab-target="panel-ah">AH</button>
+        <button class="tab" data-tab-group="payload" data-tab-target="panel-bl">BL</button>
+        <button class="tab" data-tab-group="payload" data-tab-target="panel-ba">BA</button>
+      </div>
+
+      <div id="panel-le" data-tab-panel="payload" class="code-block">{"object":"LE","legalName":"StarRiver Digital Tech HK Ltd","registrationNo":"91310000MA7KX88X2L","country":"HK"}</div>
+      <div id="panel-ah" data-tab-panel="payload" class="code-block" style="display:none;">{"object":"AH","accountHolderId":"AH-HK-7711","uboDocType":"AddressProof","uboDocIssueDate":"2025-11-10","status":"expired"}</div>
+      <div id="panel-bl" data-tab-panel="payload" class="code-block" style="display:none;">{"object":"BL","mcc":"5311","businessModel":"online_and_offline","monthlyVolume":"1200000 HKD"}</div>
+      <div id="panel-ba" data-tab-panel="payload" class="code-block" style="display:none;">{"object":"BA","status":"pending_for_AH","reason":"AH not approved"}</div>
+    </section>
+  </main>
+</div>
+<script src="../app.js"></script>
+</body>
+</html>
