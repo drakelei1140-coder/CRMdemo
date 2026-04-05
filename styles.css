@@ -499,3 +499,14 @@ tbody tr:hover td { background: #fcfdff; }
   .status-strip,
   .split-2 { grid-template-columns: 1fr; }
 }
+
+
+/* ---- Batch 3 additions ---- */
+.diff-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);}
+.diff-box{background:#fff;border:1px solid var(--line);border-radius:var(--radius-md);padding:12px;}
+.diff-box h4{margin:0 0 8px;font-size:14px;}
+.alert{border-radius:10px;padding:10px 12px;font-size:13px;}
+.alert.warning{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;}
+.alert.info{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;}
+.approval-bar{display:flex;gap:8px;flex-wrap:wrap;}
+@media (max-width:1200px){.diff-grid{grid-template-columns:1fr;}}
