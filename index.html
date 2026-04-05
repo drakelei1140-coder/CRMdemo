@@ -10,76 +10,75 @@
   <div class="layout">
     <aside class="sidebar">
       <div class="brand"><span class="brand-badge">K</span>KPay CRM</div>
-
       <div class="nav-group">
-        <p class="nav-title">导航首页</p>
-        <a class="nav-link level-1" href="index.html">第一批页面总览</a>
-      </div>
-
-      <div class="nav-group">
-        <p class="nav-title">全局说明</p>
-        <a class="nav-link level-1" href="pages/overview-scope.html">项目范围与边界</a>
-        <div class="nav-sub">
-          <a class="nav-link level-2" href="pages/overview-data-model.html">主体模型与取值规则</a>
-        </div>
-      </div>
-
-      <div class="nav-group">
-        <p class="nav-title">主体管理</p>
-        <a class="nav-link level-1" href="pages/company-list.html">企业管理</a>
-        <div class="nav-sub">
-          <a class="nav-link level-2" href="pages/store-list.html">商铺管理</a>
-          <a class="nav-link level-2" href="pages/merchant-list.html">商户管理</a>
-        </div>
+        <div class="nav-title">第一批导航</div>
+        <a class="nav-link" href="index.html">首页导航</a>
+        <a class="nav-link" href="pages/overview-scope.html">项目范围与边界说明</a>
+        <a class="nav-link" href="pages/overview-data-model.html">主体模型与取值规则说明</a>
+        <a class="nav-link" href="pages/company-list.html">企业管理列表</a>
+        <a class="nav-link" href="pages/company-detail.html">企业详情</a>
+        <a class="nav-link" href="pages/company-edit.html">企业新增/编辑</a>
+        <a class="nav-link" href="pages/store-list.html">商铺管理列表</a>
+        <a class="nav-link" href="pages/store-detail.html">商铺详情</a>
+        <a class="nav-link" href="pages/store-edit.html">商铺新增/编辑</a>
+        <a class="nav-link" href="pages/merchant-list.html">商户管理列表</a>
+        <a class="nav-link" href="pages/merchant-detail.html">商户详情</a>
+        <a class="nav-link" href="pages/merchant-detail-desc.html">商户详情-功能说明</a>
       </div>
     </aside>
-
     <main class="main">
       <header class="page-head">
-        <div class="page-head-left">
-          <div class="breadcrumb">首页 / 第一批页面总览</div>
+        <div>
           <h1 class="page-title">KPay CRM 原型首页（第一批）</h1>
-          <p class="page-subtitle">用于 PRD 评审、业务确认与低保真交互演示。</p>
+          <div class="breadcrumb">首页 / 第一批页面总览</div>
         </div>
       </header>
 
-      <section class="card">
+      <div class="card">
         <h3>使用说明</h3>
-        <p>本首页聚合第一批页面入口。页面遵循统一设计系统，重点体现 CID/SID/MID 信息分层、维护边界与 AFP 场景流程关系。</p>
-        <div class="notice">本批仅覆盖第一批页面；第二批与第三批页面将在后续批次新增。</div>
-      </section>
+        <p>此首页聚合第一批页面入口，供 PRD 评审与业务确认。页面均为静态原型，展示信息架构、状态分层、取值规则与跨页面跳转关系。</p>
+        <div class="notice">本批重点：企业/商铺/商户三大主体页面与核心商户详情分区，严格体现 CID/SID/MID 数据边界。</div>
+      </div>
 
       <div class="grid-2">
-        <section class="card">
+        <div class="card">
           <h3>全局说明</h3>
-          <p><a href="pages/overview-scope.html">项目范围与边界说明</a></p>
-          <p><a href="pages/overview-data-model.html">主体模型与取值规则说明</a></p>
-        </section>
-
-        <section class="card">
+          <p>覆盖项目范围、系统边界、AFP 流程变化，以及主体模型和关键取值规则。</p>
+          <p>
+            <a href="pages/overview-scope.html">项目范围与边界说明</a><br />
+            <a href="pages/overview-data-model.html">主体模型与取值规则说明</a>
+          </p>
+        </div>
+        <div class="card">
           <h3>企业管理</h3>
-          <p><a href="pages/company-list.html">企业管理列表页</a></p>
-          <p><a href="pages/company-detail.html">企业详情页</a></p>
-          <p><a href="pages/company-edit.html">企业新增/编辑页</a></p>
-        </section>
-
-        <section class="card">
+          <p>企业主数据独立维护，承载 CID 主体信息，并与商铺、商户形成关联。</p>
+          <p>
+            <a href="pages/company-list.html">企业管理列表</a><br />
+            <a href="pages/company-detail.html">企业详情</a><br />
+            <a href="pages/company-edit.html">企业新增/编辑</a>
+          </p>
+        </div>
+        <div class="card">
           <h3>商铺管理</h3>
-          <p><a href="pages/store-list.html">商铺管理列表页</a></p>
-          <p><a href="pages/store-detail.html">商铺详情页</a></p>
-          <p><a href="pages/store-edit.html">商铺新增/编辑页</a></p>
-        </section>
-
-        <section class="card">
+          <p>商铺主数据独立维护，承载 SID 主体，支持与企业和商户的映射展示。</p>
+          <p>
+            <a href="pages/store-list.html">商铺管理列表</a><br />
+            <a href="pages/store-detail.html">商铺详情</a><br />
+            <a href="pages/store-edit.html">商铺新增/编辑</a>
+          </p>
+        </div>
+        <div class="card">
           <h3>商户管理</h3>
-          <p><a href="pages/merchant-list.html">商户管理列表页</a></p>
-          <p><a href="pages/merchant-detail.html">商户详情页</a></p>
-          <p><a href="pages/merchant-detail-desc.html">商户详情-功能说明页</a></p>
-        </section>
+          <p>商户为业务开通主体（MID），详情页重点展示多来源数据与维护边界。</p>
+          <p>
+            <a href="pages/merchant-list.html">商户管理列表</a><br />
+            <a href="pages/merchant-detail.html">商户详情</a><br />
+            <a href="pages/merchant-detail-desc.html">商户详情-功能说明</a>
+          </p>
+        </div>
       </div>
     </main>
   </div>
-
   <script src="app.js"></script>
 </body>
 </html>

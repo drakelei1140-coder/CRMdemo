@@ -1,23 +1,11 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>主体模型与取值规则说明</title><link rel="stylesheet" href="../styles.css" /></head>
-<body>
-<div class="layout">
-  <aside class="sidebar">
-    <div class="brand"><span class="brand-badge">K</span>KPay CRM</div>
-    <div class="nav-group"><p class="nav-title">全局说明</p><a class="nav-link level-1" href="overview-scope.html">项目范围与边界</a><div class="nav-sub"><a class="nav-link level-2" href="overview-data-model.html">主体模型与取值规则</a></div></div>
-    <div class="nav-group"><p class="nav-title">主体管理</p><a class="nav-link level-1" href="company-list.html">企业管理</a><div class="nav-sub"><a class="nav-link level-2" href="store-list.html">商铺管理</a><a class="nav-link level-2" href="merchant-list.html">商户管理</a></div></div>
-    <div class="nav-group"><a class="nav-link level-1" href="../index.html">返回首页</a></div>
-  </aside>
-  <main class="main">
-    <header class="page-head"><div class="page-head-left"><div class="breadcrumb">全局说明 / 主体模型与取值规则</div><h1 class="page-title">主体模型与取值规则说明</h1><p class="page-subtitle">统一说明 CID、SID、MID、Person 关系及商户详情取值来源。</p></div></header>
-    <section class="card"><h3>主体模型</h3><div class="grid-3"><section class="card"><h3>CID 企业</h3><p>企业为独立主数据主体，管理证照、法人、企业联系人等核心信息。</p></section><section class="card"><h3>SID 商铺</h3><p>商铺为独立主数据主体，管理门店经营信息、地址、门店联系人等。</p></section><section class="card"><h3>MID 商户</h3><p>商户为业务开通主体，承接 AFP 审核回传及状态映射。</p></section></div><div class="notice">Person 不独立成页，嵌入企业/商铺/商户等页面进行展示与维护。</div></section>
-    <div class="grid-2">
-      <section class="card"><h3>商户详情区域取值规则</h3><dl class="kv"><dt>企业信息区域</dt><dd>来自企业主数据（CID），本页只读。</dd></dl><dl class="kv"><dt>商铺信息区域</dt><dd>来自商铺主数据（SID），本页只读。</dd></dl><dl class="kv"><dt>商户申请区域</dt><dd>来自 DMO 页面采集后同步到 OBS 的申请数据。</dd></dl><dl class="kv"><dt>AFP 信息区域</dt><dd>来自 AFP 回传及状态同步，只展示不可编辑。</dd></dl></section>
-      <section class="card"><h3>维护边界</h3><dl class="kv"><dt>修改企业信息</dt><dd>跳转企业详情/编辑页。</dd></dl><dl class="kv"><dt>修改商铺信息</dt><dd>跳转商铺详情/编辑页。</dd></dl><dl class="kv"><dt>修改商户资料</dt><dd>走商户资料修改待审核流程。</dd></dl><dl class="kv"><dt>AFP 数据</dt><dd>前端不可编辑，仅展示记录和状态联动。</dd></dl></section>
-    </div>
-  </main>
-</div>
-<script src="../app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>主体模型与取值规则说明</title><link rel="stylesheet" href="../styles.css"></head><body>
+<div class="layout"><aside class="sidebar"><div class="brand"><span class="brand-badge">K</span>KPay CRM</div><div class="nav-group"><div class="nav-title">第一批导航</div>
+<a class="nav-link" href="../index.html">首页导航</a><a class="nav-link" href="overview-scope.html">项目范围与边界说明</a><a class="nav-link" href="overview-data-model.html">主体模型与取值规则说明</a>
+<a class="nav-link" href="company-list.html">企业管理列表</a><a class="nav-link" href="company-detail.html">企业详情</a><a class="nav-link" href="company-edit.html">企业新增/编辑</a>
+<a class="nav-link" href="store-list.html">商铺管理列表</a><a class="nav-link" href="store-detail.html">商铺详情</a><a class="nav-link" href="store-edit.html">商铺新增/编辑</a>
+<a class="nav-link" href="merchant-list.html">商户管理列表</a><a class="nav-link" href="merchant-detail.html">商户详情</a><a class="nav-link" href="merchant-detail-desc.html">商户详情-功能说明</a></div></aside>
+<main class="main"><header class="page-head"><div><h1 class="page-title">主体模型与取值规则说明</h1><div class="breadcrumb">全局说明 / 主体模型与取值规则说明</div></div></header>
+<div class="card"><h3>主体模型</h3><div class="grid-3"><div class="card"><h3>CID 企业</h3><p>企业是独立主数据主体，维护企业基础信息、证照、联系人。</p></div><div class="card"><h3>SID 商铺</h3><p>商铺是独立主数据主体，维护门店经营信息与受益人信息。</p></div><div class="card"><h3>MID 商户</h3><p>商户是业务开通主体，承接进件状态与 AFP 联动状态。</p></div></div><div class="notice">Person 不单独建页面，在企业/商铺/商户中作为人员字段和维护区域存在。</div></div>
+<div class="grid-2"><section class="card"><h3>商户详情取值规则</h3><dl class="kv"><dt>企业信息区域</dt><dd>取值自企业主数据，仅跳转企业页维护。</dd></dl><dl class="kv"><dt>商铺信息区域</dt><dd>取值自商铺主数据，仅跳转商铺页维护。</dd></dl><dl class="kv"><dt>商户申请信息区域</dt><dd>取值自 DMO 提交并同步到 OBS 的申请数据。</dd></dl><dl class="kv"><dt>AFP 信息区域</dt><dd>取值自 AFP 回传及状态同步数据，只读展示，不允许前端编辑。</dd></dl></section>
+<section class="card"><h3>维护边界规则</h3><dl class="kv"><dt>改企业信息</dt><dd>去企业详情/编辑页处理。</dd></dl><dl class="kv"><dt>改商铺信息</dt><dd>去商铺详情/编辑页处理。</dd></dl><dl class="kv"><dt>改商户资料</dt><dd>走商户资料修改流程（待审核链路）。</dd></dl><dl class="kv"><dt>AFP 数据</dt><dd>仅展示、记录、联动状态，不提供编辑入口。</dd></dl></section></div>
+</main></div><script src="../app.js"></script></body></html>

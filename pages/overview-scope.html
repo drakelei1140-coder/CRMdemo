@@ -1,24 +1,14 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>项目范围与边界说明</title><link rel="stylesheet" href="../styles.css" /></head>
-<body>
-<div class="layout">
-  <aside class="sidebar">
-    <div class="brand"><span class="brand-badge">K</span>KPay CRM</div>
-    <div class="nav-group"><p class="nav-title">全局说明</p><a class="nav-link level-1" href="overview-scope.html">项目范围与边界</a><div class="nav-sub"><a class="nav-link level-2" href="overview-data-model.html">主体模型与取值规则</a></div></div>
-    <div class="nav-group"><p class="nav-title">主体管理</p><a class="nav-link level-1" href="company-list.html">企业管理</a><div class="nav-sub"><a class="nav-link level-2" href="store-list.html">商铺管理</a><a class="nav-link level-2" href="merchant-list.html">商户管理</a></div></div>
-    <div class="nav-group"><a class="nav-link level-1" href="../index.html">返回首页</a></div>
-  </aside>
-  <main class="main">
-    <header class="page-head"><div class="page-head-left"><div class="breadcrumb">全局说明 / 项目范围与边界</div><h1 class="page-title">项目范围与边界说明</h1><p class="page-subtitle">统一 AFP 改造边界，避免评审阶段对系统职责产生歧义。</p></div></header>
-    <div class="grid-2">
-      <section class="card"><h3>页面定位</h3><p>用于明确本次 OBS 原型改造范围、跨系统边界及不纳入实现的模块。</p></section>
-      <section class="card"><h3>改造范围</h3><dl class="kv"><dt>项目目标</dt><dd>在现有 CRM / OBS 基础上适量改造，不做全重构。</dd></dl><dl class="kv"><dt>主体覆盖</dt><dd>CID 企业、SID 商铺、MID 商户、Person 人员。</dd></dl><dl class="kv"><dt>评审用途</dt><dd>PRD 评审、流程确认、信息架构展示。</dd></dl></section>
-      <section class="card"><h3>系统边界</h3><dl class="kv"><dt>DMO 页面</dt><dd>由 DMO 组开发并采集商户申请资料，OBS 仅接收同步数据。</dd></dl><dl class="kv"><dt>boss 页面</dt><dd>boss 提供配置能力，OBS 只读使用，不实现 boss 页面。</dd></dl><dl class="kv"><dt>合同主流程</dt><dd>本批不实现合同主流程页面，仅后续保留映射配置能力。</dd></dl></section>
-      <section class="card"><h3>AFP 流程变化</h3><p>旧流程：基础审核 → 风控审核 → 渠道进件。</p><p>新流程：基础审核 → 直接 AFP 进件（跳过内部风控）→ AFP 承担 KYC → 状态映射 MID。</p><span class="badge info">流程变化将反映在商户详情状态区和时间轴</span></section>
-    </div>
-  </main>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>项目范围与边界说明</title><link rel="stylesheet" href="../styles.css"></head><body>
+<div class="layout"><aside class="sidebar"><div class="brand"><span class="brand-badge">K</span>KPay CRM</div><div class="nav-group"><div class="nav-title">第一批导航</div>
+<a class="nav-link" href="../index.html">首页导航</a><a class="nav-link" href="overview-scope.html">项目范围与边界说明</a><a class="nav-link" href="overview-data-model.html">主体模型与取值规则说明</a>
+<a class="nav-link" href="company-list.html">企业管理列表</a><a class="nav-link" href="company-detail.html">企业详情</a><a class="nav-link" href="company-edit.html">企业新增/编辑</a>
+<a class="nav-link" href="store-list.html">商铺管理列表</a><a class="nav-link" href="store-detail.html">商铺详情</a><a class="nav-link" href="store-edit.html">商铺新增/编辑</a>
+<a class="nav-link" href="merchant-list.html">商户管理列表</a><a class="nav-link" href="merchant-detail.html">商户详情</a><a class="nav-link" href="merchant-detail-desc.html">商户详情-功能说明</a></div></aside>
+<main class="main"><header class="page-head"><div><h1 class="page-title">项目范围与边界说明</h1><div class="breadcrumb">全局说明 / 项目范围与边界说明</div></div></header>
+<div class="grid-2">
+<section class="card"><h3>页面定位</h3><p>用于统一 AFP 项目的改造范围认知，明确哪些能力在 OBS 前端原型内、哪些不在本次实现边界中。</p></section>
+<section class="card"><h3>核心范围</h3><dl class="kv"><dt>改造目标</dt><dd>在现有 CRM / OBS 上做适量改造，不做全量重构。</dd></dl><dl class="kv"><dt>主体覆盖</dt><dd>CID 企业、SID 商铺、MID 商户、Person 人员（嵌入各主体页面）。</dd></dl><dl class="kv"><dt>输出目标</dt><dd>PRD 评审、业务确认、低保真原型展示。</dd></dl></section>
+<section class="card"><h3>不在本批实现范围</h3><dl class="kv"><dt>DMO 页面</dt><dd>商户申请资料由 DMO 侧采集并通过接口同步 OBS。</dd></dl><dl class="kv"><dt>boss 系统页面</dt><dd>仅保留对接说明，不实现 boss 页面原型。</dd></dl><dl class="kv"><dt>合同主流程</dt><dd>不做完整合同流程页面；仅后续实现合同字段映射配置页。</dd></dl></section>
+<section class="card"><h3>AFP 流程变化说明</h3><p>旧流程：基础资料审核 → 风控审核 → 渠道进件。</p><p>AFP 新流程：基础资料审核 → 直连 AFP 进件（跳过内部风控）→ AFP 承担 KYC → AFP 状态反向影响 MID 状态。</p><span class="badge info">流程调整重点已纳入商户详情状态区和时间轴设计</span></section>
 </div>
-<script src="../app.js"></script>
-</body>
-</html>
+</main></div><script src="../app.js"></script></body></html>

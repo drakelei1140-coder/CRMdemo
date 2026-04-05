@@ -1,21 +1,10 @@
-<!doctype html>
-<html lang="zh-CN">
-<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>商户详情-功能说明</title><link rel="stylesheet" href="../styles.css" /></head>
-<body>
-<div class="layout">
-  <aside class="sidebar"><div class="brand"><span class="brand-badge">K</span>KPay CRM</div><div class="nav-group"><p class="nav-title">商户管理说明</p><a class="nav-link level-1" href="merchant-list.html">商户列表</a><div class="nav-sub"><a class="nav-link level-2" href="merchant-detail.html">商户详情</a><a class="nav-link level-2" href="merchant-detail-desc.html">商户详情-功能说明</a></div></div><div class="nav-group"><a class="nav-link level-1" href="../index.html">返回首页</a></div></aside>
-  <main class="main">
-    <header class="page-head"><div class="page-head-left"><div class="breadcrumb">商户管理 / 功能说明 / 商户详情</div><h1 class="page-title">商户详情 - 功能说明</h1><p class="page-subtitle">说明型页面：解释页面定位、取值规则、维护边界与 AFP 状态逻辑。</p></div></header>
-    <div class="grid-2">
-      <section class="card"><h3>页面定位</h3><p>商户详情页用于聚合 MID 多来源数据，支持审核员进行状态判断与链路追踪，不承担企业/商铺主数据编辑。</p></section>
-      <section class="card"><h3>核心模块</h3><ul><li>顶部状态区（MID 状态 + AFP 状态 + 最近同步）</li><li>企业信息区域（CID 主数据只读）</li><li>商铺信息区域（SID 主数据只读）</li><li>商户申请信息区域（DMO 同步）</li><li>AFP 信息区域（回传只读）</li><li>补件审核、时间轴、日志快照区域</li></ul></section>
-      <section class="card"><h3>区域取值规则</h3><dl class="kv"><dt>企业信息</dt><dd>来自企业主数据（CID），不在本页编辑。</dd></dl><dl class="kv"><dt>商铺信息</dt><dd>来自商铺主数据（SID），不在本页编辑。</dd></dl><dl class="kv"><dt>商户申请信息</dt><dd>来自 DMO 采集并同步 OBS 的申请数据。</dd></dl><dl class="kv"><dt>AFP 信息</dt><dd>来自 AFP 接口回传与状态同步。</dd></dl></section>
-      <section class="card"><h3>维护边界</h3><dl class="kv"><dt>修改企业信息</dt><dd>跳转企业详情/编辑页。</dd></dl><dl class="kv"><dt>修改商铺信息</dt><dd>跳转商铺详情/编辑页。</dd></dl><dl class="kv"><dt>修改商户资料</dt><dd>进入商户资料修改待审核流程。</dd></dl><dl class="kv"><dt>AFP 数据</dt><dd>禁止前端直接编辑，仅展示与记录。</dd></dl></section>
-      <section class="card"><h3>AFP 审核逻辑</h3><p>AFP 场景中 OBS 完成基础审核后直接进 AFP，跳过 OBS 内部风控。AFP 承担 KYC 审核并回传状态，状态变化映射 MID 状态。</p></section>
-      <section class="card"><h3>接口与开发要求</h3><ul><li>状态同步：AFP 回调 + 定时拉取兜底。</li><li>快照能力：进件请求/响应报文留痕可追溯。</li><li>日志能力：操作日志与状态日志按 MID 聚合。</li><li>非页面项：DMO 采集页、boss 配置页不在本页面实现。</li></ul></section>
-    </div>
-  </main>
-</div>
-<script src="../app.js"></script>
-</body>
-</html>
+<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>商户详情-功能说明</title><link rel="stylesheet" href="../styles.css"></head><body>
+<div class="layout"><aside class="sidebar"><div class="brand"><span class="brand-badge">K</span>KPay CRM</div><div class="nav-group"><div class="nav-title">第一批导航</div><a class="nav-link" href="../index.html">首页导航</a><a class="nav-link" href="merchant-detail.html">商户详情</a><a class="nav-link" href="merchant-detail-desc.html">商户详情-功能说明</a></div></aside>
+<main class="main"><header class="page-head"><div><h1 class="page-title">商户详情 - 功能说明</h1><div class="breadcrumb">商户管理 / 功能说明 / 商户详情</div></div></header>
+<div class="grid-2"><section class="card"><h3>页面定位</h3><p>商户详情页用于汇总 MID 多来源数据，支持审核员在单页完成状态判断与链路追踪，但不承担企业/商铺主数据编辑。</p></section>
+<section class="card"><h3>核心模块</h3><ul><li>顶部状态区（MID 状态 + AFP 状态 + 最近同步）</li><li>企业信息区域（CID 主数据只读）</li><li>商铺信息区域（SID 主数据只读）</li><li>商户申请信息区域（DMO 同步）</li><li>AFP 信息区域（AFP 回传只读）</li><li>补件与审核区域、状态时间轴、日志快照区域</li></ul></section>
+<section class="card"><h3>区域取值规则</h3><dl class="kv"><dt>企业信息</dt><dd>来自企业主数据（CID），不在本页编辑。</dd></dl><dl class="kv"><dt>商铺信息</dt><dd>来自商铺主数据（SID），不在本页编辑。</dd></dl><dl class="kv"><dt>商户申请信息</dt><dd>来自 DMO 采集并同步到 OBS 的申请数据。</dd></dl><dl class="kv"><dt>AFP 信息</dt><dd>来自 AFP 接口回传与状态同步。</dd></dl></section>
+<section class="card"><h3>维护边界</h3><dl class="kv"><dt>改企业信息</dt><dd>跳转企业详情/编辑页。</dd></dl><dl class="kv"><dt>改商铺信息</dt><dd>跳转商铺详情/编辑页。</dd></dl><dl class="kv"><dt>改商户资料</dt><dd>进入商户资料修改流程（待审核链路）。</dd></dl><dl class="kv"><dt>改 AFP 数据</dt><dd>禁止前端直接编辑，只可展示与记录。</dd></dl></section>
+<section class="card"><h3>AFP 审核逻辑说明</h3><p>AFP 场景下，OBS 完成基础资料审核后直接进 AFP，跳过 OBS 内部风控审核。AFP 承担 KYC 审核并回传状态，状态变化映射到 MID 状态。</p></section>
+<section class="card"><h3>接口与开发要求</h3><ul><li>状态同步接口：AFP 状态回调 + 定时拉取兜底。</li><li>快照接口：进件请求/响应报文保存与查询。</li><li>日志接口：操作日志 + 状态日志统一按 MID 聚合。</li><li>非页面能力：DMO 采集页、boss 配置页不在本页实现。</li></ul></section></div>
+</main></div><script src="../app.js"></script></body></html>
