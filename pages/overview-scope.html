@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>项目范围与边界说明</title><link rel="stylesheet" href="../styles.css" /></head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-badge">K</span>KPay CRM</div>
+    <div class="nav-group"><p class="nav-title">全局说明</p><a class="nav-link level-1" href="overview-scope.html">项目范围与边界</a><div class="nav-sub"><a class="nav-link level-2" href="overview-data-model.html">主体模型与取值规则</a></div></div>
+    <div class="nav-group"><p class="nav-title">主体管理</p><a class="nav-link level-1" href="company-list.html">企业管理</a><div class="nav-sub"><a class="nav-link level-2" href="store-list.html">商铺管理</a><a class="nav-link level-2" href="merchant-list.html">商户管理</a></div></div>
+    <div class="nav-group"><a class="nav-link level-1" href="../index.html">返回首页</a></div>
+  </aside>
+  <main class="main">
+    <header class="page-head"><div class="page-head-left"><div class="breadcrumb">全局说明 / 项目范围与边界</div><h1 class="page-title">项目范围与边界说明</h1><p class="page-subtitle">统一 AFP 改造边界，避免评审阶段对系统职责产生歧义。</p></div></header>
+    <div class="grid-2">
+      <section class="card"><h3>页面定位</h3><p>用于明确本次 OBS 原型改造范围、跨系统边界及不纳入实现的模块。</p></section>
+      <section class="card"><h3>改造范围</h3><dl class="kv"><dt>项目目标</dt><dd>在现有 CRM / OBS 基础上适量改造，不做全重构。</dd></dl><dl class="kv"><dt>主体覆盖</dt><dd>CID 企业、SID 商铺、MID 商户、Person 人员。</dd></dl><dl class="kv"><dt>评审用途</dt><dd>PRD 评审、流程确认、信息架构展示。</dd></dl></section>
+      <section class="card"><h3>系统边界</h3><dl class="kv"><dt>DMO 页面</dt><dd>由 DMO 组开发并采集商户申请资料，OBS 仅接收同步数据。</dd></dl><dl class="kv"><dt>boss 页面</dt><dd>boss 提供配置能力，OBS 只读使用，不实现 boss 页面。</dd></dl><dl class="kv"><dt>合同主流程</dt><dd>本批不实现合同主流程页面，仅后续保留映射配置能力。</dd></dl></section>
+      <section class="card"><h3>AFP 流程变化</h3><p>旧流程：基础审核 → 风控审核 → 渠道进件。</p><p>新流程：基础审核 → 直接 AFP 进件（跳过内部风控）→ AFP 承担 KYC → 状态映射 MID。</p><span class="badge info">流程变化将反映在商户详情状态区和时间轴</span></section>
+    </div>
+  </main>
+</div>
+<script src="../app.js"></script>
+</body>
+</html>
