@@ -1,1 +1,102 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>商户详情</title><link rel="stylesheet" href="../styles.css"/></head><body><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">商户管理 / 商户详情</div><h1 class="page-title">商户详情 - MID-882193</h1><p class="page-subtitle">MID 主体详情页基准模板。</p></div><div class="page-actions"><a class="btn" href="aft-snapshot.html">查看快照</a><a class="btn primary" href="merchant-edit-review.html">编辑（需审核）</a></div></header><section class="card"><h3>顶部状态区</h3><div class="status-strip"><div class="metric"><div class="label">签约状态</div><div class="value"><span class="badge warning">待签约</span></div></div><div class="metric"><div class="label">AFP状态</div><div class="value"><span class="badge info">KYC审核中</span></div></div><div class="metric"><div class="label">MID</div><div class="value">MID-882193</div></div><div class="metric"><div class="label">通道</div><div class="value">Adyen_AFP</div></div></div></section><div class="grid-2"><section class="card"><h3>企业信息</h3><dl class="kv"><dt>企业名称</dt><dd>星河数字科技（香港）有限公司</dd></dl><dl class="kv"><dt>CID</dt><dd>CID-100238</dd></dl></section><section class="card"><h3>商铺信息</h3><dl class="kv"><dt>商铺名称</dt><dd>星河商城·观塘店</dd></dl><dl class="kv"><dt>SID</dt><dd>SID-330019</dd></dl></section></div><div class="grid-2"><section class="card"><h3>商户申请信息</h3><dl class="kv"><dt>申请单号</dt><dd>DMO-APPLY-20260329-1192</dd></dl><dl class="kv"><dt>结算账户</dt><dd>HSBC ****001</dd></dl></section><section class="card"><h3>AFP 信息</h3><dl class="kv"><dt>AFP返回码</dt><dd>AFP_PEND_1021</dd></dl><dl class="kv"><dt>最近同步</dt><dd>2026-04-04 11:00</dd></dl></section></div><section class="card"><h3>状态时间轴</h3><div class="timeline"><div class="timeline-item"><strong>2026-04-04 11:02</strong><span>AFP 状态更新为 KYC审核中</span></div><div class="timeline-item"><strong>2026-04-03 17:40</strong><span>完成基础审核并送 AFP</span></div></div></section><section class="card"><h3>修改记录时间轴</h3><div class="timeline"><div class="timeline-item"><strong>2026-04-05 16:31</strong><span>结算账户：HSBC ****001 → HSBC ****928（待审核）</span></div><div class="timeline-item"><strong>2026-03-28 09:12</strong><span>MCC：5311 → 5499（已通过）</span></div></div></section><section class="card"><h3>日志 / 快照</h3><table><thead><tr><th>时间</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td>2026-04-04 11:00</td><td>AFP 同步日志</td><td>状态更新为 KYC审核中</td></tr><tr><td>2026-04-03 17:42</td><td>进件快照</td><td>保存快照 #SNAP-7781</td></tr></tbody></table></section></main></div><script src="../app.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>商户详情</title>
+  <link rel="stylesheet" href="../styles.css"/>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar"></aside>
+  <main class="main">
+    <header class="page-head">
+      <div class="page-head-left">
+        <div class="breadcrumb">商户管理 / 商户详情</div>
+        <h1 class="page-title">商户详情 - MID-882193</h1>
+        <p class="page-subtitle">本平台MID主体详情页，包含关联第三方通道MID与进件联动入口。</p>
+      </div>
+      <div class="page-actions">
+        <a class="btn" href="aft-snapshot.html">查看快照</a>
+        <a class="btn primary" href="merchant-edit-review.html">编辑（需审核）</a>
+      </div>
+    </header>
+
+    <section class="card">
+      <h3>顶部状态区</h3>
+      <div class="status-strip">
+        <div class="metric"><div class="label">签约状态</div><div class="value"><span class="badge warning">待签约</span></div></div>
+        <div class="metric"><div class="label">本平台MID</div><div class="value">MID-882193</div></div>
+        <div class="metric"><div class="label">关联通道数</div><div class="value">2</div></div>
+        <div class="metric"><div class="label">最近同步</div><div class="value">2026-04-05 09:33</div></div>
+      </div>
+    </section>
+
+    <div class="grid-2">
+      <section class="card">
+        <h3>企业信息</h3>
+        <dl class="kv"><dt>企业名称</dt><dd>星河数字科技（香港）有限公司</dd></dl>
+        <dl class="kv"><dt>CID</dt><dd>CID-100238</dd></dl>
+      </section>
+      <section class="card">
+        <h3>商铺信息</h3>
+        <dl class="kv"><dt>商铺名称</dt><dd>星河商城·观塘店</dd></dl>
+        <dl class="kv"><dt>SID</dt><dd>SID-330019</dd></dl>
+      </section>
+    </div>
+
+    <section class="card">
+      <h3>商户申请信息</h3>
+      <div class="grid-2">
+        <dl class="kv"><dt>申请单号</dt><dd>DMO-APPLY-20260329-1192</dd></dl>
+        <dl class="kv"><dt>结算账户</dt><dd>HSBC ****001</dd></dl>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>关联第三方渠道MID</h3>
+      <table>
+        <thead><tr><th>通道名称</th><th>通道MID</th><th>当前状态</th><th>最新第三方返回原因</th><th>操作</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Adyen_AFP</td><td>AFP-MID-112890</td><td><span class="badge warning">待补件</span></td><td>UBO地址证明过期</td>
+            <td><a href="aft-task-detail.html?platformMid=MID-882193&channelMid=AFP-MID-112890">查看进件状态</a><span class="op-sep">|</span><button class="btn text" data-open-channel-profile>查看渠道专属信息</button></td>
+          </tr>
+          <tr>
+            <td>Adyen_payfac</td><td>PF-MID-773301</td><td><span class="badge info">审核中</span></td><td>KYC二阶段审核中</td>
+            <td><a href="aft-task-detail.html?platformMid=MID-882193&channelMid=PF-MID-773301">查看进件状态</a><span class="op-sep">|</span><button class="btn text" data-open-channel-profile>查看渠道专属信息</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="card">
+      <h3>状态时间轴</h3>
+      <div class="timeline">
+        <div class="timeline-item"><strong>2026-04-05 09:33</strong><span>Adyen_AFP 返回：待补件（UBO地址证明过期）</span></div>
+        <div class="timeline-item"><strong>2026-04-03 17:40</strong><span>完成基础审核并送第三方通道</span></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="modal-mask" id="channel-profile-modal">
+  <div class="modal">
+    <h3>渠道专属信息（AFP）</h3>
+    <table>
+      <thead><tr><th>对象</th><th>状态</th><th>说明</th></tr></thead>
+      <tbody>
+        <tr><td>MA</td><td><span class="badge success">已创建</span></td><td>MerchantAccount 已创建</td></tr>
+        <tr><td>BL</td><td><span class="badge success">已创建</span></td><td>BusinessLine 已创建</td></tr>
+        <tr><td>AH</td><td><span class="badge warning">待补件</span></td><td>需更新UBO地址证明</td></tr>
+        <tr><td>BA</td><td><span class="badge muted">待创建</span></td><td>BankAccount 未完成校验</td></tr>
+        <tr><td>LE</td><td><span class="badge success">已创建</span></td><td>LegalEntity 已创建</td></tr>
+      </tbody>
+    </table>
+    <div class="modal-actions"><button class="btn" data-close-modal>关闭</button></div>
+  </div>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>

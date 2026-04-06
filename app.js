@@ -131,8 +131,6 @@
   function renderSidebar() {
     var sidebar = document.querySelector('.sidebar'); if (!sidebar) return;
     sidebar.innerHTML = '';
-    var brand = document.createElement('div'); brand.className = 'brand'; brand.innerHTML = '<span class="brand-badge">K</span>KPay CRM';
-    sidebar.appendChild(brand);
     var expandedSet = getExpandedSet();
     var nav = document.createElement('ul'); nav.className = 'nav-tree';
     navTree.forEach(function (n) { nav.appendChild(renderNode(n, 1, expandedSet)); });
@@ -144,7 +142,7 @@
     var layout = document.querySelector('.layout'); if (!layout) return;
     var top = document.createElement('div');
     top.className = 'global-topbar';
-    top.innerHTML = '<div class="top-right"><div class="global-item"><span class="global-label">地区：</span><select><option>香港</option><option>新加坡</option><option>日本</option></select></div><div class="global-item"><span class="global-label">语言：</span><select><option>中文</option><option>English</option></select></div><div class="user-chip"><span class="avatar-dot">A</span><span class="user-name">admin@kpay</span></div><button class="icon-btn" title="设置">⚙</button></div>';
+    top.innerHTML = '<div class="top-left"><a class="brand top-brand" href="' + resolveHref('index.html') + '"><span class="brand-badge">K</span>KPay CRM</a></div><div class="top-right"><div class="global-item"><span class="global-label">地区：</span><select><option>香港</option><option>新加坡</option><option>日本</option></select></div><div class="global-item"><span class="global-label">语言：</span><select><option>中文</option><option>English</option></select></div><div class="user-chip"><span class="avatar-dot">A</span><span class="user-name">admin@kpay</span></div><button class="icon-btn" title="设置">⚙</button></div>';
     layout.parentNode.insertBefore(top, layout);
   }
 
@@ -231,6 +229,12 @@
     var midModal = document.getElementById('store-mid-modal');
     document.querySelectorAll('[data-open-store-mid]').forEach(function (btn) { btn.addEventListener('click', function () { if (midModal) midModal.style.display = 'flex'; }); });
     if (midModal) midModal.querySelectorAll('[data-close-modal]').forEach(function (b) { b.addEventListener('click', function () { midModal.style.display = 'none'; }); });
+
+    var profileModal = document.getElementById('channel-profile-modal');
+    document.querySelectorAll('[data-open-channel-profile]').forEach(function (btn) {
+      btn.addEventListener('click', function () { if (profileModal) profileModal.style.display = 'flex'; });
+    });
+    if (profileModal) profileModal.querySelectorAll('[data-close-modal]').forEach(function (b) { b.addEventListener('click', function () { profileModal.style.display = 'none'; }); });
   }
 
   injectTopbar();

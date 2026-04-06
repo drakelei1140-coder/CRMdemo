@@ -1,1 +1,57 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>商户进件详情</title><link rel="stylesheet" href="../styles.css"/></head><body><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">商户管理 / 商户进件 / 详情</div><h1 class="page-title">商户进件详情 - MID-882193</h1><p class="page-subtitle">先展示本平台 MID，再展示各通道 MID 与进件明细。</p></div><div class="page-actions"><a class="btn" href="aft-snapshot.html">查看快照</a></div></header><section class="card"><h3>本平台 MID 数据</h3><div class="grid-2"><dl class="kv"><dt>MID</dt><dd>MID-882193</dd></dl><dl class="kv"><dt>商户名称</dt><dd>星河商城收单主体</dd></dl><dl class="kv"><dt>CID / SID</dt><dd>CID-100238 / SID-330019</dd></dl><dl class="kv"><dt>当前商户状态</dt><dd><span class="badge warning">待签约</span></dd></dl></div></section><section class="card"><h3>通道进件数据</h3><table><thead><tr><th>通道</th><th>第三方MID</th><th>当前状态</th><th>更新时间</th><th>需补件</th><th>通道对象信息</th></tr></thead><tbody><tr><td>Adyen_AFP</td><td>AFP-MID-112890</td><td><span class="badge warning">待补件</span></td><td>2026-04-05 09:33</td><td>是</td><td>LE/AH/BL 已创建，BA 待创建</td></tr><tr><td>Adyen_payfac</td><td>PF-MID-773301</td><td><span class="badge info">审核中</span></td><td>2026-04-05 09:18</td><td>否</td><td>KYC 阶段2</td></tr></tbody></table></section><section class="card"><h3>失败 / 补件原因</h3><table><thead><tr><th>通道</th><th>对象</th><th>原因</th><th>建议</th></tr></thead><tbody><tr><td>Adyen_AFP</td><td>AH</td><td>UBO 地址证明过期</td><td>补交90天内地址证明</td></tr></tbody></table></section></main></div><script src="../app.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>商户进件详情</title>
+  <link rel="stylesheet" href="../styles.css"/>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar"></aside>
+  <main class="main">
+    <header class="page-head">
+      <div class="page-head-left">
+        <div class="breadcrumb">商户管理 / 商户进件 / 详情</div>
+        <h1 class="page-title">商户进件详情 - MID-882193</h1>
+        <p class="page-subtitle">展示本平台MID与其对应单个通道MID在进件流程中的状态变更。</p>
+      </div>
+      <div class="page-actions"><a class="btn" href="aft-snapshot.html">查看快照</a></div>
+    </header>
+
+    <section class="card">
+      <h3>本平台 MID 数据</h3>
+      <div class="grid-2">
+        <dl class="kv"><dt>本平台MID</dt><dd>MID-882193</dd></dl>
+        <dl class="kv"><dt>商户名称</dt><dd>星河商城收单主体</dd></dl>
+        <dl class="kv"><dt>CID / SID</dt><dd>CID-100238 / SID-330019</dd></dl>
+        <dl class="kv"><dt>当前商户状态</dt><dd><span class="badge warning">待签约</span></dd></dl>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>关联通道信息</h3>
+      <div class="grid-2">
+        <dl class="kv"><dt>通道名称</dt><dd>Adyen_AFP</dd></dl>
+        <dl class="kv"><dt>通道MID</dt><dd>AFP-MID-112890</dd></dl>
+        <dl class="kv"><dt>当前状态</dt><dd><span class="badge warning">待补件</span></dd></dl>
+        <dl class="kv"><dt>最新第三方返回原因</dt><dd>UBO地址证明过期</dd></dl>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>通道MID进件状态变更</h3>
+      <table>
+        <thead><tr><th>时间</th><th>状态</th><th>原因（第三方返回）</th></tr></thead>
+        <tbody>
+          <tr><td>2026-04-05 09:33</td><td><span class="badge warning">待补件</span></td><td>UBO地址证明过期</td></tr>
+          <tr><td>2026-04-05 08:56</td><td><span class="badge info">审核中</span></td><td>系统进入KYC校验</td></tr>
+          <tr><td>2026-04-05 08:12</td><td><span class="badge muted">已提交</span></td><td>-</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
+<script src="../app.js"></script>
+</body>
+</html>
