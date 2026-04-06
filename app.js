@@ -8,7 +8,7 @@
     { id: 'merchant', label: '商户管理', icon: '🧩', children: [
       { id: 'company', label: '企业管理', href: 'pages/company-list.html' },
       { id: 'store', label: '商铺管理', href: 'pages/store-list.html' },
-      { id: 'merchant-main', label: '商户管理', href: 'pages/merchant-list.html' },
+      { id: 'merchant-main', label: '商户审核', href: 'pages/merchant-list.html' },
       { id: 'merchant-signed', label: '已签约商户', href: 'pages/merchant-signed-list.html' },
       { id: 'merchant-cancel', label: '取消签约商户', href: 'pages/merchant-cancel-list.html' },
       { id: 'merchant-reject', label: '拒绝签约商户', href: 'pages/merchant-reject-list.html' },
@@ -35,7 +35,7 @@
   var crumbMap = {
     '企业管理': 'pages/company-list.html',
     '商铺管理': 'pages/store-list.html',
-    '商户管理': 'pages/merchant-list.html',
+    '商户审核': 'pages/merchant-list.html',
     '已签约商户': 'pages/merchant-signed-list.html',
     '取消签约商户': 'pages/merchant-cancel-list.html',
     '拒绝签约商户': 'pages/merchant-reject-list.html',
@@ -144,7 +144,7 @@
     var layout = document.querySelector('.layout'); if (!layout) return;
     var top = document.createElement('div');
     top.className = 'global-topbar';
-    top.innerHTML = '<div class="top-left"><span class="brand-mini">KPay CRM</span><select><option>地区：香港</option><option>新加坡</option><option>日本</option></select></div><div class="top-right"><select><option>中文</option><option>English</option></select><button class="user-chip">👤 admin@kpay</button></div>';
+    top.innerHTML = '<div class="top-right"><div class="global-item"><span class="global-label">地区：</span><select><option>香港</option><option>新加坡</option><option>日本</option></select></div><div class="global-item"><span class="global-label">语言：</span><select><option>中文</option><option>English</option></select></div><div class="user-chip"><span class="avatar-dot">A</span><span class="user-name">admin@kpay</span></div><button class="icon-btn" title="设置">⚙</button></div>';
     layout.parentNode.insertBefore(top, layout);
   }
 

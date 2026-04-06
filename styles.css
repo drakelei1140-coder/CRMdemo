@@ -667,3 +667,18 @@ tbody tr:hover td { background: #fcfdff; }
   .global-topbar { height: auto; padding: 8px 12px; flex-wrap: wrap; gap: 8px; }
   .layout { min-height: calc(100vh - 72px); }
 }
+
+
+/* ---- topbar refinement ---- */
+.global-topbar{justify-content:flex-end;}
+.global-topbar .top-right{width:100%;justify-content:flex-end;gap:14px;flex-wrap:nowrap;}
+.global-item{display:inline-flex;align-items:center;gap:6px;}
+.global-label{color:#64748b;font-size:13px;}
+.global-topbar select{height:32px;min-width:92px;}
+.user-chip{display:inline-flex;align-items:center;gap:8px;white-space:nowrap;border-radius:999px;padding:0 10px;height:32px;}
+.avatar-dot{width:24px;height:24px;border-radius:999px;background:#dbeafe;color:#1e3a8a;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;}
+.user-name{font-size:13px;color:#0f172a;}
+.icon-btn{width:32px;height:32px;border-radius:999px;border:1px solid #cbd5e1;background:#fff;cursor:pointer;}
+.icon-btn:hover{background:#f8fafc;}
+
+@media (max-width:760px){.global-topbar .top-right{justify-content:flex-start;flex-wrap:wrap;}}
