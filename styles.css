@@ -510,3 +510,66 @@ tbody tr:hover td { background: #fcfdff; }
 .alert.info{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af;}
 .approval-bar{display:flex;gap:8px;flex-wrap:wrap;}
 @media (max-width:1200px){.diff-grid{grid-template-columns:1fr;}}
+
+/* ---- Productized convergence overrides ---- */
+.sidebar { width: 260px; }
+.nav-tree,
+.tree-sub { list-style: none; margin: 0; padding: 0; }
+.nav-tree { display: grid; gap: 4px; }
+.tree-item { display: block; }
+.nav-toggle,
+.nav-link {
+  width: 100%;
+  min-height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  color: #d3deef;
+  text-decoration: none;
+  cursor: pointer;
+}
+.nav-toggle .chevron { margin-left: auto; font-size: 12px; opacity: 0.75; transform: rotate(-90deg); transition: transform .15s ease; }
+.tree-item.expanded > .nav-toggle .chevron { transform: rotate(0deg); }
+.nav-toggle.level-1 { font-weight: 700; }
+.nav-toggle.level-2,
+.nav-link.level-2 { padding-left: 24px; font-size: 13px; }
+.nav-toggle.level-3,
+.nav-link.level-3 { padding-left: 38px; font-size: 13px; color: #b7c7e2; }
+.tree-sub { display: none; margin-top: 2px; }
+.tree-item.expanded > .tree-sub { display: block; }
+.nav-toggle:hover,
+.nav-link:hover { background: #15233a; color: #fff; text-decoration: none; }
+.nav-link.active { background: rgba(245, 158, 11, 0.2); color: #fff2ce; box-shadow: inset 0 0 0 1px rgba(245, 158, 11, 0.35); }
+
+.main { max-width: 1460px; }
+
+.toolbar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px 12px;
+  align-items: end;
+}
+.toolbar .input,
+.toolbar select { width: 100%; }
+.toolbar .btn { justify-self: end; }
+.toolbar .btn + .btn { margin-left: 0; }
+
+.table-wrap + .pagination { margin-top: 14px; }
+
+.page-actions .btn:not(.primary):not(.danger) {
+  background: #fff;
+  border-color: #cbd5e1;
+  color: #334155;
+}
+
+@media (max-width: 1280px) {
+  .toolbar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .toolbar { grid-template-columns: 1fr; }
+  .toolbar .btn { justify-self: start; }
+}
