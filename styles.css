@@ -629,3 +629,41 @@ tbody tr:hover td { background: #fcfdff; }
   .toolbar { padding-bottom: 14px; }
   .toolbar-actions { position: static; margin-top: 8px; }
 }
+
+/* ---- convergence round 3 ---- */
+.global-topbar {
+  height: 52px;
+  border-bottom: 1px solid #e2e8f0;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+.global-topbar .top-left,
+.global-topbar .top-right { display: inline-flex; align-items: center; gap: 10px; }
+.brand-mini { font-weight: 700; color: #0f172a; margin-right: 8px; }
+.user-chip { border: 1px solid #cbd5e1; background: #fff; border-radius: 999px; height: 32px; padding: 0 12px; }
+
+.layout { min-height: calc(100vh - 52px); }
+
+.breadcrumb a { color: #475569; text-decoration: none; }
+.breadcrumb a:hover { color: #0f172a; text-decoration: underline; }
+.breadcrumb span { color: #64748b; }
+
+.back-btn { margin-bottom: 8px; }
+
+.nav-toggle,
+.nav-link,
+.nav-toggle.level-2,
+.nav-link.level-2,
+.nav-toggle.level-3,
+.nav-link.level-3 { font-size: 14px; }
+
+@media (max-width: 760px) {
+  .global-topbar { height: auto; padding: 8px 12px; flex-wrap: wrap; gap: 8px; }
+  .layout { min-height: calc(100vh - 72px); }
+}
