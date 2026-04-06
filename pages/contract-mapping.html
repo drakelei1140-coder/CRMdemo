@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>合同字段映射配置页</title><link rel="stylesheet" href="../styles.css" /></head>
+<body>
+<div class="layout">
+  <aside class="sidebar"><div class="brand"><span class="brand-badge">K</span>KPay CRM</div><div class="nav-group"><p class="nav-title">配置管理</p><a class="nav-link level-1" href="company-list-desc.html">企业说明</a><a class="nav-link level-1" href="store-list-desc.html">商铺说明</a><a class="nav-link level-1" href="merchant-list-desc.html">商户说明</a><a class="nav-link level-1" href="aft-intro-desc.html">AFP说明</a><a class="nav-link level-1" href="contract-mapping.html">合同映射</a><a class="nav-link level-1" href="channel-list.html">通道列表</a></div><div class="nav-group"><a class="nav-link level-1" href="../index.html">返回首页</a></div></aside>
+  <main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">配置管理 / 合同字段映射配置</div><h1 class="page-title">合同字段映射配置页</h1><p class="page-subtitle">OBS 侧合同业务字段映射配置页面。</p></div></header><section class="toolbar"><select><option>模板：标准收单合同</option><option>跨境收单合同</option></select><select><option>地区：HK</option><option>SG</option><option>JP</option><option>AU</option></select><select><option>场景：线下门店</option><option>线上电商</option></select><button class="btn">查询</button></section>
+<section class="card"><h3>合同字段映射表</h3><table><thead><tr><th>合同字段</th><th>来源字段</th><th>对象</th><th>规则</th><th>状态</th></tr></thead><tbody><tr><td>签约主体名称</td><td>company_name</td><td>CID</td><td>trim</td><td><span class="badge success">生效中</span></td></tr><tr><td>商户编号</td><td>mid</td><td>MID</td><td>required</td><td><span class="badge success">生效中</span></td></tr><tr><td>结算账户</td><td>settlement_account</td><td>MID</td><td>mask_preview</td><td><span class="badge warning">草稿</span></td></tr></tbody></table></section>
+<div class="grid-2"><section class="card"><h3>映射预览区</h3><div class="code-block">合同模板字段：签约主体名称 => 星河数字科技（香港）有限公司
+合同模板字段：商户编号 => MID-882193
+合同模板字段：结算账户 => HSBC ****001</div></section><section class="card"><h3>版本管理区</h3><table><thead><tr><th>版本</th><th>发布时间</th><th>状态</th></tr></thead><tbody><tr><td>v1.2.0</td><td>2026-04-02 20:00</td><td><span class="badge success">生效中</span></td></tr><tr><td>v1.3.0-rc</td><td>2026-04-05 11:00</td><td><span class="badge info">待发布</span></td></tr></tbody></table></section></div></main>
+</div><script src="../app.js"></script></body></html>
