@@ -1,7 +1,6 @@
 (function () {
   var path = location.pathname.split('/').pop() || 'index.html';
   var inPages = location.pathname.indexOf('/pages/') > -1;
-  var base = inPages ? '../' : '';
 
   var navTree = [
     { label: '首页', href: 'index.html', icon: '🏠' },
@@ -9,41 +8,21 @@
       label: '商户管理',
       icon: '🧩',
       children: [
-        {
-          label: '企业管理',
-          children: [
-            { label: '企业列表', href: 'pages/company-list.html' },
-            { label: '企业详情', href: 'pages/company-detail.html' },
-            { label: '企业新增/编辑', href: 'pages/company-edit.html' }
-          ]
-        },
-        {
-          label: '商铺管理',
-          children: [
-            { label: '商铺列表', href: 'pages/store-list.html' },
-            { label: '商铺详情', href: 'pages/store-detail.html' },
-            { label: '商铺新增/编辑', href: 'pages/store-edit.html' }
-          ]
-        },
-        {
-          label: '商户管理',
-          children: [
-            { label: '商户列表', href: 'pages/merchant-list.html' },
-            { label: '商户详情', href: 'pages/merchant-detail.html' },
-            { label: '商户进件', href: 'pages/aft-task-list.html' }
-          ]
-        },
-        { label: '已签约商户', href: 'pages/merchant-signed-detail.html' },
-        { label: '取消签约商户', href: 'pages/merchant-cancel-detail.html' },
-        { label: '拒绝签约商户', href: 'pages/merchant-reject-detail.html' },
+        { label: '企业管理', href: 'pages/company-list.html' },
+        { label: '商铺管理', href: 'pages/store-list.html' },
+        { label: '商户管理', href: 'pages/merchant-list.html' },
+        { label: '已签约商户', href: 'pages/merchant-signed-list.html' },
+        { label: '取消签约商户', href: 'pages/merchant-cancel-list.html' },
+        { label: '拒绝签约商户', href: 'pages/merchant-reject-list.html' },
         {
           label: '修改待审核',
           children: [
-            { label: '企业资料修改待审核', href: 'pages/company-edit-review.html' },
-            { label: '商铺资料修改待审核', href: 'pages/store-edit-review.html' },
-            { label: '商户资料修改待审核', href: 'pages/merchant-edit-review.html' }
+            { label: '企业资料修改待审核', href: 'pages/company-edit-review-list.html' },
+            { label: '商铺资料修改待审核', href: 'pages/store-edit-review-list.html' },
+            { label: '商户资料修改待审核', href: 'pages/merchant-edit-review-list.html' }
           ]
         },
+        { label: '商户进件', href: 'pages/aft-task-list.html' },
         { label: '字段映射配置', href: 'pages/afp-mapping.html' }
       ]
     },
@@ -51,18 +30,17 @@
       label: '合约管理',
       icon: '📄',
       children: [
-        { label: '合同字段映射配置', href: 'pages/contract-mapping.html' }
+        { label: '字段映射配置', href: 'pages/contract-mapping.html' }
       ]
     },
     {
       label: '其他模块',
       icon: '⚙️',
       children: [
-        { label: 'O/S补件列表', href: 'pages/os-list.html' },
-        { label: '通道管理列表', href: 'pages/channel-list.html' },
+        { label: 'O/S补件', href: 'pages/os-list.html' },
+        { label: '通道管理', href: 'pages/channel-list.html' },
         { label: 'AFP通道详情', href: 'pages/channel-afp-detail.html' },
-        { label: '项目范围说明', href: 'pages/overview-scope.html' },
-        { label: '主体模型说明', href: 'pages/overview-data-model.html' }
+        { label: '项目范围说明', href: 'pages/overview-scope.html' }
       ]
     }
   ];
@@ -71,18 +49,24 @@
     'company-list.html': { text: '企业管理功能说明', href: 'pages/company-list-desc.html' },
     'company-detail.html': { text: '企业详情功能说明', href: 'pages/company-detail-desc.html' },
     'company-edit.html': { text: '企业新增编辑功能说明', href: 'pages/company-edit-desc.html' },
+    'company-edit-review-list.html': { text: '企业待审核功能说明', href: 'pages/company-edit-review-desc.html' },
     'company-edit-review.html': { text: '企业待审核功能说明', href: 'pages/company-edit-review-desc.html' },
 
     'store-list.html': { text: '商铺管理功能说明', href: 'pages/store-list-desc.html' },
     'store-detail.html': { text: '商铺详情功能说明', href: 'pages/store-detail-desc.html' },
     'store-edit.html': { text: '商铺新增编辑功能说明', href: 'pages/store-edit-desc.html' },
+    'store-edit-review-list.html': { text: '商铺待审核功能说明', href: 'pages/store-edit-review-desc.html' },
     'store-edit-review.html': { text: '商铺待审核功能说明', href: 'pages/store-edit-review-desc.html' },
 
     'merchant-list.html': { text: '商户管理功能说明', href: 'pages/merchant-list-desc.html' },
     'merchant-detail.html': { text: '商户详情功能说明', href: 'pages/merchant-detail-desc.html' },
+    'merchant-edit-review-list.html': { text: '商户待审核功能说明', href: 'pages/merchant-edit-review-desc.html' },
     'merchant-edit-review.html': { text: '商户待审核功能说明', href: 'pages/merchant-edit-review-desc.html' },
+    'merchant-signed-list.html': { text: '已签约功能说明', href: 'pages/merchant-signed-detail-desc.html' },
     'merchant-signed-detail.html': { text: '已签约功能说明', href: 'pages/merchant-signed-detail-desc.html' },
+    'merchant-cancel-list.html': { text: '取消签约功能说明', href: 'pages/merchant-cancel-detail-desc.html' },
     'merchant-cancel-detail.html': { text: '取消签约功能说明', href: 'pages/merchant-cancel-detail-desc.html' },
+    'merchant-reject-list.html': { text: '拒绝签约功能说明', href: 'pages/merchant-reject-detail-desc.html' },
     'merchant-reject-detail.html': { text: '拒绝签约功能说明', href: 'pages/merchant-reject-detail-desc.html' },
 
     'aft-task-list.html': { text: '进件列表功能说明', href: 'pages/aft-task-list-desc.html' },
@@ -113,33 +97,26 @@
     if (item.children && item.children.length) {
       var expanded = containsActive(item);
       li.classList.toggle('expanded', expanded);
-
       var btn = document.createElement('button');
       btn.className = 'nav-toggle level-' + level;
       btn.type = 'button';
       btn.innerHTML = '<span class="nav-icon">' + (item.icon || '•') + '</span><span class="nav-text">' + item.label + '</span><span class="chevron">▾</span>';
-      btn.addEventListener('click', function () {
-        li.classList.toggle('expanded');
-      });
+      btn.addEventListener('click', function () { li.classList.toggle('expanded'); });
       li.appendChild(btn);
 
       var ul = document.createElement('ul');
       ul.className = 'tree-sub';
-      item.children.forEach(function (child) {
-        ul.appendChild(renderNode(child, level + 1));
-      });
+      item.children.forEach(function (child) { ul.appendChild(renderNode(child, level + 1)); });
       li.appendChild(ul);
     } else {
       var a = document.createElement('a');
       var href = item.href || '#';
-      var target = inPages ? href.replace(/^pages\//, '') : href;
-      a.href = target;
+      a.href = inPages ? href.replace(/^pages\//, '') : href;
       a.className = 'nav-link level-' + level;
       a.innerHTML = '<span class="nav-text">' + item.label + '</span>';
       if (normalize(href) === path) a.classList.add('active');
       li.appendChild(a);
     }
-
     return li;
   }
 
@@ -147,7 +124,6 @@
     var sidebar = document.querySelector('.sidebar');
     if (!sidebar) return;
     sidebar.innerHTML = '';
-
     var brand = document.createElement('div');
     brand.className = 'brand';
     brand.innerHTML = '<span class="brand-badge">K</span>KPay CRM';
@@ -155,9 +131,7 @@
 
     var nav = document.createElement('ul');
     nav.className = 'nav-tree';
-    navTree.forEach(function (node) {
-      nav.appendChild(renderNode(node, 1));
-    });
+    navTree.forEach(function (node) { nav.appendChild(renderNode(node, 1)); });
     sidebar.appendChild(nav);
   }
 
@@ -172,7 +146,6 @@
       if (!head) return;
       head.appendChild(actions);
     }
-
     if (actions.querySelector('[data-desc-btn]')) return;
 
     var a = document.createElement('a');
@@ -183,38 +156,19 @@
     actions.insertBefore(a, actions.firstChild);
   }
 
-  function setupToggles() {
-    document.querySelectorAll('[data-toggle-target]').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var target = document.querySelector(btn.getAttribute('data-toggle-target'));
-        if (!target) return;
-        var isHidden = target.style.display === 'none';
-        target.style.display = isHidden ? '' : 'none';
-        btn.textContent = isHidden ? '折叠筛选' : '展开筛选';
-      });
-    });
-  }
-
   function setupTabs() {
     document.querySelectorAll('[data-tab-target]').forEach(function (tab) {
       tab.addEventListener('click', function () {
         var group = tab.getAttribute('data-tab-group');
         var target = tab.getAttribute('data-tab-target');
-
-        document.querySelectorAll('[data-tab-group="' + group + '"]').forEach(function (item) {
-          item.classList.remove('active');
-        });
+        document.querySelectorAll('[data-tab-group="' + group + '"]').forEach(function (item) { item.classList.remove('active'); });
         tab.classList.add('active');
-
-        document.querySelectorAll('[data-tab-panel="' + group + '"]').forEach(function (panel) {
-          panel.style.display = panel.id === target ? '' : 'none';
-        });
+        document.querySelectorAll('[data-tab-panel="' + group + '"]').forEach(function (panel) { panel.style.display = panel.id === target ? '' : 'none'; });
       });
     });
   }
 
   renderSidebar();
   injectDescButton();
-  setupToggles();
   setupTabs();
 })();

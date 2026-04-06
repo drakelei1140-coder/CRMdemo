@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KPay CRM 原型导航</title>
+  <title>KPay CRM 后台 Demo</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <div class="layout">
-    <aside class="sidebar">
-      <div class="brand"><span class="brand-badge">K</span>KPay CRM</div>
-
-      <div class="nav-group"><p class="nav-title">导航首页</p><a class="nav-link level-1" href="index.html">原型总览</a></div>
-      <div class="nav-group"><p class="nav-title">第一批</p><a class="nav-link level-1" href="pages/overview-scope.html">主体管理</a></div>
-      <div class="nav-group"><p class="nav-title">第二批</p><a class="nav-link level-1" href="pages/aft-task-list.html">AFP 与补件流程</a></div>
-      <div class="nav-group"><p class="nav-title">第三批</p><a class="nav-link level-1" href="pages/company-list-desc.html">说明页与次级详情</a><div class="nav-sub"><a class="nav-link level-2" href="pages/contract-mapping.html">合同字段映射</a><a class="nav-link level-2" href="pages/channel-list.html">通道管理列表</a><a class="nav-link level-2" href="pages/merchant-signed-detail.html">签约结果详情</a></div></div>
-    </aside>
-
+    <aside class="sidebar"></aside>
     <main class="main">
-      <header class="page-head"><div class="page-head-left"><div class="breadcrumb">首页 / 原型导航</div><h1 class="page-title">KPay CRM 原型总览</h1><p class="page-subtitle">三批页面统一样式系统，覆盖主体管理、AFP 进件、补件、映射与说明类评审页面。</p></div></header>
+      <header class="page-head">
+        <div class="page-head-left">
+          <div class="breadcrumb">首页 / 仪表盘</div>
+          <h1 class="page-title">KPay CRM 后台 Demo</h1>
+          <p class="page-subtitle">统一导航、统一组件、统一信息架构的评审演示环境。</p>
+        </div>
+      </header>
+
       <div class="grid-2">
-        <section class="card"><h3>第一批</h3><p><a href="pages/company-list.html">企业管理</a> / <a href="pages/store-list.html">商铺管理</a> / <a href="pages/merchant-list.html">商户管理</a></p></section>
-        <section class="card"><h3>第二批</h3><p><a href="pages/aft-task-list.html">AFP进件</a> / <a href="pages/os-list.html">O/S补件</a> / <a href="pages/afp-mapping.html">AFP字段映射</a></p></section>
-        <section class="card"><h3>第三批 - 说明与待审核</h3><p><a href="pages/company-edit-review.html">企业资料待审核</a> / <a href="pages/store-edit-review.html">商铺资料待审核</a> / <a href="pages/merchant-edit-review.html">商户资料待审核</a></p><p><a href="pages/company-list-desc.html">企业说明页</a> / <a href="pages/aft-intro-desc.html">AFP能力说明</a> / <a href="pages/boss-integration-desc.html">系统协同说明</a></p></section>
-        <section class="card"><h3>第三批 - 配置与结果页</h3><p><a href="pages/contract-mapping.html">合同字段映射配置</a> / <a href="pages/channel-list.html">通道管理列表</a></p><p><a href="pages/merchant-signed-detail.html">已签约</a> / <a href="pages/merchant-cancel-detail.html">取消签约</a> / <a href="pages/merchant-reject-detail.html">拒绝签约</a></p></section>
+        <section class="card"><h3>对象管理入口</h3><p>通过左侧菜单进入企业管理、商铺管理、商户管理，默认均从列表页进入。</p></section>
+        <section class="card"><h3>状态视图入口</h3><p>已签约 / 取消签约 / 拒绝签约使用状态列表 + 详情模式，操作权限按状态收敛。</p></section>
+        <section class="card"><h3>审核与流程入口</h3><p>修改待审核、商户进件、O/S补件均以列表为主入口，详情中保留完整上下文与时间轴。</p></section>
+        <section class="card"><h3>配置与说明入口</h3><p>字段映射、合同映射、通道管理在菜单中保留；功能说明从页面右上角按钮进入。</p></section>
       </div>
     </main>
   </div>
