@@ -211,25 +211,54 @@
   }
 
   function setupCollapsibleToolbars() {
-    document.querySelectorAll('.toolbar[data-collapsible]').forEach(function (toolbar) {
-      var limit = parseInt(toolbar.getAttribute('data-collapsible') || '6', 10);
-      var controls = Array.from(toolbar.children).filter(function (el) {
+    var resizeTimer = null;
+    function getFilterControls(toolbar) {
+      return Array.from(toolbar.children).filter(function (el) {
         if (el.classList.contains('toolbar-actions')) return false;
         if (el.matches('button.btn') && /查询|重置|收起筛选|展开筛选/.test(el.textContent.trim())) return false;
         return true;
       });
-      controls.forEach(function (el, idx) {
-        if (idx >= limit) el.classList.add('is-extra-filter');
-      });
+    }
+
+    document.querySelectorAll('.toolbar[data-collapsible], .toolbar[data-collapse-mode="rows"]').forEach(function (toolbar) {
+      var mode = toolbar.getAttribute('data-collapse-mode') || 'count';
       var toggle = toolbar.querySelector('[data-filter-toggle]');
       if (!toggle) return;
+
+      function applyCollapsedState() {
+        var controls = getFilterControls(toolbar);
+        controls.forEach(function (el) { el.classList.remove('is-extra-filter'); });
+        if (!toolbar.classList.contains('filters-collapsed')) return;
+
+        if (mode === 'rows') {
+          var rowTops = [];
+          controls.forEach(function (el) {
+            if (!rowTops.length || rowTops[rowTops.length - 1] !== el.offsetTop) rowTops.push(el.offsetTop);
+          });
+          var secondRowTop = rowTops.length > 1 ? rowTops[1] : null;
+          controls.forEach(function (el) {
+            if (secondRowTop !== null && el.offsetTop > secondRowTop) el.classList.add('is-extra-filter');
+          });
+        } else {
+          var limit = parseInt(toolbar.getAttribute('data-collapsible') || '6', 10);
+          controls.forEach(function (el, idx) { if (idx >= limit) el.classList.add('is-extra-filter'); });
+        }
+      }
+
       function setCollapsed(collapsed) {
         toolbar.classList.toggle('filters-collapsed', collapsed);
         toggle.textContent = collapsed ? '展开筛选' : '收起筛选';
+        applyCollapsedState();
       }
+
       setCollapsed(true);
       toggle.addEventListener('click', function () {
         setCollapsed(!toolbar.classList.contains('filters-collapsed'));
+      });
+
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(applyCollapsedState, 80);
       });
     });
   }

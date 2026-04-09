@@ -838,3 +838,62 @@ select {
 }
 .toolbar .triple-inline select { flex: 1 1 120px; min-width: 120px; }
 .toolbar.filters-collapsed .is-extra-filter { display: none; }
+
+/* enterprise list layout mechanism fix */
+html, body { overflow-x: hidden; }
+.layout { grid-template-columns: 260px minmax(0, 1fr); }
+.main { min-width: 0; max-width: none; width: 100%; }
+.company-list-layout { width: 100%; min-width: 0; }
+
+.global-topbar {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+}
+.global-topbar .top-right { min-width: 0; justify-content: flex-end; }
+
+.company-filter-toolbar {
+  overflow: hidden;
+}
+.company-filter-toolbar .toolbar-actions {
+  right: 16px;
+  bottom: 14px;
+}
+
+.company-table-panel {
+  overflow: hidden;
+  padding: 0;
+}
+.table-scroll-x {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  border-radius: inherit;
+}
+
+.company-master-table {
+  min-width: 2600px;
+  table-layout: fixed;
+}
+.sticky-action-table th:last-child,
+.sticky-action-table td:last-child {
+  right: 0;
+  box-shadow: -8px 0 10px rgba(15, 23, 42, 0.06);
+}
+.action-nowrap { white-space: nowrap; }
+.action-nowrap a { white-space: nowrap; }
+
+.company-filter-toolbar .triple-inline {
+  grid-column: span 2;
+  align-self: start;
+}
+.company-filter-toolbar.filters-collapsed .is-extra-filter { display: none; }
+
+@media (max-width: 1280px) {
+  .global-topbar { grid-template-columns: 220px minmax(0, 1fr); }
+}
+@media (max-width: 760px) {
+  .global-topbar { grid-template-columns: 1fr; }
+  .global-topbar .top-left { display: none; }
+}
