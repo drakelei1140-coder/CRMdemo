@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>O/S补件列表</title><link rel="stylesheet" href="../styles.css" /></head>
+<body>
+<div class="layout">
+  <aside class="sidebar"><div class="brand"><span class="brand-badge">K</span>KPay CRM</div><div class="nav-group"><p class="nav-title">O/S 补件</p><a class="nav-link level-1" href="os-list.html">补件列表</a><div class="nav-sub"><a class="nav-link level-2" href="os-detail.html">补件详情</a></div></div><div class="nav-group"><p class="nav-title">AFP 相关</p><a class="nav-link level-1" href="aft-task-list.html">商户进件列表</a><a class="nav-link level-1" href="afp-mapping.html">AFP 字段映射</a></div><div class="nav-group"><a class="nav-link level-1" href="../index.html">返回首页</a></div></aside>
+  <main class="main">
+    <header class="page-head"><div class="page-head-left"><div class="breadcrumb">O/S补件 / 补件列表</div><h1 class="page-title">O/S 补件列表</h1><p class="page-subtitle">支持区分补件来源（内部/AFP），并进入详情通知 CE 跟进。</p></div></header>
+    <section class="toolbar"><input class="input" placeholder="补件单号 / MID / 商户名称" /><select><option>补件来源（全部）</option><option>AFP 返回</option><option>内部审核</option></select><select><option>补件状态（全部）</option><option>待通知</option><option>待提交</option><option>审核中</option><option>已完成</option></select><select><option>通道（全部）</option><option>Adyen_AFP</option></select><button class="btn">查询</button></section>
+    <section class="table-wrap"><table><thead><tr><th>补件单号</th><th>MID</th><th>商户信息</th><th>补件来源</th><th>通道</th><th>补件状态</th><th>最近更新时间</th><th>操作</th></tr></thead><tbody><tr><td>OS-20260405-011</td><td>MID-882193</td><td>星河商城收单主体（HK）</td><td><span class="badge info">AFP返回</span></td><td>Adyen_AFP</td><td><span class="badge warning">待提交</span></td><td>2026-04-05 10:02</td><td class="table-actions"><a href="os-detail.html">查看详情</a></td></tr><tr><td>OS-20260404-207</td><td>MID-882602</td><td>Kaori Beauty JP（JP）</td><td><span class="badge muted">内部审核</span></td><td>Adyen_AFP</td><td><span class="badge info">审核中</span></td><td>2026-04-04 19:30</td><td class="table-actions"><a href="os-detail.html">查看详情</a></td></tr></tbody></table></section>
+    <div class="pagination"><span>共 42 条，当前第 1 / 5 页</span><div class="page-actions"><button class="btn">上一页</button><button class="btn">下一页</button></div></div>
+  </main>
+</div>
+<script src="../app.js"></script>
+</body>
+</html>

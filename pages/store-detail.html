@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>商铺详情</title>
+  <link rel="stylesheet" href="../styles.css"/>
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar"></aside>
+  <main class="main">
+    <header class="page-head">
+      <div class="page-head-left">
+        <div class="breadcrumb">商户管理 / 商铺管理 / 商铺详情</div>
+        <h1 class="page-title">商铺详情 - SID-330019</h1>
+        <p class="page-subtitle">商铺 -> 本平台MID -> 第三方通道MID 关系视图。</p>
+      </div>
+      <div class="page-actions"><button class="btn" data-open-store-mid>查看关联MID</button><a class="btn primary" href="store-edit.html">编辑</a></div>
+    </header>
+
+    <div class="grid-2">
+      <section class="card">
+        <h3>商铺信息</h3>
+        <dl class="kv"><dt>商铺名称</dt><dd>星河商城·观塘店</dd></dl>
+        <dl class="kv"><dt>SID</dt><dd>SID-330019</dd></dl>
+        <dl class="kv"><dt>所属企业</dt><dd>CID-100238</dd></dl>
+      </section>
+
+      <section class="card">
+        <h3>本平台MID区域</h3>
+        <table>
+          <thead><tr><th>本平台MID</th><th>商户状态</th><th>更新时间</th><th>操作</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>MID-882193</td><td><span class="badge warning">待签约</span></td><td>2026-04-04 11:02</td>
+              <td><a href="aft-task-list.html?platformMid=MID-882193">查看关联的通道MID</a><span class="op-sep">|</span><a href="merchant-detail.html?platformMid=MID-882193">查看MID详情</a></td>
+            </tr>
+            <tr>
+              <td>MID-882880</td><td><span class="badge success">已签约</span></td><td>2026-03-29 08:40</td>
+              <td><a href="aft-task-list.html?platformMid=MID-882880">查看关联的通道MID</a><span class="op-sep">|</span><a href="merchant-detail.html?platformMid=MID-882880">查看MID详情</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+
+    <section class="card">
+      <h3>修改记录时间轴</h3>
+      <div class="timeline"><div class="timeline-item"><strong>2026-04-05 15:03</strong><span>营业时间 09:00-21:00 → 10:00-22:00</span></div></div>
+    </section>
+  </main>
+</div>
+
+<div class="modal-mask" id="store-mid-modal">
+  <div class="modal">
+    <h3>关联 MID 与第三方 MID</h3>
+    <table>
+      <thead><tr><th>本平台MID</th><th>通道</th><th>第三方MID</th><th>状态</th><th>更新时间</th><th>操作</th></tr></thead>
+      <tbody>
+        <tr><td>MID-882193</td><td>Adyen_AFP</td><td>AFP-MID-112890</td><td><span class="badge warning">待补件</span></td><td>2026-04-05 09:33</td><td><a href="merchant-detail.html?platformMid=MID-882193" target="_blank">打开商户详情</a></td></tr>
+        <tr><td>MID-882193</td><td>Adyen_payfac</td><td>PF-MID-773301</td><td><span class="badge info">审核中</span></td><td>2026-04-05 09:18</td><td><a href="merchant-detail.html?platformMid=MID-882193" target="_blank">打开商户详情</a></td></tr>
+      </tbody>
+    </table>
+    <div class="modal-actions"><button class="btn" data-close-modal>关闭</button></div>
+  </div>
+</div>
+
+<script src="../app.js"></script>
+</body>
+</html>
