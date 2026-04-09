@@ -263,6 +263,70 @@
     });
   }
 
+
+  function optimizeDetailInfoLayout() {
+    if (!/detail|review\.html/.test(path)) return;
+
+    var longFieldPattern = /地址|描述|備註|备注|政策|原因|原始全文|URL|文件|附件|截圖|截图/;
+
+    document.querySelectorAll('.field-table').forEach(function (table) {
+      var rows = Array.from(table.querySelectorAll('tbody tr'));
+      if (!rows.length) return;
+      var grid = document.createElement('div');
+      grid.className = 'detail-info-grid';
+      rows.forEach(function (row) {
+        var th = row.querySelector('th');
+        var td = row.querySelector('td');
+        if (!th || !td) return;
+        var item = document.createElement('div');
+        item.className = 'info-item';
+        var label = document.createElement('div');
+        label.className = 'info-label';
+        label.textContent = th.textContent.trim();
+        var value = document.createElement('div');
+        value.className = 'info-value';
+        value.innerHTML = td.innerHTML;
+        var plain = value.textContent.trim();
+        if (longFieldPattern.test(label.textContent) || plain.length > 60) item.classList.add('full-row');
+        item.appendChild(label);
+        item.appendChild(value);
+        grid.appendChild(item);
+      });
+      var wrap = table.closest('.field-table-wrap');
+      if (wrap) {
+        wrap.innerHTML = '';
+        wrap.appendChild(grid);
+      }
+    });
+
+    document.querySelectorAll('.card').forEach(function (card) {
+      var kvs = Array.from(card.querySelectorAll(':scope > dl.kv'));
+      if (kvs.length < 2) return;
+      var grid = document.createElement('div');
+      grid.className = 'detail-info-grid';
+      kvs.forEach(function (kv) {
+        var dt = kv.querySelector('dt');
+        var dd = kv.querySelector('dd');
+        if (!dt || !dd) return;
+        var item = document.createElement('div');
+        item.className = 'info-item';
+        var label = document.createElement('div');
+        label.className = 'info-label';
+        label.textContent = dt.textContent.trim();
+        var value = document.createElement('div');
+        value.className = 'info-value';
+        value.innerHTML = dd.innerHTML;
+        var plain = value.textContent.trim();
+        if (longFieldPattern.test(label.textContent) || plain.length > 60) item.classList.add('full-row');
+        item.appendChild(label);
+        item.appendChild(value);
+        grid.appendChild(item);
+      });
+      kvs[0].before(grid);
+      kvs.forEach(function (kv) { kv.remove(); });
+    });
+  }
+
   function setupContractActions() {
     var modal = document.getElementById('contract-link-modal');
     if (modal) {
@@ -298,5 +362,6 @@
   setupTabs();
   normalizeToolbarActions();
   setupCollapsibleToolbars();
+  optimizeDetailInfoLayout();
   setupContractActions();
 })();
