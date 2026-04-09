@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>AFP通道详情</title><link rel="stylesheet" href="../styles.css" /></head>
+<body>
+<div class="layout">
+  <aside class="sidebar"><div class="brand"><span class="brand-badge">K</span>KPay CRM</div><div class="nav-group"><p class="nav-title">配置管理</p><a class="nav-link level-1" href="channel-afp-detail.html">AFP通道详情</a><div class="nav-sub"><a class="nav-link level-2" href="afp-mapping.html">AFP字段映射</a></div></div><div class="nav-group"><a class="nav-link level-1" href="aft-task-list.html">商户进件列表</a><a class="nav-link level-1" href="../index.html">返回首页</a></div></aside>
+
+  <main class="main">
+    <header class="page-head"><div class="page-head-left"><div class="breadcrumb">配置管理 / AFP通道详情 / Adyen_AFP</div><h1 class="page-title">AFP 通道详情 - Adyen_AFP</h1><p class="page-subtitle">通道基础信息、参数摘要、支付产品配置及映射入口集中管理。</p></div><div class="page-actions"><button class="btn">查看调用日志</button><a class="btn primary" href="afp-mapping.html">进入字段映射</a></div></header>
+
+    <section class="card"><h3>基础信息模块</h3><div class="grid-2"><dl class="kv"><dt>通道编码</dt><dd>Adyen_AFP</dd></dl><dl class="kv"><dt>服务商</dt><dd>Adyen</dd></dl><dl class="kv"><dt>接入模式</dt><dd>AFP</dd></dl><dl class="kv"><dt>状态</dt><dd><span class="badge success">已启用</span></dd></dl><dl class="kv"><dt>支持地区</dt><dd>HK / SG / JP / AU</dd></dl><dl class="kv"><dt>最近更新时间</dt><dd>2026-04-04 18:00</dd></dl></div></section>
+
+    <div class="grid-2"><section class="card"><h3>参数摘要区</h3><dl class="kv"><dt>API Base URL</dt><dd>https://api.adyen.com/afp/v2</dd></dl><dl class="kv"><dt>签名算法</dt><dd>HMAC-SHA256</dd></dl><dl class="kv"><dt>超时配置</dt><dd>8s（重试 2 次）</dd></dl><dl class="kv"><dt>回调地址</dt><dd>/api/afp/callback/adyen</dd></dl></section><section class="card"><h3>支付产品配置区</h3><table><thead><tr><th>产品</th><th>地区</th><th>费率模型</th><th>状态</th></tr></thead><tbody><tr><td>Online Card Acquiring</td><td>HK / SG</td><td>Tiered v3</td><td><span class="badge success">启用</span></td></tr><tr><td>POS Acquiring</td><td>HK / JP</td><td>Flat v2</td><td><span class="badge info">灰度中</span></td></tr></tbody></table></section></div>
+
+    <section class="card"><h3>字段映射入口区</h3><p>当前通道映射版本：<span class="badge success">v2.3.1</span>（HK-LE 生效中）</p><p>如需调整 LE/AH/BL/BA 字段映射，请进入映射配置页维护并发布版本。</p><div class="page-actions"><a class="btn primary" href="afp-mapping.html">打开 AFP 字段映射配置</a></div></section>
+  </main>
+</div>
+<script src="../app.js"></script>
+</body>
+</html>
