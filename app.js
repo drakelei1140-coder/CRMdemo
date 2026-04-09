@@ -197,7 +197,7 @@
     document.querySelectorAll('.toolbar').forEach(function (toolbar) {
       if (toolbar.querySelector('.toolbar-actions')) return;
       var btns = Array.from(toolbar.querySelectorAll('button.btn'));
-      var actionBtns = btns.filter(function (b) { return /查询|重置/.test(b.textContent.trim()); });
+      var actionBtns = btns.filter(function (b) { return /查询|重置|收起筛选|展开筛选/.test(b.textContent.trim()); });
       if (!actionBtns.length) return;
       var wrap = document.createElement('div'); wrap.className = 'toolbar-actions';
       actionBtns.forEach(function (b) { wrap.appendChild(b); });
@@ -208,6 +208,30 @@
   function showToast(text) {
     var t = document.createElement('div'); t.className = 'demo-toast'; t.textContent = text; document.body.appendChild(t);
     setTimeout(function () { t.classList.add('show'); }, 10); setTimeout(function () { t.remove(); }, 1800);
+  }
+
+  function setupCollapsibleToolbars() {
+    document.querySelectorAll('.toolbar[data-collapsible]').forEach(function (toolbar) {
+      var limit = parseInt(toolbar.getAttribute('data-collapsible') || '6', 10);
+      var controls = Array.from(toolbar.children).filter(function (el) {
+        if (el.classList.contains('toolbar-actions')) return false;
+        if (el.matches('button.btn') && /查询|重置|收起筛选|展开筛选/.test(el.textContent.trim())) return false;
+        return true;
+      });
+      controls.forEach(function (el, idx) {
+        if (idx >= limit) el.classList.add('is-extra-filter');
+      });
+      var toggle = toolbar.querySelector('[data-filter-toggle]');
+      if (!toggle) return;
+      function setCollapsed(collapsed) {
+        toolbar.classList.toggle('filters-collapsed', collapsed);
+        toggle.textContent = collapsed ? '展开筛选' : '收起筛选';
+      }
+      setCollapsed(true);
+      toggle.addEventListener('click', function () {
+        setCollapsed(!toolbar.classList.contains('filters-collapsed'));
+      });
+    });
   }
 
   function setupContractActions() {
@@ -244,5 +268,6 @@
   injectDescButton();
   setupTabs();
   normalizeToolbarActions();
+  setupCollapsibleToolbars();
   setupContractActions();
 })();

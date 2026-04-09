@@ -797,3 +797,44 @@ select {
   flex-wrap: wrap;
 }
 .three-select select { min-width: 120px; }
+
+/* company list usability optimization */
+.main { max-width: none; width: 100%; }
+.wide-scroll { overflow: auto; }
+.company-master-table {
+  min-width: 2800px;
+  table-layout: fixed;
+}
+.company-master-table th,
+.company-master-table td {
+  min-width: 120px;
+  max-width: 180px;
+  vertical-align: top;
+}
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+  line-height: 1.35;
+}
+.sticky-action-table th:last-child,
+.sticky-action-table td:last-child {
+  position: sticky;
+  right: 0;
+  z-index: 3;
+  min-width: 180px;
+  max-width: 220px;
+  background: #fff;
+  box-shadow: -6px 0 8px rgba(15, 23, 42, 0.04);
+}
+.sticky-action-table thead th:last-child { z-index: 5; background: #f8fafc; }
+
+.toolbar .triple-inline {
+  grid-column: span 2;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.toolbar .triple-inline select { flex: 1 1 120px; min-width: 120px; }
+.toolbar.filters-collapsed .is-extra-filter { display: none; }
