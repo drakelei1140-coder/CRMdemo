@@ -4,7 +4,7 @@ body.detail-page{height:100vh;overflow:hidden;}
 body.detail-page .layout{height:calc(100vh - 56px);}
 body.detail-page .sidebar{position:sticky;top:0;height:calc(100vh - 56px);overflow-y:auto;}
 body.detail-page .main{height:calc(100vh - 56px);overflow-y:auto;padding:20px 24px 28px;}
-body.detail-page .page-head{position:sticky;top:0;z-index:5;padding:4px 0 14px;margin-bottom:16px;background:linear-gradient(180deg,var(--bg) 72%,rgba(243,245,248,0));}
+body.detail-page .page-head{position:static;z-index:auto;padding:4px 0 14px;margin-bottom:16px;background:linear-gradient(180deg,var(--bg) 72%,rgba(243,245,248,0));}
 body.detail-page .field-table-wrap{border:0;box-shadow:none;background:transparent;overflow:visible;}
 body.detail-page .field-table{width:100%;border-collapse:separate;border-spacing:0;}
 body.detail-page .field-table tbody{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
@@ -13,244 +13,66 @@ body.detail-page .field-table tr.full-row{grid-column:1 / -1;}
 body.detail-page .field-table th,body.detail-page .field-table td{border-bottom:0;padding:12px 14px;}
 body.detail-page .field-table th{background:#f8fafc;color:#475569;font-size:13px;}
 body.detail-page .field-table td{word-break:break-word;color:#0f172a;}
-@media (max-width:1200px){
-  body.detail-page{overflow:auto;}
-  body.detail-page .layout{height:auto;min-height:calc(100vh - 56px);}
-  body.detail-page .main{height:auto;overflow:visible;padding:16px;}
-  body.detail-page .page-head{position:static;background:transparent;padding:0;margin-bottom:12px;}
-  body.detail-page .field-table tbody{grid-template-columns:1fr;}
-  body.detail-page .field-table tr,body.detail-page .field-table tr.full-row{grid-column:auto;grid-template-columns:140px minmax(0,1fr);}
-}
+.batch-block{border:1px solid #e2e8f0;border-radius:10px;padding:12px;background:#fff;margin-bottom:12px;}
+.batch-head{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+.batch-meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;font-size:13px;color:#475569;margin-bottom:8px;}
+.store-sub{border:1px dashed #dbe2ea;border-radius:8px;padding:8px 10px;margin:8px 0;background:#f8fafc;}
+.store-sub h5{margin:0 0 6px;font-size:13px;color:#334155;}
+.purchase-total{display:flex;justify-content:flex-end;font-weight:700;color:#0f172a;margin-top:8px;}
+@media (max-width:1200px){body.detail-page{overflow:auto;}body.detail-page .layout{height:auto;min-height:calc(100vh - 56px);}body.detail-page .main{height:auto;overflow:visible;padding:16px;}body.detail-page .field-table tbody,.batch-meta{grid-template-columns:1fr;}body.detail-page .field-table tr,body.detail-page .field-table tr.full-row{grid-column:auto;grid-template-columns:140px minmax(0,1fr);}}
 </style></head>
-<body class="detail-page"><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">修改待审核 / 企业资料 / 详情</div><h1 class="page-title">企业资料修改待审核详情</h1><p class="page-subtitle">保留审核上下文，并复用企业全字段信息结构。</p></div><div class="page-actions"><button class="btn primary">审批通过</button><button class="btn danger">驳回</button></div></header>
+<body class="detail-page"><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">修改待审核 / 企业资料 / 详情</div><h1 class="page-title">企业资料修改待审核详情</h1><p class="page-subtitle">保留审核上下文，并复用企业详情的最新基础字段结构。</p></div><div class="page-actions"><button class="btn primary">审批通过</button><button class="btn danger">驳回</button></div></header>
 <section class="card"><h3>事件上下文</h3><dl class="kv"><dt>事件名称</dt><dd>企业联系人信息修改</dd></dl><dl class="kv"><dt>事件类型</dt><dd>主数据变更申请</dd></dl><dl class="kv"><dt>发起方 / 发起人</dt><dd>CE / ce_amy</dd></dl><dl class="kv"><dt>发起时间</dt><dd>2026-04-05 14:20</dd></dl><dl class="kv"><dt>当前审核状态</dt><dd><span class="badge warning">待审核</span></dd></dl></section>
-<section class="card"><h3>本次修改字段</h3><table><thead><tr><th>字段名</th><th>旧数据</th><th>新数据</th></tr></thead><tbody><tr><td>電郵地址</td><td>old-contact@kpay-demo.com</td><td>new-contact@kpay-demo.com</td></tr><tr><td>終端持有數量</td><td>10</td><td>12</td></tr><tr><td>配件型號</td><td>Dock-D120</td><td>Dock-D150</td></tr></tbody></table></section>
-<section class="card"><h3>主键 / 关联</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>CID</th><td>CID-100238</td></tr>
-<tr><th>企业LE ID</th><td>LE-782993</td></tr>
-<tr><th>企业LE类型</th><td>Company</td></tr>
-<tr><th>企业LE参考号</th><td>LE-REF-202604-100238</td></tr>
-<tr><th>默认主联系人人员ID</th><td>PER-9011</td></tr>
-<tr><th>上級公司ID</th><td>-</td></tr></tbody></table></div></section>
-<section class="card"><h3>企业基础</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>進件通道(必須)</th><td>Adyen_AFP</td></tr>
-<tr><th>每宗交易平均金額</th><td>HKD 420</td></tr>
-<tr><th>每宗交易最大交易額</th><td>HKD 28,000</td></tr>
-<tr><th>預計每年交易宗數</th><td>-</td></tr>
-<tr><th>過往拒付比例</th><td>-</td></tr>
-<tr><th>拒付平均處理日數</th><td>-</td></tr>
-<tr><th>過往退款比例</th><td>-</td></tr>
-<tr><th>退款平均處理日數</th><td>-</td></tr>
-<tr><th>平均每月營業額</th><td>HKD 1,800,000</td></tr>
-<tr><th>經營方式</th><td>-</td></tr>
-<tr><th>提前收款日數</th><td>-</td></tr>
-<tr><th>貨物/服務最短送達時間</th><td>-</td></tr>
-<tr><th>貨物/服務最長送達時間</th><td>-</td></tr>
-<tr><th>退貨政策</th><td>-</td></tr>
-<tr><th>退貨政策截圖</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>財務報表審計</th><td>-</td></tr>
-<tr><th>經營年限</th><td>8</td></tr>
-<tr><th>職稱 / 職位</th><td>-</td></tr>
-<tr><th>相關公司持份比例</th><td>-</td></tr>
-<tr><th>相關公司營運地點</th><td>-</td></tr>
-<tr><th>相關公司身份</th><td>-</td></tr>
-<tr><th>T1特選商戶</th><td>-</td></tr>
-<tr><th>歸屬國編號</th><td>-</td></tr>
-<tr><th>歸屬省編號</th><td>-</td></tr>
-<tr><th>是否對公</th><td>-</td></tr>
-<tr><th>分行號</th><td>-</td></tr>
-<tr><th>開戶費合計</th><td>-</td></tr>
-<tr><th>小費功能</th><td>-</td></tr>
-<tr><th>合約期</th><td>-</td></tr>
-<tr><th>終端型號</th><td>KPOS-A8</td></tr>
-<tr><th>終端型號（自助場景專用）</th><td>KIOSK-K2</td></tr>
-<tr><th>配件型號</th><td>Dock-D150</td></tr>
-<tr><th>終端持有數量</th><td>12</td></tr>
-<tr><th>終端（自助場景專用）持有數量</th><td>4</td></tr>
-<tr><th>配件持有數量</th><td>18</td></tr>
-<tr><th>每個底座費用HK$150</th><td>-</td></tr>
-<tr><th>每個支架費用HK$150</th><td>-</td></tr>
-<tr><th>費用合計</th><td>-</td></tr>
-<tr><th>銀聯雲閃付掃碼-反掃</th><td>-</td></tr>
-<tr><th>PayMe-正掃</th><td>-</td></tr>
-<tr><th>PayMe-反掃</th><td>-</td></tr>
-<tr><th>所需展示牌數量</th><td>-</td></tr>
-<tr><th>銀聯雲閃付掃碼-正掃（第1項）</th><td>-</td></tr>
-<tr><th>銀聯雲閃付掃碼-正掃（第2項）</th><td>-</td></tr>
-<tr><th>VISA 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>MASTERCARD 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>DINERSCLUB 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>JCB 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>AMERICAEXPRESS 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>UNIONPAY 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>VISA TOKEN 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>MASTERCARD TOKEN 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>JCB TOKEN 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>UNIONPAY TOKEN 線上消費（第1項）</th><td>-</td></tr>
-<tr><th>VISA TOKEN 預授權（需同時在OATS後臺手動開通）（第1項）</th><td>-</td></tr>
-<tr><th>MASTERCARD TOKEN 預授權（需同時在OATS後臺手動開通）（第1項）</th><td>-</td></tr>
-<tr><th>JCB TOKEN 預授權（需同時在OATS後臺手動開通）（第1項）</th><td>-</td></tr>
-<tr><th>UNIONPAY TOKEN 預授權（需同時在OATS後臺手動開通）（第1項）</th><td>-</td></tr>
-<tr><th>VISA 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>MASTERCARD 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>DINERSCLUB 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>JCB 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>AMERICAEXPRESS 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>UNIONPAY 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>VISA TOKEN 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>MASTERCARD TOKEN 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>JCB TOKEN 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>UNIONPAY TOKEN 線上消費（第2項）</th><td>-</td></tr>
-<tr><th>VISA TOKEN 預授權（需同時在OATS後臺手動開通）（第2項）</th><td>-</td></tr>
-<tr><th>MASTERCARD TOKEN 預授權（需同時在OATS後臺手動開通）（第2項）</th><td>-</td></tr>
-<tr><th>JCB TOKEN 預授權（需同時在OATS後臺手動開通）（第2項）</th><td>-</td></tr>
-<tr><th>UNIONPAY TOKEN 預授權（需同時在OATS後臺手動開通）（第2項）</th><td>-</td></tr>
-<tr><th>是否首次申請卡機商戶（包括KPay及其他卡機）</th><td>-</td></tr>
-<tr><th>申請過的卡機品牌 （多選）</th><td>-</td></tr>
-<tr><th>在上述卡機中，商戶預計使用KPay的業務占比</th><td>-</td></tr>
-<tr><th>是否NGO</th><td>-</td></tr>
-<tr><th>重複簽約原因</th><td>-</td></tr>
-<tr><th>公司註冊証號碼(非必須)</th><td>-</td></tr>
-<tr><th>公司登記証名稱(非必須)（第1項）</th><td>-</td></tr>
-<tr><th>周年申報表有效期(非必須)</th><td>-</td></tr>
-<tr><th>公司章程大綱包括章程細則（如適用）(非必須)</th><td>-</td></tr>
-<tr><th>NP其他文檔</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>LE类型（企业）</th><td>-</td></tr>
-<tr><th>企业营业名称 / DBA</th><td>-</td></tr>
-<tr><th>企业描述</th><td>-</td></tr>
-<tr><th>企业电话类型（第1項）</th><td>-</td></tr>
-<tr><th>企业税务国家</th><td>-</td></tr>
-<tr><th>企业税号</th><td>-</td></tr>
-<tr><th>企业税号类型</th><td>-</td></tr>
-<tr><th>VAT号</th><td>-</td></tr>
-<tr><th>无VAT原因</th><td>-</td></tr>
-<tr><th>税务申报分类</th><td>-</td></tr>
-<tr><th>税务业务类型</th><td>-</td></tr>
-<tr><th>上市市场标识</th><td>-</td></tr>
-<tr><th>股票代码</th><td>-</td></tr>
-<tr><th>股票简称</th><td>-</td></tr>
-<tr><th>官网 / App Store URL</th><td>-</td></tr>
-<tr><th>商戶營業狀態(企業口徑)</th><td>營業中</td></tr></tbody></table></div></section>
-<section class="card"><h3>企业名称</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>商戶中文名稱</th><td>星河數字科技（香港）有限公司</td></tr>
-<tr><th>商戶中文簡稱</th><td>星河數科</td></tr>
-<tr><th>商戶英文名稱</th><td>Galaxy Digital Tech (HK) Limited</td></tr>
-<tr><th>商戶英文簡稱</th><td>Galaxy DT</td></tr>
-<tr><th>商戶其它名稱</th><td>-</td></tr>
-<tr><th>商戶所有名稱（中文）</th><td>-</td></tr>
-<tr><th>商戶所有名稱（英文）</th><td>-</td></tr>
-<tr><th>切換商戶顯示名稱（中文）</th><td>-</td></tr>
-<tr><th>切換商戶顯示名稱（英文）</th><td>-</td></tr>
-<tr><th>相關公司中文名稱</th><td>-</td></tr>
-<tr><th>相關公司英文名稱</th><td>-</td></tr>
-<tr><th>相關公司曾用名</th><td>-</td></tr>
-<tr><th>商業登記證名稱</th><td>-</td></tr>
-<tr><th>公司登記証名稱(非必須)（第2項）</th><td>-</td></tr></tbody></table></div></section>
-<section class="card"><h3>企业文件</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>商戶篩查報告</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>企業架構文件</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>財務報表文件</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>相關公司附件</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>收取憑證</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>商業登記證號碼</th><td>-</td></tr>
-<tr><th>證書有效期</th><td>-</td></tr>
-<tr><th>商業登記證副本照片</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>請提供重複簽約證明附件</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>商業登記冊內的資料的電子摘錄 (獨資經營者/合夥人適用)</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>公司註冊證明書(非必須)</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>慈善機構資料</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>教育資料</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>社團/協會資料</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>業主立案法團資料</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>入貨單</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>閉路電視錄影</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>最高交易金額的客戶單據</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>special MCC 附件</th><td><a href="#">查看文件（示例）</a></td></tr></tbody></table></div></section>
-<section class="card"><h3>风控 / 业务</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>風控類型</th><td>-</td></tr>
-<tr><th>風險等級</th><td>中風險</td></tr>
-<tr><th>風險評估報告</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>審核類型</th><td>標準審核</td></tr>
-<tr><th>上單來源</th><td>CE</td></tr>
-<tr><th>服務類型</th><td>-</td></tr>
-<tr><th>合作夥伴推薦人</th><td>-</td></tr>
-<tr><th>合作夥伴編號</th><td>-</td></tr>
-<tr><th>交單備註</th><td>-</td></tr>
-<tr><th>是否高額商戶</th><td>否</td></tr>
-<tr><th>相關公司備註</th><td>-</td></tr></tbody></table></div></section>
-<section class="card"><h3>企业地址</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>註冊辦事處地址</th><td>-</td></tr>
-<tr><th>註冊辦事處地址(英文)</th><td>-</td></tr>
-<tr><th>郵寄地址</th><td>-</td></tr>
-<tr><th>電郵地址</th><td>ops@galaxy-demo.hk</td></tr></tbody></table></div></section>
-<section class="card"><h3>企业主体 / 经营</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>公司模式</th><td>有限公司</td></tr>
-<tr><th>是否子公司</th><td>-</td></tr>
-<tr><th>公司結構</th><td>母公司</td></tr>
-<tr><th>行業分類/業務性質/產品服務</th><td><span class="three-select"><select><option>零售</option></select><select><option>百貨連鎖</option></select><select><option>生活用品銷售</option></select></span></td></tr>
-<tr><th>MCC Code</th><td>5311</td></tr>
-<tr><th>進階MCC Code</th><td>531101</td></tr>
-<tr><th>小微商戶</th><td>否</td></tr>
-<tr><th>SME 設定</th><td>-</td></tr>
-<tr><th>成立日期</th><td>2018-03-12</td></tr>
-<tr><th>法律地位</th><td>Private Limited</td></tr>
-<tr><th>僱員人數</th><td>-</td></tr>
-<tr><th>注冊資本</th><td>-</td></tr>
-<tr><th>相關公司成立地點</th><td>-</td></tr>
-<tr><th>周年申報表/法團成立表(非必須)</th><td><a href="#">查看文件（示例）</a></td></tr>
-<tr><th>企业成立/适用法国家</th><td>-</td></tr>
-<tr><th>企业治理法律所在国</th><td>-</td></tr>
-<tr><th>企业税务申报分类</th><td>-</td></tr>
-<tr><th>企业税务业务类型</th><td>-</td></tr>
-<tr><th>公司層級</th><td>-</td></tr></tbody></table></div></section>
-<section class="card"><h3>企业联系</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>公司電話</th><td>+852 2818 2999</td></tr>
-<tr><th>手提電話</th><td>-</td></tr>
-<tr><th>管理員電郵</th><td>-</td></tr>
-<tr><th>運營電郵</th><td>-</td></tr>
-<tr><th>接收營銷資訊（第1項）</th><td>-</td></tr>
-<tr><th>接收營銷資訊（第2項）</th><td>-</td></tr>
-<tr><th>微信ID</th><td>-</td></tr>
-<tr><th>微信公眾號（缐上）（第1項）</th><td>-</td></tr>
-<tr><th>微信公眾號-服務商授權（缐上）（第1項）</th><td>-</td></tr>
-<tr><th>微信公眾號（缐上）（第2項）</th><td>-</td></tr>
-<tr><th>微信公眾號-服務商授權（缐上）（第2項）</th><td>-</td></tr>
-<tr><th>企业电话类型（第2項）</th><td>-</td></tr></tbody></table></div></section>
-<section class="card"><h3>注册地址</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>注册地址（原始全文）</th><td>-</td></tr>
-<tr><th>注册地址-街道</th><td>-</td></tr>
-<tr><th>注册地址-补充地址</th><td>-</td></tr>
-<tr><th>注册地址-城市</th><td>-</td></tr>
-<tr><th>注册地址-州/省</th><td>-</td></tr>
-<tr><th>注册地址-邮编</th><td>-</td></tr>
-<tr><th>注册地址-国家</th><td>-</td></tr></tbody></table></div></section>
-<section class="card"><h3>主要营业地址</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>主要营业地址（原始全文）</th><td>-</td></tr>
-<tr><th>主要营业地址-城市</th><td>-</td></tr>
-<tr><th>主要营业地址-州/省</th><td>-</td></tr>
-<tr><th>主要营业地址-街道</th><td>-</td></tr>
-<tr><th>主要营业地址-补充地址</th><td>-</td></tr>
-<tr><th>主要营业地址-邮编</th><td>-</td></tr>
-<tr><th>主要营业地址-国家</th><td>-</td></tr></tbody></table></div></section>
-<section class="card"><h3>BL / AH</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>业务线ID</th><td>-</td></tr>
-<tr><th>业务线类型</th><td>-</td></tr>
-<tr><th>销售渠道</th><td>-</td></tr>
-<tr><th>资金流/清算模式</th><td>-</td></tr>
-<tr><th>账户持有人ID</th><td>-</td></tr>
-<tr><th>账户持有人关联LE ID</th><td>-</td></tr>
-<tr><th>账户持有人描述</th><td>-</td></tr>
-<tr><th>账户持有人参考号</th><td>-</td></tr>
-<tr><th>账户持有人状态</th><td>-</td></tr>
-<tr><th>账户持有人地址-街道</th><td>-</td></tr>
-<tr><th>账户持有人地址-门牌号</th><td>-</td></tr>
-<tr><th>账户持有人地址-城市</th><td>-</td></tr>
-<tr><th>账户持有人地址-州/省</th><td>-</td></tr>
-<tr><th>账户持有人地址-邮编</th><td>-</td></tr>
-<tr><th>账户持有人地址-国家</th><td>-</td></tr>
-<tr><th>账户持有人邮箱</th><td>-</td></tr>
-<tr><th>账户持有人电话</th><td>-</td></tr>
-<tr><th>账户持有人电话类型</th><td>-</td></tr></tbody></table></div></section>
-<section class="card"><h3>历史修改时间轴（多次记录）</h3><div class="timeline"><div class="timeline-item"><strong>2026-04-05 14:20</strong><span>ce_amy 发起：联系人邮箱 old-contact@kpay-demo.com → new-contact@kpay-demo.com</span></div><div class="timeline-item"><strong>2026-03-18 11:40</strong><span>ops_lee 发起：注册地址 九龙旧址12F → 九龙观塘伟业街202号18F（已通过）</span></div><div class="timeline-item"><strong>2026-02-10 09:30</strong><span>ce_mina 发起：财务联系人 陈敏 → 李慧敏（已通过）</span></div></div></section>
-</main></div><script src="../app.js"></script><script>
-(function(){
-  document.querySelectorAll('.field-table tbody tr').forEach(function(row){
-    var keyEl=row.querySelector('th');
-    var valEl=row.querySelector('td');
-    if(!keyEl||!valEl) return;
-    var key=keyEl.textContent.trim();
-    var val=valEl.textContent.trim();
-    var isLong=key.length>=18||val.length>=52||key.indexOf('（原始全文）')>-1||valEl.querySelector('.three-select,select,textarea')!==null;
-    if(isLong){ row.classList.add('full-row'); }
-  });
-})();
-</script></body></html>
+<section class="card"><h3>本次修改字段（前后对比）</h3><table><thead><tr><th>字段名</th><th>旧数据</th><th>新数据</th><th>影响范围</th></tr></thead><tbody><tr><td>電郵地址</td><td>old-contact@kpay-demo.com</td><td>ops@starriver.hk</td><td>通知链路</td></tr><tr><td>管理員電郵</td><td>admin-old@starriver.hk</td><td>admin@starriver.hk</td><td>后台账号接收</td></tr><tr><td>運營電郵</td><td>service-old@starriver.hk</td><td>ops@starriver.hk</td><td>运营通知</td></tr></tbody></table></section>
+<section class="card"><h3>主键 / 关联</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>CID</th><td>CID-100238</td></tr><tr><th>企业LE ID</th><td>LE-782993</td></tr><tr><th>企业LE类型</th><td>Company</td></tr><tr><th>企业LE参考号</th><td>LE-REF-202604-100238</td></tr><tr><th>默认主联系人人员ID</th><td>PER-9011</td></tr><tr><th>上級公司ID</th><td>-</td></tr></tbody></table></div></section>
+<section class="card"><h3>企业基础</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>進件通道(必須)</th><td>Adyen_AFP</td></tr><tr><th>每宗交易平均金額</th><td>HKD 420</td></tr><tr><th>每宗交易最大交易額</th><td>HKD 28,000</td></tr><tr><th>預計每年交易宗數</th><td>-</td></tr><tr><th>過往拒付比例</th><td>-</td></tr><tr><th>拒付平均處理日數</th><td>-</td></tr><tr><th>過往退款比例</th><td>-</td></tr><tr><th>退款平均處理日數</th><td>-</td></tr><tr><th>平均每月營業額</th><td>HKD 1,800,000</td></tr><tr><th>經營方式</th><td>-</td></tr><tr><th>提前收款日數</th><td>-</td></tr><tr><th>貨物/服務最短送達時間</th><td>-</td></tr><tr><th>貨物/服務最長送達時間</th><td>-</td></tr><tr class="full-row"><th>退貨政策</th><td>-</td></tr><tr><th>退貨政策截圖</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>財務報表審計</th><td>-</td></tr><tr><th>經營年限</th><td>8</td></tr><tr><th>職稱 / 職位</th><td>-</td></tr><tr><th>T1特選商戶</th><td>-</td></tr><tr><th>歸屬國編號</th><td>-</td></tr><tr><th>歸屬省編號</th><td>-</td></tr><tr><th>是否對公</th><td>-</td></tr><tr><th>分行號</th><td>-</td></tr><tr><th>開戶費合計</th><td>-</td></tr><tr><th>小費功能</th><td>-</td></tr><tr><th>合約期</th><td>-</td></tr><tr><th>是否首次申請卡機商戶（包括KPay及其他卡機）</th><td>-</td></tr><tr><th>申請過的卡機品牌 （多選）</th><td>-</td></tr><tr><th>在上述卡機中，商戶預計使用KPay的業務占比</th><td>-</td></tr><tr><th>是否NGO</th><td>-</td></tr><tr><th>重複簽約原因</th><td>-</td></tr><tr><th>公司註冊証號碼(非必須)</th><td>-</td></tr><tr><th>周年申報表有效期(非必須)</th><td>-</td></tr><tr><th>公司章程大綱包括章程細則（如適用）(非必須)</th><td>-</td></tr><tr><th>NP其他文檔</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>LE类型（企业）</th><td>-</td></tr><tr><th>企业营业名称 / DBA</th><td>Star River Tech HK</td></tr><tr class="full-row"><th>企业描述</th><td>-</td></tr><tr><th>企业电话类型</th><td>-</td></tr><tr><th>企业税务国家</th><td>HK</td></tr><tr><th>企业税号</th><td>TRN-882019</td></tr><tr><th>企业税号类型</th><td>BR</td></tr><tr><th>VAT号</th><td>-</td></tr><tr><th>无VAT原因</th><td>-</td></tr><tr><th>税务申报分类</th><td>-</td></tr><tr><th>税务业务类型</th><td>-</td></tr><tr><th>上市市场标识</th><td>-</td></tr><tr><th>股票代码</th><td>-</td></tr><tr><th>股票简称</th><td>-</td></tr><tr class="full-row"><th>官网 / App Store URL</th><td>-</td></tr><tr><th>商戶營業狀態(企業口徑)</th><td>经营中</td></tr></tbody></table></div></section>
+<section class="card"><h3>企业名称</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>商戶中文名稱</th><td>星河数字科技（香港）有限公司</td></tr><tr><th>商戶中文簡稱</th><td>-</td></tr><tr><th>商戶英文名稱</th><td>Star River Digital Technology (HK) Limited</td></tr><tr><th>商戶英文簡稱</th><td>Star River</td></tr><tr><th>商戶其它名稱</th><td>-</td></tr><tr class="full-row"><th>商戶所有名稱（中文）</th><td>-</td></tr><tr class="full-row"><th>商戶所有名稱（英文）</th><td>-</td></tr><tr><th>切換商戶顯示名稱（中文）</th><td>-</td></tr><tr><th>切換商戶顯示名稱（英文）</th><td>-</td></tr><tr><th>商業登記證名稱</th><td>Star River Digital Technology (HK) Limited</td></tr><tr><th>公司登記証名稱(非必須)</th><td>-</td></tr></tbody></table></div></section>
+<section class="card"><h3>企业文件</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>商戶篩查報告</th><td><a href='#'>查看文件（示例）</a></td></tr><tr class="full-row"><th>企業架構文件</th><td><a href='#'>查看文件（示例）</a></td></tr><tr class="full-row"><th>財務報表文件</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>商業登記證號碼</th><td>BR-7782911</td></tr><tr><th>證書有效期</th><td>2027-12-31</td></tr><tr><th>商業登記證副本照片</th><td><a href='#'>查看文件（示例）</a></td></tr><tr class="full-row"><th>請提供重複簽約證明附件</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>商業登記冊內的資料的電子摘錄 (獨資經營者/合夥人適用)</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>公司註冊證明書(非必須)</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>慈善機構資料</th><td>-</td></tr><tr><th>教育資料</th><td>-</td></tr><tr><th>社團/協會資料</th><td>-</td></tr><tr><th>業主立案法團資料</th><td>-</td></tr><tr><th>入貨單</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>閉路電視錄影</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>最高交易金額的客戶單據</th><td><a href='#'>查看文件（示例）</a></td></tr></tbody></table></div></section>
+<section class="card"><h3>风控 / 业务</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>風控類型</th><td>-</td></tr><tr><th>風險等級</th><td>-</td></tr><tr><th>風險評估報告</th><td>-</td></tr><tr><th>審核類型</th><td>-</td></tr><tr><th>上單來源</th><td>-</td></tr><tr><th>服務類型</th><td>-</td></tr><tr><th>合作夥伴推薦人</th><td>-</td></tr><tr><th>合作夥伴編號</th><td>-</td></tr><tr class="full-row"><th>交單備註</th><td>-</td></tr><tr><th>是否高額商戶</th><td>-</td></tr></tbody></table></div></section>
+<section class="card"><h3>企业地址</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>註冊辦事處地址</th><td>香港九龍觀塘偉業街202號18F</td></tr><tr><th>註冊辦事處地址(英文)</th><td>18/F, 202 Wai Yip Street, Kwun Tong, Kowloon, Hong Kong</td></tr><tr><th>郵寄地址</th><td>香港九龍觀塘偉業街202號18F</td></tr><tr><th>電郵地址</th><td>ops@starriver.hk</td></tr><tr><th>注册地址（原始全文）</th><td>-</td></tr><tr><th>注册地址-街道</th><td>-</td></tr><tr><th>注册地址-补充地址</th><td>-</td></tr><tr><th>注册地址-城市</th><td>香港</td></tr><tr><th>注册地址-州/省</th><td>九龙</td></tr><tr><th>主要营业地址（原始全文）</th><td>-</td></tr><tr><th>主要营业地址-城市</th><td>香港</td></tr><tr><th>主要营业地址-州/省</th><td>九龙</td></tr></tbody></table></div></section>
+<section class="card"><h3>企业主体 / 经营</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>公司模式</th><td>有限公司</td></tr><tr><th>是否子公司</th><td>否</td></tr><tr><th>公司結構</th><td>-</td></tr><tr><th>行業分類/業務性質/產品服務</th><td>-</td></tr><tr><th>行業分類/業務性質/產品服務</th><td>-</td></tr><tr><th>行業分類/業務性質/產品服務</th><td>-</td></tr><tr><th>MCC Code</th><td>5311</td></tr><tr><th>進階MCC Code</th><td>5311-ONLINE</td></tr><tr class="full-row"><th>special MCC 附件</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>小微商戶</th><td>-</td></tr><tr><th>SME 設定</th><td>-</td></tr><tr><th>成立日期</th><td>2018-03-16</td></tr><tr><th>法律地位</th><td>Limited Company</td></tr><tr><th>僱員人數</th><td>126</td></tr><tr><th>注冊資本</th><td>HKD 5,000,000</td></tr><tr><th>周年申報表/法團成立表(非必須)</th><td><a href='#'>查看文件（示例）</a></td></tr><tr><th>企业成立/适用法国家</th><td>-</td></tr><tr><th>企业治理法律所在国</th><td>-</td></tr><tr><th>企业税务申报分类</th><td>-</td></tr><tr><th>企业税务业务类型</th><td>-</td></tr><tr><th>公司層級</th><td>-</td></tr></tbody></table></div></section>
+<section class="card"><h3>企业联系</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>公司電話</th><td>+852 3188 2211</td></tr><tr><th>手提電話</th><td>+852 6123 8899</td></tr><tr><th>管理員電郵</th><td>admin@starriver.hk</td></tr><tr><th>運營電郵</th><td>ops@starriver.hk</td></tr><tr><th>接收營銷資訊</th><td>-</td></tr><tr><th>接收營銷資訊</th><td>-</td></tr><tr><th>微信ID</th><td>starriver_ops</td></tr><tr><th>企业电话类型</th><td>-</td></tr></tbody></table></div></section>
+<section class="card"><h3>BL / AH</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>业务线ID</th><td>BL-20019</td></tr><tr><th>业务线类型</th><td>线下收单</td></tr><tr><th>销售渠道</th><td>直销</td></tr><tr><th>资金流/清算模式</th><td>T+1</td></tr><tr><th>账户持有人ID</th><td>AH-99201</td></tr><tr><th>账户持有人关联LE ID</th><td>LE-782993</td></tr><tr><th>账户持有人描述</th><td>企业对公结算户</td></tr><tr><th>账户持有人参考号</th><td>AH-REF-20260405</td></tr><tr><th>账户持有人状态</th><td>Active</td></tr><tr><th>账户持有人地址-街道</th><td>-</td></tr><tr><th>账户持有人地址-门牌号</th><td>-</td></tr><tr><th>账户持有人地址-城市</th><td>香港</td></tr><tr><th>账户持有人地址-州/省</th><td>-</td></tr><tr><th>账户持有人地址-邮编</th><td>-</td></tr><tr><th>账户持有人地址-国家</th><td>HK</td></tr><tr><th>账户持有人邮箱</th><td>settlement@starriver.hk</td></tr><tr><th>账户持有人电话</th><td>+852 3188 2211</td></tr><tr><th>账户持有人电话类型</th><td>-</td></tr></tbody></table></div></section>
+<section class="card"><h3>注册地址</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>注册地址-邮编</th><td>999077</td></tr><tr><th>注册地址-国家</th><td>HK</td></tr></tbody></table></div></section>
+<section class="card"><h3>主要营业地址</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>主要营业地址-街道</th><td>-</td></tr><tr><th>主要营业地址-补充地址</th><td>-</td></tr><tr><th>主要营业地址-邮编</th><td>999077</td></tr><tr><th>主要营业地址-国家</th><td>HK</td></tr></tbody></table></div></section>
+
+<section class="card"><h3>拥有设备</h3>
+  <table><thead><tr><th>设备名称</th><th>数量</th><th>价格</th><th>该设备类型总价</th></tr></thead>
+  <tbody>
+    <tr><td>KPOS-A8</td><td>26</td><td>HKD 1,280 ~ 1,450（按门店/批次）</td><td>HKD 35,460</td></tr>
+    <tr><td>KIOSK-K2</td><td>8</td><td>HKD 2,980 ~ 3,150（按门店/批次）</td><td>HKD 24,420</td></tr>
+    <tr><td>Dock-D150</td><td>31</td><td>HKD 150</td><td>HKD 4,650</td></tr>
+  </tbody></table>
+  <div class="purchase-total">全部设备总价：HKD 64,530</div>
+  <div style="margin-top:10px;"><button class="btn" data-open-link-modal>查看设备采购单</button></div>
+</section>
+
+
+<section class="card"><h3>相关公司（董事/股东关系推导）</h3>
+  <div class="notice">系统按当前企业关联人员中“董事/股东”角色检索其他企业并去重展示，排除当前企业自身。</div>
+  <table><thead><tr><th>相關公司中文名稱</th><th>相關公司英文名稱</th><th>相關公司持份比例</th><th>相關公司成立地點</th><th>相關公司營運地點</th><th>相關公司身份</th><th>相關公司附件</th><th>相關公司備註</th><th>相關公司曾用名</th></tr></thead>
+  <tbody>
+    <tr><td>星河供應鏈有限公司</td><td>Star River Supply Chain Limited</td><td>35%</td><td>香港</td><td>香港/深圳</td><td>股东（共同人员：林家豪）</td><td><a href="#">查看附件</a></td><td>命中2位共同人员，结果已去重</td><td>-</td></tr>
+    <tr><td>銀峰零售控股有限公司</td><td>Silver Peak Retail Holdings Ltd.</td><td>20%</td><td>新加坡</td><td>新加坡</td><td>董事（共同人员：陈嘉文）</td><td><a href="#">查看附件</a></td><td>-</td><td>Silver Peak Commerce Pte.</td></tr>
+  </tbody></table>
+</section>
+
+<section class="card"><h3>审批意见 / 事件记录</h3><div class="timeline"><div class="timeline-item"><strong>2026-04-06 11:08</strong><span>风控复核：邮箱变更已完成真实性校验。</span></div><div class="timeline-item"><strong>2026-04-05 14:20</strong><span>ce_amy 提交企业资料变更申请。</span></div><div class="timeline-item"><strong>2026-03-28 09:12</strong><span>ops_wb 完成企业税号更新（已通过）。</span></div></div></section>
+</main></div>
+<div class="modal-mask" id="contract-link-modal"><div class="modal" style="width:min(980px,94vw);max-height:80vh;overflow:auto;"><h3>设备采购批次明细（按 批次 -> 门店 -> 设备）</h3>
+  <div class="batch-block">
+    <div class="batch-head"><strong>批次：PO-2026-03-18-01 / 春季终端补货</strong><span class="badge info">待入库</span></div>
+    <div class="batch-meta"><div>采购时间：2026-03-18 14:22</div><div>发起人：ops_hk_02</div><div>审核状态：已通过</div><div>采购单状态：部分到货</div><div>批次总价：HKD 28,110</div><div>关联门店：2</div></div>
+    <div class="store-sub"><h5>门店：星河商城·观塘店（SID-330019）</h5><table><thead><tr><th>设备类型</th><th>数量</th><th>价格</th><th>小计</th></tr></thead><tbody><tr><td>KPOS-A8</td><td>6</td><td>HKD 1,320</td><td>HKD 7,920</td></tr><tr><td>Dock-D150</td><td>6</td><td>HKD 150</td><td>HKD 900</td></tr></tbody></table></div>
+    <div class="store-sub"><h5>门店：星河商城·铜锣湾店（SID-330031）</h5><table><thead><tr><th>设备类型</th><th>数量</th><th>价格</th><th>小计</th></tr></thead><tbody><tr><td>KIOSK-K2</td><td>4</td><td>HKD 3,050</td><td>HKD 12,200</td></tr><tr><td>KPOS-A8</td><td>5</td><td>HKD 1,350</td><td>HKD 6,750</td></tr><tr><td>Dock-D150</td><td>2</td><td>HKD 170</td><td>HKD 340</td></tr></tbody></table></div>
+  </div>
+  <div class="batch-block">
+    <div class="batch-head"><strong>批次：PO-2026-04-02-05 / 新店开业设备</strong><span class="badge success">已完成</span></div>
+    <div class="batch-meta"><div>采购时间：2026-04-02 10:05</div><div>发起人：ce_lina</div><div>审核状态：已通过</div><div>采购单状态：已完成</div><div>批次总价：HKD 36,420</div><div>关联门店：3</div></div>
+    <div class="store-sub"><h5>门店：星河商城·九龙湾店（SID-330118）</h5><table><thead><tr><th>设备类型</th><th>数量</th><th>价格</th><th>小计</th></tr></thead><tbody><tr><td>KPOS-A8</td><td>8</td><td>HKD 1,280</td><td>HKD 10,240</td></tr><tr><td>Dock-D150</td><td>8</td><td>HKD 150</td><td>HKD 1,200</td></tr></tbody></table></div>
+    <div class="store-sub"><h5>门店：星河商城·旺角店（SID-330131）</h5><table><thead><tr><th>设备类型</th><th>数量</th><th>价格</th><th>小计</th></tr></thead><tbody><tr><td>KIOSK-K2</td><td>4</td><td>HKD 2,980</td><td>HKD 11,920</td></tr></tbody></table></div>
+    <div class="store-sub"><h5>门店：星河商城·荃湾店（SID-330167）</h5><table><thead><tr><th>设备类型</th><th>数量</th><th>价格</th><th>小计</th></tr></thead><tbody><tr><td>KPOS-A8</td><td>7</td><td>HKD 1,450</td><td>HKD 10,150</td></tr><tr><td>Dock-D150</td><td>15</td><td>HKD 194</td><td>HKD 2,910</td></tr></tbody></table></div>
+  </div>
+  <div class="modal-actions"><button class="btn" data-close-modal>关闭</button></div>
+</div></div>
+<script src="../app.js"></script></body></html>
