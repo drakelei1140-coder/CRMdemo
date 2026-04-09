@@ -1,6 +1,28 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>企业详情</title><link rel="stylesheet" href="../styles.css"/></head>
-<body><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">商户管理 / 企业管理 / 企业详情</div><h1 class="page-title">企业详情 - CID-100238</h1><p class="page-subtitle">企业信息区域完整覆盖 CID 全字段。</p></div><div class="page-actions"><a class="btn primary" href="company-edit.html">编辑</a></div></header>
+<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>企业详情</title><link rel="stylesheet" href="../styles.css"/><style>
+body.detail-page{height:100vh;overflow:hidden;}
+body.detail-page .layout{height:calc(100vh - 56px);}
+body.detail-page .sidebar{position:sticky;top:0;height:calc(100vh - 56px);overflow-y:auto;}
+body.detail-page .main{height:calc(100vh - 56px);overflow-y:auto;padding:20px 24px 28px;}
+body.detail-page .page-head{position:sticky;top:0;z-index:5;padding:4px 0 14px;margin-bottom:16px;background:linear-gradient(180deg,var(--bg) 72%,rgba(243,245,248,0));}
+body.detail-page .field-table-wrap{border:0;box-shadow:none;background:transparent;overflow:visible;}
+body.detail-page .field-table{width:100%;border-collapse:separate;border-spacing:0;}
+body.detail-page .field-table tbody{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+body.detail-page .field-table tr{display:grid;grid-template-columns:180px minmax(0,1fr);border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;background:#fff;min-height:52px;}
+body.detail-page .field-table tr.full-row{grid-column:1 / -1;}
+body.detail-page .field-table th,body.detail-page .field-table td{border-bottom:0;padding:12px 14px;}
+body.detail-page .field-table th{background:#f8fafc;color:#475569;font-size:13px;}
+body.detail-page .field-table td{word-break:break-word;color:#0f172a;}
+@media (max-width:1200px){
+  body.detail-page{overflow:auto;}
+  body.detail-page .layout{height:auto;min-height:calc(100vh - 56px);}
+  body.detail-page .main{height:auto;overflow:visible;padding:16px;}
+  body.detail-page .page-head{position:static;background:transparent;padding:0;margin-bottom:12px;}
+  body.detail-page .field-table tbody{grid-template-columns:1fr;}
+  body.detail-page .field-table tr,body.detail-page .field-table tr.full-row{grid-column:auto;grid-template-columns:140px minmax(0,1fr);}
+}
+</style></head>
+<body class="detail-page"><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">商户管理 / 企业管理 / 企业详情</div><h1 class="page-title">企业详情 - CID-100238</h1><p class="page-subtitle">企业信息区域完整覆盖 CID 全字段。</p></div><div class="page-actions"><a class="btn primary" href="company-edit.html">编辑</a></div></header>
 <section class="card"><h3>关联摘要</h3><div class="grid-2"><dl class="kv"><dt>关联商铺</dt><dd>6 家</dd></dl><dl class="kv"><dt>关联商户</dt><dd>4 个 MID</dd></dl></div></section>
 <section class="card"><h3>主键 / 关联</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>CID</th><td>CID-100238</td></tr>
 <tr><th>企业LE ID</th><td>LE-782993</td></tr>
@@ -219,4 +241,16 @@
 <tr><th>账户持有人电话类型</th><td>-</td></tr></tbody></table></div></section>
 <section class="card"><h3>关联商铺列表</h3><table><thead><tr><th>商铺ID</th><th>商铺名称</th><th>商铺地址</th><th>关联本平台MID</th><th>操作</th></tr></thead><tbody><tr><td>SID-330019</td><td>星河商城·观塘店</td><td>香港九龙观塘开源道81号</td><td>2（MID-882193、MID-882880）</td><td><a href="store-detail.html" target="_blank">打开商铺详情</a></td></tr><tr><td>SID-330020</td><td>星河商城·尖沙咀店</td><td>香港尖沙咀弥敦道188号</td><td>1（MID-882601）</td><td><a href="store-detail.html" target="_blank">打开商铺详情</a></td></tr></tbody></table></section>
 <section class="card"><h3>修改记录时间轴</h3><div class="timeline"><div class="timeline-item"><strong>2026-04-05 14:20</strong><span>联系人邮箱 old-contact@kpay-demo.com → new-contact@kpay-demo.com</span></div></div></section>
-</main></div><script src="../app.js"></script></body></html>
+</main></div><script src="../app.js"></script><script>
+(function(){
+  document.querySelectorAll('.field-table tbody tr').forEach(function(row){
+    var keyEl=row.querySelector('th');
+    var valEl=row.querySelector('td');
+    if(!keyEl||!valEl) return;
+    var key=keyEl.textContent.trim();
+    var val=valEl.textContent.trim();
+    var isLong=key.length>=18||val.length>=52||key.indexOf('（原始全文）')>-1||valEl.querySelector('.three-select,select,textarea')!==null;
+    if(isLong){ row.classList.add('full-row'); }
+  });
+})();
+</script></body></html>

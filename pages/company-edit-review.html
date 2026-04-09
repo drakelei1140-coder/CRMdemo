@@ -1,6 +1,28 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>企业资料修改待审核详情</title><link rel="stylesheet" href="../styles.css"/></head>
-<body><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">修改待审核 / 企业资料 / 详情</div><h1 class="page-title">企业资料修改待审核详情</h1><p class="page-subtitle">保留审核上下文，并复用企业全字段信息结构。</p></div><div class="page-actions"><button class="btn primary">审批通过</button><button class="btn danger">驳回</button></div></header>
+<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>企业资料修改待审核详情</title><link rel="stylesheet" href="../styles.css"/><style>
+body.detail-page{height:100vh;overflow:hidden;}
+body.detail-page .layout{height:calc(100vh - 56px);}
+body.detail-page .sidebar{position:sticky;top:0;height:calc(100vh - 56px);overflow-y:auto;}
+body.detail-page .main{height:calc(100vh - 56px);overflow-y:auto;padding:20px 24px 28px;}
+body.detail-page .page-head{position:sticky;top:0;z-index:5;padding:4px 0 14px;margin-bottom:16px;background:linear-gradient(180deg,var(--bg) 72%,rgba(243,245,248,0));}
+body.detail-page .field-table-wrap{border:0;box-shadow:none;background:transparent;overflow:visible;}
+body.detail-page .field-table{width:100%;border-collapse:separate;border-spacing:0;}
+body.detail-page .field-table tbody{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;}
+body.detail-page .field-table tr{display:grid;grid-template-columns:180px minmax(0,1fr);border:1px solid #e2e8f0;border-radius:10px;overflow:hidden;background:#fff;min-height:52px;}
+body.detail-page .field-table tr.full-row{grid-column:1 / -1;}
+body.detail-page .field-table th,body.detail-page .field-table td{border-bottom:0;padding:12px 14px;}
+body.detail-page .field-table th{background:#f8fafc;color:#475569;font-size:13px;}
+body.detail-page .field-table td{word-break:break-word;color:#0f172a;}
+@media (max-width:1200px){
+  body.detail-page{overflow:auto;}
+  body.detail-page .layout{height:auto;min-height:calc(100vh - 56px);}
+  body.detail-page .main{height:auto;overflow:visible;padding:16px;}
+  body.detail-page .page-head{position:static;background:transparent;padding:0;margin-bottom:12px;}
+  body.detail-page .field-table tbody{grid-template-columns:1fr;}
+  body.detail-page .field-table tr,body.detail-page .field-table tr.full-row{grid-column:auto;grid-template-columns:140px minmax(0,1fr);}
+}
+</style></head>
+<body class="detail-page"><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">修改待审核 / 企业资料 / 详情</div><h1 class="page-title">企业资料修改待审核详情</h1><p class="page-subtitle">保留审核上下文，并复用企业全字段信息结构。</p></div><div class="page-actions"><button class="btn primary">审批通过</button><button class="btn danger">驳回</button></div></header>
 <section class="card"><h3>事件上下文</h3><dl class="kv"><dt>事件名称</dt><dd>企业联系人信息修改</dd></dl><dl class="kv"><dt>事件类型</dt><dd>主数据变更申请</dd></dl><dl class="kv"><dt>发起方 / 发起人</dt><dd>CE / ce_amy</dd></dl><dl class="kv"><dt>发起时间</dt><dd>2026-04-05 14:20</dd></dl><dl class="kv"><dt>当前审核状态</dt><dd><span class="badge warning">待审核</span></dd></dl></section>
 <section class="card"><h3>本次修改字段</h3><table><thead><tr><th>字段名</th><th>旧数据</th><th>新数据</th></tr></thead><tbody><tr><td>電郵地址</td><td>old-contact@kpay-demo.com</td><td>new-contact@kpay-demo.com</td></tr><tr><td>終端持有數量</td><td>10</td><td>12</td></tr><tr><td>配件型號</td><td>Dock-D120</td><td>Dock-D150</td></tr></tbody></table></section>
 <section class="card"><h3>主键 / 关联</h3><div class="table-wrap field-table-wrap"><table class="field-table"><tbody><tr><th>CID</th><td>CID-100238</td></tr>
@@ -219,4 +241,16 @@
 <tr><th>账户持有人电话</th><td>-</td></tr>
 <tr><th>账户持有人电话类型</th><td>-</td></tr></tbody></table></div></section>
 <section class="card"><h3>历史修改时间轴（多次记录）</h3><div class="timeline"><div class="timeline-item"><strong>2026-04-05 14:20</strong><span>ce_amy 发起：联系人邮箱 old-contact@kpay-demo.com → new-contact@kpay-demo.com</span></div><div class="timeline-item"><strong>2026-03-18 11:40</strong><span>ops_lee 发起：注册地址 九龙旧址12F → 九龙观塘伟业街202号18F（已通过）</span></div><div class="timeline-item"><strong>2026-02-10 09:30</strong><span>ce_mina 发起：财务联系人 陈敏 → 李慧敏（已通过）</span></div></div></section>
-</main></div><script src="../app.js"></script></body></html>
+</main></div><script src="../app.js"></script><script>
+(function(){
+  document.querySelectorAll('.field-table tbody tr').forEach(function(row){
+    var keyEl=row.querySelector('th');
+    var valEl=row.querySelector('td');
+    if(!keyEl||!valEl) return;
+    var key=keyEl.textContent.trim();
+    var val=valEl.textContent.trim();
+    var isLong=key.length>=18||val.length>=52||key.indexOf('（原始全文）')>-1||valEl.querySelector('.three-select,select,textarea')!==null;
+    if(isLong){ row.classList.add('full-row'); }
+  });
+})();
+</script></body></html>
