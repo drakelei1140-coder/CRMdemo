@@ -1,1 +1,33 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>企业管理列表</title><link rel="stylesheet" href="../styles.css"/></head><body><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">商户管理 / 企业管理</div><h1 class="page-title">企业管理</h1><p class="page-subtitle">对象管理入口页，详情/编辑通过操作列进入。</p></div><div class="page-actions"><a href="company-edit.html" class="btn primary">新增企业</a></div></header><section class="toolbar"><input class="input" placeholder="企业名称 / CID / 统一社会信用代码"/><select><option>状态：全部</option><option>正常</option><option>待审核</option></select><select><option>主体类型：全部</option><option>有限公司</option></select><button class="btn">查询</button><button class="btn">重置</button></section><section class="table-wrap"><table><thead><tr><th>CID</th><th>企业名称</th><th>地区</th><th>关联商铺</th><th>状态</th><th>更新时间</th><th>操作</th></tr></thead><tbody><tr><td>CID-100238</td><td>星河数字科技（香港）有限公司</td><td>香港</td><td>6</td><td><span class="badge success">正常</span></td><td>2026-04-03 16:20</td><td><a href="company-detail.html">查看详情</a> | <a href="company-edit.html">编辑</a></td></tr><tr><td>CID-100241</td><td>南城连锁餐饮管理有限公司</td><td>澳门</td><td>14</td><td><span class="badge warning">资料待审核</span></td><td>2026-04-02 10:52</td><td><a href="company-detail.html">查看详情</a> | <a href="company-edit.html">编辑</a></td></tr></tbody></table></section><div class="pagination"><span>共 128 条，当前第 1 / 13 页</span><div class="page-actions"><button class="btn">上一页</button><button class="btn">下一页</button></div></div></main></div><script src="../app.js"></script></body></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>企业管理列表</title><link rel="stylesheet" href="../styles.css"/></head>
+<body><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">商户管理 / 企业管理</div><h1 class="page-title">企业管理</h1><p class="page-subtitle">企业主数据列表（OPS/风控高频字段）。</p></div><div class="page-actions"><a href="company-edit.html" class="btn primary">新增企业</a></div></header>
+<section class="toolbar">
+<input class="input" placeholder="CID"/>
+<input class="input" placeholder="商戶中文名稱"/>
+<input class="input" placeholder="商戶英文名稱"/>
+<input class="input" placeholder="商戶中文簡稱"/>
+<input class="input" placeholder="商戶英文簡稱"/>
+<select><option>公司模式：全部</option><option>有限公司</option><option>獨資</option></select>
+<select><option>法律地位：全部</option><option>Private Limited</option><option>Sole Proprietor</option></select>
+<select><option>公司結構：全部</option><option>母公司</option><option>子公司</option></select>
+<div class="triple-inline"><span class="triple-label">行業分類/業務性質/產品服務</span><select><option>全部行業分類</option><option>零售</option></select><select><option>全部業務性質</option><option>百貨連鎖</option></select><select><option>全部產品服務</option><option>生活用品銷售</option></select></div>
+<input class="input" placeholder="MCC Code"/>
+<input class="input" placeholder="進階MCC Code"/>
+<div class="range-inline"><span>成立日期</span><input class="input" type="date"/><span>至</span><input class="input" type="date"/></div>
+<div class="range-inline"><span>經營年限</span><input class="input" placeholder="最小"/><span>-</span><input class="input" placeholder="最大"/></div>
+<select><option>風險等級：全部</option><option>低風險</option><option>中風險</option><option>高風險</option></select>
+<select><option>是否高額商戶：全部</option><option>是</option><option>否</option></select>
+<select><option>小微商戶：全部</option><option>是</option><option>否</option></select>
+<div class="range-inline"><span>平均每月營業額</span><input class="input" placeholder="最小"/><span>-</span><input class="input" placeholder="最大"/></div>
+<div class="range-inline"><span>每宗交易平均金額</span><input class="input" placeholder="最小"/><span>-</span><input class="input" placeholder="最大"/></div>
+<div class="range-inline"><span>每宗交易最大交易額</span><input class="input" placeholder="最小"/><span>-</span><input class="input" placeholder="最大"/></div>
+<input class="input" placeholder="公司電話"/>
+<input class="input" placeholder="電郵地址"/>
+<select><option>上單來源：全部</option><option>CE</option><option>OPS</option></select>
+<select><option>審核類型：全部</option><option>標準審核</option><option>加強審核</option></select>
+<select><option>商戶營業狀態(企業口徑)：全部</option><option>營業中</option><option>暫停營業</option></select>
+<button class="btn">查询</button><button class="btn">重置</button></section>
+<section class="table-wrap"><table><thead><tr><th>CID</th><th>商戶中文名稱</th><th>商戶英文名稱</th><th>商戶中文簡稱</th><th>公司模式</th><th>法律地位</th><th>公司結構</th><th>行業分類/業務性質/產品服務</th><th>MCC Code</th><th>進階MCC Code</th><th>成立日期</th><th>經營年限</th><th>風險等級</th><th>是否高額商戶</th><th>小微商戶</th><th>平均每月營業額</th><th>每宗交易平均金額</th><th>每宗交易最大交易額</th><th>公司電話</th><th>電郵地址</th><th>上單來源</th><th>審核類型</th><th>商戶營業狀態(企業口徑)</th><th>操作</th></tr></thead>
+<tbody><tr><td>CID-100238</td><td>星河數字科技（香港）有限公司</td><td>Galaxy Digital Tech (HK) Limited</td><td>星河數科</td><td>有限公司</td><td>Private Limited</td><td>母公司</td><td>零售 / 百貨連鎖 / 生活用品銷售</td><td>5311</td><td>531101</td><td>2018-03-12</td><td>8</td><td><span class="badge info">中風險</span></td><td>否</td><td>否</td><td>HKD 1,800,000</td><td>HKD 420</td><td>HKD 28,000</td><td>+852 2818 2999</td><td>ops@galaxy-demo.hk</td><td>CE</td><td>標準審核</td><td><span class="badge success">營業中</span></td><td><a href="company-detail.html">查看详情</a><span class="op-sep">|</span><a href="company-edit.html">编辑</a></td></tr></tbody></table></section>
+<div class="pagination"><span>共 128 条，当前第 1 / 13 页</span><div class="page-actions"><button class="btn">上一页</button><button class="btn">下一页</button></div></div>
+</main></div><script src="../app.js"></script></body></html>
