@@ -263,6 +263,25 @@
     });
   }
 
+
+  function setupImagePreview() {
+    var previewModal = document.getElementById('image-preview-modal');
+    if (!previewModal) return;
+    var target = previewModal.querySelector('#image-preview-target');
+    var openers = document.querySelectorAll('[data-preview-src]');
+    openers.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var src = btn.getAttribute('data-preview-src') || '';
+        var alt = btn.getAttribute('data-preview-alt') || '图片预览';
+        if (target) { target.src = src; target.alt = alt; }
+        previewModal.style.display = 'flex';
+      });
+    });
+    previewModal.querySelectorAll('[data-close-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () { previewModal.style.display = 'none'; });
+    });
+  }
+
   function setupContractActions() {
     var modal = document.getElementById('contract-link-modal');
     if (modal) {
@@ -299,4 +318,5 @@
   normalizeToolbarActions();
   setupCollapsibleToolbars();
   setupContractActions();
+  setupImagePreview();
 })();
