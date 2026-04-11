@@ -1,102 +1,11 @@
 <!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>商户详情</title>
-  <link rel="stylesheet" href="../styles.css"/>
-</head>
-<body>
-<div class="layout">
-  <aside class="sidebar"></aside>
-  <main class="main">
-    <header class="page-head">
-      <div class="page-head-left">
-        <div class="breadcrumb">商户管理 / 商户详情</div>
-        <h1 class="page-title">商户详情 - MID-882193</h1>
-        <p class="page-subtitle">本平台MID主体详情页，包含关联第三方通道MID与进件联动入口。</p>
-      </div>
-      <div class="page-actions">
-        <a class="btn" href="aft-snapshot.html">查看快照</a>
-        <a class="btn primary" href="merchant-edit-review.html">编辑（需审核）</a>
-      </div>
-    </header>
-
-    <section class="card">
-      <h3>顶部状态区</h3>
-      <div class="status-strip">
-        <div class="metric"><div class="label">签约状态</div><div class="value"><span class="badge warning">待签约</span></div></div>
-        <div class="metric"><div class="label">本平台MID</div><div class="value">MID-882193</div></div>
-        <div class="metric"><div class="label">关联通道数</div><div class="value">2</div></div>
-        <div class="metric"><div class="label">最近同步</div><div class="value">2026-04-05 09:33</div></div>
-      </div>
-    </section>
-
-    <div class="grid-2">
-      <section class="card">
-        <h3>企业信息</h3>
-        <dl class="kv"><dt>企业名称</dt><dd>星河数字科技（香港）有限公司</dd></dl>
-        <dl class="kv"><dt>CID</dt><dd>CID-100238</dd></dl>
-      </section>
-      <section class="card">
-        <h3>商铺信息</h3>
-        <dl class="kv"><dt>商铺名称</dt><dd>星河商城·观塘店</dd></dl>
-        <dl class="kv"><dt>SID</dt><dd>SID-330019</dd></dl>
-      </section>
-    </div>
-
-    <section class="card">
-      <h3>商户申请信息</h3>
-      <div class="grid-2">
-        <dl class="kv"><dt>申请单号</dt><dd>DMO-APPLY-20260329-1192</dd></dl>
-        <dl class="kv"><dt>结算账户</dt><dd>HSBC ****001</dd></dl>
-      </div>
-    </section>
-
-    <section class="card">
-      <h3>关联第三方渠道MID</h3>
-      <table>
-        <thead><tr><th>通道名称</th><th>通道MID</th><th>当前状态</th><th>最新第三方返回原因</th><th>操作</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Adyen_AFP</td><td>AFP-MID-112890</td><td><span class="badge warning">待补件</span></td><td>UBO地址证明过期</td>
-            <td><a href="aft-task-detail.html?platformMid=MID-882193&channelMid=AFP-MID-112890">查看进件状态</a><span class="op-sep">|</span><button class="btn text" data-open-channel-profile>查看渠道专属信息</button></td>
-          </tr>
-          <tr>
-            <td>Adyen_payfac</td><td>PF-MID-773301</td><td><span class="badge info">审核中</span></td><td>KYC二阶段审核中</td>
-            <td><a href="aft-task-detail.html?platformMid=MID-882193&channelMid=PF-MID-773301">查看进件状态</a><span class="op-sep">|</span><button class="btn text" data-open-channel-profile>查看渠道专属信息</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-    <section class="card">
-      <h3>状态时间轴</h3>
-      <div class="timeline">
-        <div class="timeline-item"><strong>2026-04-05 09:33</strong><span>Adyen_AFP 返回：待补件（UBO地址证明过期）</span></div>
-        <div class="timeline-item"><strong>2026-04-03 17:40</strong><span>完成基础审核并送第三方通道</span></div>
-      </div>
-    </section>
-  </main>
-</div>
-
-<div class="modal-mask" id="channel-profile-modal">
-  <div class="modal">
-    <h3>渠道专属信息（AFP）</h3>
-    <table>
-      <thead><tr><th>对象</th><th>状态</th><th>说明</th></tr></thead>
-      <tbody>
-        <tr><td>MA</td><td><span class="badge success">已创建</span></td><td>MerchantAccount 已创建</td></tr>
-        <tr><td>BL</td><td><span class="badge success">已创建</span></td><td>BusinessLine 已创建</td></tr>
-        <tr><td>AH</td><td><span class="badge warning">待补件</span></td><td>需更新UBO地址证明</td></tr>
-        <tr><td>BA</td><td><span class="badge muted">待创建</span></td><td>BankAccount 未完成校验</td></tr>
-        <tr><td>LE</td><td><span class="badge success">已创建</span></td><td>LegalEntity 已创建</td></tr>
-      </tbody>
-    </table>
-    <div class="modal-actions"><button class="btn" data-close-modal>关闭</button></div>
-  </div>
-</div>
-
-<script src="../app.js"></script>
-</body>
-</html>
+<html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>商户审核详情</title><link rel="stylesheet" href="../styles.css"/></head>
+<body><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">商户管理 / 商户审核 / 详情</div><h1 class="page-title">商户审核详情 - MID-882193</h1><p class="page-subtitle">完整展示 MID + CID + SID 字段，支持新标签查看企业/商铺详情。</p></div><div class="page-actions"><a class="btn" href="aft-snapshot.html" target="_blank" rel="noopener">查看快照</a><a class="btn primary" href="merchant-edit.html" target="_blank" rel="noopener">编辑</a></div></header>
+<section class="card"><div class="tabs"><button class="tab active" data-tab-group="merchant-detail" data-tab-target="tab-mid">商户信息</button><button class="tab" data-tab-group="merchant-detail" data-tab-target="tab-cid">企业信息</button><button class="tab" data-tab-group="merchant-detail" data-tab-target="tab-sid">商铺信息</button><button class="tab" data-tab-group="merchant-detail" data-tab-target="tab-afp">AFP/通道信息</button><button class="tab" data-tab-group="merchant-detail" data-tab-target="tab-trace">审核记录/时间轴</button><button class="tab" data-tab-group="merchant-detail" data-tab-target="tab-person">相关人员信息</button></div></section>
+<section class="card" data-tab-panel="merchant-detail" id="tab-mid"><h3>商户信息（MID表）</h3><div class="grid-2"><dl class="kv"><dt>MID</dt><dd>MID-882193</dd></dl><dl class="kv"><dt>商户名称</dt><dd>星河商城收单主体</dd></dl><dl class="kv"><dt>商户英文名称</dt><dd>Star River Mall Merchant</dd></dl><dl class="kv"><dt>进件通道</dt><dd>Adyen_AFP</dd></dl><dl class="kv"><dt>渠道编码</dt><dd>CHN-AFP-HK-01</dd></dl><dl class="kv"><dt>服务编码</dt><dd>SVC-PAYMENT-01</dd></dl><dl class="kv"><dt>结算账户</dt><dd>HSBC ****001</dd></dl><dl class="kv"><dt>结算币种</dt><dd>HKD</dd></dl><dl class="kv"><dt>商户状态</dt><dd><span class="badge warning">待审核</span></dd></dl><dl class="kv"><dt>AFP状态</dt><dd><span class="badge info">待补件</span></dd></dl><dl class="kv"><dt>提交时间</dt><dd>2026-04-05 16:31</dd></dl><dl class="kv"><dt>更新时间</dt><dd>2026-04-10 10:25</dd></dl></div></section>
+<section class="card" data-tab-panel="merchant-detail" id="tab-cid" style="display:none;"><h3>企业信息（CID表）</h3><div class="page-actions" style="margin-bottom:10px;"><a class="btn" href="company-detail.html" target="_blank" rel="noopener">查看企业详情</a></div><div class="grid-2"><dl class="kv"><dt>CID</dt><dd>CID-100238</dd></dl><dl class="kv"><dt>商戶中文名稱</dt><dd>星河数字科技（香港）有限公司</dd></dl><dl class="kv"><dt>商戶英文名稱</dt><dd>Star River Digital Technology (HK) Limited</dd></dl><dl class="kv"><dt>商戶中文簡稱</dt><dd>星河数字</dd></dl><dl class="kv"><dt>商戶英文簡稱</dt><dd>Star River</dd></dl><dl class="kv"><dt>企業营业名称 / DBA</dt><dd>Star River Tech HK</dd></dl><dl class="kv"><dt>MCC Code</dt><dd>5311</dd></dl><dl class="kv"><dt>進階MCC Code</dt><dd>5311-ONLINE</dd></dl><dl class="kv"><dt>公司模式</dt><dd>有限公司</dd></dl><dl class="kv"><dt>法律地位</dt><dd>Limited Company</dd></dl><dl class="kv"><dt>成立日期</dt><dd>2018-03-16</dd></dl><dl class="kv"><dt>註冊辦事處地址</dt><dd>香港九龍觀塘偉業街202號18F</dd></dl><dl class="kv"><dt>電郵地址</dt><dd>ops@starriver.hk</dd></dl><dl class="kv"><dt>公司電話</dt><dd>+852 3188 2211</dd></dl><dl class="kv"><dt>管理員電郵</dt><dd>admin@starriver.hk</dd></dl><dl class="kv"><dt>上單來源</dt><dd>CE</dd></dl></div></section>
+<section class="card" data-tab-panel="merchant-detail" id="tab-sid" style="display:none;"><h3>商铺信息（SID表）</h3><div class="page-actions" style="margin-bottom:10px;"><a class="btn" href="store-detail.html" target="_blank" rel="noopener">查看商铺详情</a></div><div class="grid-2"><dl class="kv"><dt>SID</dt><dd>SID-330019</dd></dl><dl class="kv"><dt>商铺中文名称</dt><dd>星河商城·观塘店</dd></dl><dl class="kv"><dt>商铺英文名称</dt><dd>Star River Mall - Kwun Tong</dd></dl><dl class="kv"><dt>门店类型</dt><dd>零售门店</dd></dl><dl class="kv"><dt>门店状态</dt><dd><span class="badge success">经营中</span></dd></dl><dl class="kv"><dt>门店联系电话</dt><dd>+852 3188 6621</dd></dl><dl class="kv"><dt>门店联系邮箱</dt><dd>store.kt@starriver.hk</dd></dl><dl class="kv"><dt>主要营业地址（中文）</dt><dd>香港九龍觀塘開源道81號地舖</dd></dl><dl class="kv"><dt>主要营业地址（英文）</dt><dd>G/F, 81 Hoi Yuen Road, Kwun Tong</dd></dl><dl class="kv"><dt>营业国家/地区</dt><dd>HK / 九龙</dd></dl><dl class="kv"><dt>Website(Desktop)</dt><dd>https://store.starriver.hk</dd></dl><dl class="kv"><dt>H5经营网址</dt><dd>https://h5.starriver.hk/kt</dd></dl><dl class="kv"><dt>每宗交易平均金额</dt><dd>420</dd></dl><dl class="kv"><dt>每宗交易最大交易额</dt><dd>28000</dd></dl><dl class="kv"><dt>预计每年交易宗数</dt><dd>180000</dd></dl><dl class="kv"><dt>平均每月营业额</dt><dd>1800000</dd></dl></div></section>
+<section class="card" data-tab-panel="merchant-detail" id="tab-afp" style="display:none;"><h3>AFP / 通道相关信息（MID表）</h3><table><thead><tr><th>对象</th><th>编号</th><th>状态</th><th>说明</th></tr></thead><tbody><tr><td>Account Holder</td><td>AH-9981</td><td><span class="badge warning">待补件</span></td><td>UBO地址证明过期</td></tr><tr><td>Balance Account</td><td>BA-2201</td><td><span class="badge info">审核中</span></td><td>银行账户校验中</td></tr><tr><td>Business Line</td><td>BL-5512</td><td><span class="badge success">已创建</span></td><td>线下门店业务线已开通</td></tr><tr><td>Transfer Instrument</td><td>TI-8722</td><td><span class="badge success">已创建</span></td><td>对公结算卡已绑定</td></tr><tr><td>Payment Method</td><td>PM-CARD-HK</td><td><span class="badge success">已启用</span></td><td>银行卡收款已启用</td></tr></tbody></table></section>
+<section class="card" data-tab-panel="merchant-detail" id="tab-trace" style="display:none;"><h3>审核记录 / 时间轴</h3><div class="timeline"><div class="timeline-item"><strong>2026-04-10 10:25</strong><span>OPS 提交补件，状态更新为待审核。</span></div><div class="timeline-item"><strong>2026-04-05 16:31</strong><span>CE 发起商户资料修改申请。</span></div><div class="timeline-item"><strong>2026-04-03 17:40</strong><span>完成基础审核并送第三方通道。</span></div></div></section>
+<section class="card" data-tab-panel="merchant-detail" id="tab-person" style="display:none;"><h3>相关人员信息</h3><table><thead><tr><th>角色</th><th>姓名</th><th>证件/人员ID</th><th>联系方式</th><th>邮箱</th></tr></thead><tbody><tr><td>授权签字人</td><td>陈嘉文</td><td>PER-9011</td><td>+852 6123 8899</td><td>admin@starriver.hk</td></tr><tr><td>财务联系人</td><td>林家豪</td><td>PER-9038</td><td>+852 6228 1902</td><td>finance@starriver.hk</td></tr></tbody></table></section>
+</main></div><script src="../app.js"></script></body></html>
