@@ -4,31 +4,32 @@
   var storageKey = 'kpay_nav_expanded_v1';
 
   var navTree = [
-    { id: 'home', label: '首页', href: 'index.html', icon: '🏠' },
-    { id: 'merchant', label: '商户管理', icon: '🧩', children: [
-      { id: 'company', label: '企业管理', href: 'pages/company-list.html' },
-      { id: 'store', label: '商铺管理', href: 'pages/store-list.html' },
-      { id: 'merchant-main', label: '商户审核', href: 'pages/merchant-list.html' },
-      { id: 'merchant-signed', label: '已签约商户', href: 'pages/merchant-signed-list.html' },
-      { id: 'merchant-cancel', label: '取消签约商户', href: 'pages/merchant-cancel-list.html' },
-      { id: 'merchant-reject', label: '拒绝签约商户', href: 'pages/merchant-reject-list.html' },
+    { id: 'home', label: '首页', href: 'index.html', icon: '⌂' },
+    { id: 'merchant', label: '商户管理', icon: '▦', children: [
+      { id: 'company', label: '企业管理', href: 'pages/company-list.html', icon: '▤' },
+      { id: 'store', label: '商铺管理', href: 'pages/store-list.html', icon: '▥' },
+      { id: 'merchant-main', label: '商户审核', href: 'pages/merchant-list.html', icon: '☑' },
+      { id: 'merchant-signed', label: '已签约商户', href: 'pages/merchant-signed-list.html', icon: '◧' },
+      { id: 'merchant-cancel', label: '取消签约商户', href: 'pages/merchant-cancel-list.html', icon: '◩' },
+      { id: 'merchant-reject', label: '拒绝签约商户', href: 'pages/merchant-reject-list.html', icon: '◫' },
       { id: 'review', label: '修改待审核', children: [
-        { id: 'review-company', label: '企业资料修改待审核', href: 'pages/company-edit-review-list.html' },
-        { id: 'review-store', label: '商铺资料修改待审核', href: 'pages/store-edit-review-list.html' },
-        { id: 'review-merchant', label: '商户资料修改待审核', href: 'pages/merchant-edit-review-list.html' }
+        { id: 'review-company', label: '企业资料修改待审核', href: 'pages/company-edit-review-list.html', icon: '☷' },
+        { id: 'review-store', label: '商铺资料修改待审核', href: 'pages/store-edit-review-list.html', icon: '☶' },
+        { id: 'review-merchant', label: '商户资料修改待审核', href: 'pages/merchant-edit-review-list.html', icon: '☵' }
       ] },
-      { id: 'aft', label: '商户进件', href: 'pages/aft-task-list.html' },
-      { id: 'mapping', label: '字段映射配置', href: 'pages/afp-mapping.html' }
+      { id: 'device-order', label: '终端设备申请/回收单审批', href: 'pages/store-device-order-list.html', icon: '⌸' },
+      { id: 'aft', label: '商户进件', href: 'pages/aft-task-list.html', icon: '◎' },
+      { id: 'mapping', label: '字段映射配置', href: 'pages/afp-mapping.html', icon: '◬' }
     ] },
-    { id: 'contract', label: '合约管理', icon: '📄', children: [
-      { id: 'contract-map', label: '字段映射配置', href: 'pages/contract-mapping.html' },
-      { id: 'contract-generated', label: '已生成的合约', href: 'pages/generated-contract-list.html' }
+    { id: 'contract', label: '合约管理', icon: '▣', children: [
+      { id: 'contract-map', label: '字段映射配置', href: 'pages/contract-mapping.html', icon: '◭' },
+      { id: 'contract-generated', label: '已生成的合约', href: 'pages/generated-contract-list.html', icon: '◮' }
     ] },
-    { id: 'other', label: '其他模块', icon: '⚙️', children: [
-      { id: 'os', label: 'O/S补件', href: 'pages/os-list.html' },
-      { id: 'channel', label: '通道管理', href: 'pages/channel-list.html' },
-      { id: 'channel-detail', label: 'AFP通道详情', href: 'pages/channel-afp-detail.html' },
-      { id: 'scope', label: '项目范围说明', href: 'pages/overview-scope.html' }
+    { id: 'other', label: '其他模块', icon: '◈', children: [
+      { id: 'os', label: 'O/S补件', href: 'pages/os-list.html', icon: '◍' },
+      { id: 'channel', label: '通道管理', href: 'pages/channel-list.html', icon: '◌' },
+      { id: 'channel-detail', label: 'AFP通道详情', href: 'pages/channel-afp-detail.html', icon: '◉' },
+      { id: 'scope', label: '项目范围说明', href: 'pages/overview-scope.html', icon: '◔' }
     ] }
   ];
 
@@ -42,7 +43,8 @@
     '商户进件': 'pages/aft-task-list.html',
     '合约管理': 'pages/contract-mapping.html',
     '已生成的合约': 'pages/generated-contract-list.html',
-    '修改待审核': 'pages/merchant-edit-review-list.html'
+    '修改待审核': 'pages/merchant-edit-review-list.html',
+    '终端设备申请/回收单审批': 'pages/store-device-order-list.html'
   };
 
   var descMap = {
@@ -56,6 +58,8 @@
     'store-edit.html': { text: '商铺新增编辑功能说明', href: 'pages/store-edit-desc.html' },
     'store-edit-review-list.html': { text: '商铺待审核功能说明', href: 'pages/store-edit-review-desc.html' },
     'store-edit-review.html': { text: '商铺待审核功能说明', href: 'pages/store-edit-review-desc.html' },
+    'store-device-order-list.html': { text: '终端设备申请单说明', href: 'pages/store-edit-review-desc.html' },
+    'store-device-order-detail.html': { text: '终端设备申请单说明', href: 'pages/store-edit-review-desc.html' },
     'merchant-list.html': { text: '商户管理功能说明', href: 'pages/merchant-list-desc.html' },
     'merchant-detail.html': { text: '商户详情功能说明', href: 'pages/merchant-detail-desc.html' },
     'merchant-edit-review-list.html': { text: '商户待审核功能说明', href: 'pages/merchant-edit-review-desc.html' },
@@ -121,7 +125,7 @@
       var a = document.createElement('a');
       a.href = resolveHref(item.href);
       a.className = 'nav-link level-' + level;
-      a.innerHTML = '<span class="nav-text">' + item.label + '</span>';
+      a.innerHTML = '<span class="nav-icon">' + (item.icon || '◦') + '</span><span class="nav-text">' + item.label + '</span>';
       if (normalize(item.href) === path) a.classList.add('active');
       li.appendChild(a);
     }
@@ -303,7 +307,7 @@
     if (midModal) midModal.querySelectorAll('[data-close-modal]').forEach(function (b) { b.addEventListener('click', function () { midModal.style.display = 'none'; }); });
 
     var profileModal = document.getElementById('channel-profile-modal');
-    document.querySelectorAll('[data-open-channel-profile]').forEach(function (btn) {
+    document.querySelectorAll('[data-open-channel-profile], [data-open-device-panel]').forEach(function (btn) {
       btn.addEventListener('click', function () { if (profileModal) profileModal.style.display = 'flex'; });
     });
     if (profileModal) profileModal.querySelectorAll('[data-close-modal]').forEach(function (b) { b.addEventListener('click', function () { profileModal.style.display = 'none'; }); });

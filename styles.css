@@ -535,6 +535,14 @@ tbody tr:hover td { background: #fcfdff; }
 .nav-toggle .chevron { margin-left: auto; font-size: 12px; opacity: 0.75; transform: rotate(-90deg); transition: transform .15s ease; }
 .tree-item.expanded > .nav-toggle .chevron { transform: rotate(0deg); }
 .nav-toggle.level-1 { font-weight: 700; }
+.nav-icon {
+  width: 16px;
+  display: inline-flex;
+  justify-content: center;
+  color: #9fb0cc;
+  font-size: 13px;
+  line-height: 1;
+}
 .nav-toggle.level-2,
 .nav-link.level-2 { padding-left: 24px; font-size: 13px; }
 .nav-toggle.level-3,
@@ -908,3 +916,27 @@ html, body { overflow-x: hidden; }
 .store-line{display:flex;justify-content:space-between;gap:8px;align-items:center;}
 .store-total{margin-top:8px;font-weight:600;color:#0f172a;}
 @media (max-width:1200px){.store-device-list{grid-template-columns:1fr;}}
+
+/* ---- unified fixed shell layout ---- */
+html, body { height: 100%; overflow: hidden; }
+.global-topbar {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+}
+.layout {
+  margin-top: 52px;
+  height: calc(100vh - 52px) !important;
+}
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: calc(100vh - 52px);
+  overflow-y: auto;
+}
+.main {
+  height: calc(100vh - 52px);
+  overflow-y: auto;
+}
