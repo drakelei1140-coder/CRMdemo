@@ -50,12 +50,14 @@
   var descMap = {
     'company-list.html': { text: '企业管理功能说明', href: 'pages/company-list-desc.html' },
     'company-detail.html': { text: '企业详情功能说明', href: 'pages/company-detail-desc.html' },
-    'company-edit.html': { text: '企业新增编辑功能说明', href: 'pages/company-edit-desc.html' },
+    'company-create.html': { text: '企业新增功能说明', href: 'pages/company-edit-desc.html' },
+    'company-edit.html': { text: '企业编辑功能说明', href: 'pages/company-edit-desc.html' },
     'company-edit-review-list.html': { text: '企业待审核功能说明', href: 'pages/company-edit-review-desc.html' },
     'company-edit-review.html': { text: '企业待审核功能说明', href: 'pages/company-edit-review-desc.html' },
     'store-list.html': { text: '商铺管理功能说明', href: 'pages/store-list-desc.html' },
     'store-detail.html': { text: '商铺详情功能说明', href: 'pages/store-detail-desc.html' },
-    'store-edit.html': { text: '商铺新增编辑功能说明', href: 'pages/store-edit-desc.html' },
+    'store-create.html': { text: '商铺新增功能说明', href: 'pages/store-edit-desc.html' },
+    'store-edit.html': { text: '商铺编辑功能说明', href: 'pages/store-edit-desc.html' },
     'store-edit-review-list.html': { text: '商铺待审核功能说明', href: 'pages/store-edit-review-desc.html' },
     'store-edit-review.html': { text: '商铺待审核功能说明', href: 'pages/store-edit-review-desc.html' },
     'store-device-order-list.html': { text: '终端设备申请单说明', href: 'pages/store-edit-review-desc.html' },
@@ -311,6 +313,12 @@
       btn.addEventListener('click', function () { if (profileModal) profileModal.style.display = 'flex'; });
     });
     if (profileModal) profileModal.querySelectorAll('[data-close-modal]').forEach(function (b) { b.addEventListener('click', function () { profileModal.style.display = 'none'; }); });
+
+    var reviewModal = document.getElementById('review-audit-modal');
+    document.querySelectorAll('[data-open-review-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () { if (reviewModal) reviewModal.style.display = 'flex'; });
+    });
+    if (reviewModal) reviewModal.querySelectorAll('[data-close-modal]').forEach(function (b) { b.addEventListener('click', function () { reviewModal.style.display = 'none'; }); });
   }
 
   injectTopbar();
