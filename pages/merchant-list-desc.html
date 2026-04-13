@@ -8,8 +8,9 @@
 <section class="card"><h3>页面定位</h3><p>说明商户列表状态、进件与补件联动展示。</p></section>
 <section class="card"><h3>数据来源</h3><p>来自 OBS 主数据、DMO 同步、AFP 回传及日志聚合。</p></section>
 <section class="card"><h3>取值规则</h3><p>遵循 CID/SID/MID 数据边界，AFP 数据只读。</p></section>
-<section class="card"><h3>状态与流程规则</h3><p>状态流转需记录时间轴并影响下游状态。</p></section>
+<section class="card"><h3>状态与流程规则</h3><p>商户列表保持原筛选区与字段主体不变，去掉AFP状态展示，商户仅保留审核状态并按不同审核阶段展示对应按钮。</p></section>
 <section class="card"><h3>接口 / 开发要求</h3><p>需要状态查询、日志查询、快照查询接口支持。</p></section>
 <section class="card"><h3>非页面能力与边界</h3><p>DMO采集页/boss基础配置页不在本页面实现。</p></section>
+<section class="card"><h3>本轮补充逻辑</h3><ul><li>开始审核 → 基础资料审核中。</li><li>递交审核 → 风控核查-1。</li><li>开始核查 → 风控核查-2。</li><li>递交风控 → 风控初级审核。</li><li>审核通过按三级流转：风控初级审核 → 风控中级审核 → 总经理审核 → 风控审核完成。</li><li>列表页以演示数据展示所有审核状态及对应操作按钮。</li></ul></section>
 </div></main>
 </div><script src="../app.js"></script></body></html>
