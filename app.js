@@ -340,6 +340,68 @@
     if (profileModal) profileModal.querySelectorAll('[data-close-modal]').forEach(function (b) { b.addEventListener('click', function () { profileModal.style.display = 'none'; }); });
   }
 
+  function setupEnableDisableModal() {
+    var modal = document.getElementById('enable-disable-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'enable-disable-modal';
+      modal.className = 'modal-mask';
+      modal.innerHTML = '<div class="modal"><h3 id="enable-disable-title">状态确认</h3><p id="enable-disable-text">请确认本次状态变更。</p><div class="modal-actions"><button class="btn primary" data-confirm-enable-disable>确认</button><button class="btn" data-close-modal>关闭</button></div></div>';
+      document.body.appendChild(modal);
+    }
+    var titleEl = modal.querySelector('#enable-disable-title');
+    var textEl = modal.querySelector('#enable-disable-text');
+    document.querySelectorAll('[data-open-enable-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var isDisable = /停用/.test(btn.textContent || '');
+        if (titleEl) titleEl.textContent = isDisable ? '停用确认' : '启用确认';
+        if (textEl) textEl.textContent = isDisable ? '是否停用该主体？' : '是否启用该主体？';
+        modal.style.display = 'flex';
+      });
+    });
+    modal.querySelectorAll('[data-close-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () { modal.style.display = 'none'; });
+    });
+    var confirmBtn = modal.querySelector('[data-confirm-enable-disable]');
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+        showToast('状态变更已记录到修改时间轴');
+      });
+    }
+  }
+
+  function setupSubmitReviewModal() {
+    var submitTexts = {
+      'company-edit.html': '修改申请数据已经提交至企业资料修改待审核功能中，请前往查看或审核',
+      'store-edit.html': '修改申请数据已经提交至商铺资料修改待审核功能中，请前往查看或审核',
+      'merchant-edit.html': '修改申请数据已经提交至商户资料修改待审核功能中，请前往查看或审核'
+    };
+    var message = submitTexts[path];
+    if (!message) return;
+    var modal = document.getElementById('submit-review-modal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'submit-review-modal';
+      modal.className = 'modal-mask';
+      modal.innerHTML = '<div class="modal"><h3>提交审核提示</h3><p id="submit-review-text"></p><div class="modal-actions"><button class="btn" data-close-modal>关闭</button></div></div>';
+      document.body.appendChild(modal);
+    }
+    var textEl = modal.querySelector('#submit-review-text');
+    if (textEl) textEl.textContent = message;
+    document.querySelectorAll('.page-actions .btn.primary').forEach(function (btn) {
+      if ((btn.textContent || '').trim() !== '提交审核') return;
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        modal.style.display = 'flex';
+      });
+    });
+    modal.querySelectorAll('[data-close-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () { modal.style.display = 'none'; });
+    });
+  }
+
   injectTopbar();
   renderSidebar();
   injectReturnButton();
@@ -349,6 +411,8 @@
   normalizeToolbarActions();
   setupCollapsibleToolbars();
   setupContractActions();
+  setupEnableDisableModal();
+  setupSubmitReviewModal();
   setupImagePreview();
   setupAuditModal();
 })();
