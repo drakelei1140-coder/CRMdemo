@@ -3,7 +3,7 @@
 <head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>编辑企业</title><link rel="stylesheet" href="../styles.css"/><style>body.form-page{height:100vh;overflow:hidden;}body.form-page .layout{height:calc(100vh - 56px);}body.form-page .sidebar{position:sticky;top:0;height:calc(100vh - 56px);overflow-y:auto;}body.form-page .main{height:calc(100vh - 56px);overflow-y:auto;}@media (max-width:1200px){body.form-page{overflow:auto;}body.form-page .layout{height:auto;min-height:calc(100vh - 56px);}body.form-page .main{height:auto;overflow:visible;}}</style></head>
 <body class="form-page">
 <div class="layout"><aside class="sidebar"></aside><main class="main">
-<header class="page-head"><div class="page-head-left"><div class="breadcrumb">企业管理 / 编辑企业</div><h1 class="page-title">编辑企业</h1><p class="page-subtitle">编辑页显示企业对象ID，仅用于查看不可修改。</p></div><div class="page-actions"><button class="btn">保存草稿</button><button class="btn primary">提交审核</button></div></header>
+<header class="page-head"><div class="page-head-left"><div class="breadcrumb">企业管理 / 编辑企业</div><h1 class="page-title">编辑企业</h1><p class="page-subtitle">编辑页显示企业对象ID，仅用于查看不可修改。</p></div><div class="page-actions"><button class="btn">保存草稿</button><button class="btn primary" id="submit-audit-btn">提交审核</button></div></header>
 
 <section class="card"><h3>对象信息</h3><div class="grid-2"><div class="form-item"><label>企业对象ID</label><input class="input" value="CID-100238" readonly/></div></div></section>
 
@@ -80,7 +80,7 @@
   <div style="margin-top:10px;"><button class="btn">新增人员</button></div>
 </section>
 
-</main></div>
-<script src="../app.js"></script>
+</main></div><div class="modal-mask" id="submit-audit-modal"><div class="modal"><h3>修改申请数据已经提交至企业资料修改待审核功能中，请前往查看或审核</h3><div class="modal-actions"><button class="btn" data-close-modal>关闭</button></div></div></div>
+<script src="../app.js"></script><script>var b=document.getElementById("submit-audit-btn");if(b){b.onclick=function(e){e.preventDefault();document.getElementById("submit-audit-modal").style.display="flex";};document.querySelectorAll("#submit-audit-modal [data-close-modal]").forEach(function(i){i.onclick=function(){document.getElementById("submit-audit-modal").style.display="none";};});}</script>
 </body>
 </html>
