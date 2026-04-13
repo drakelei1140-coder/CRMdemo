@@ -3,6 +3,7 @@
 <style>.field-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 14px;}.field-item{border:1px solid #e2e8f0;border-radius:10px;padding:10px 12px;background:#fff;}.field-item.long{grid-column:1/-1;}.field-item dt{color:#64748b;font-size:13px;}.field-item dd{margin:6px 0 0;color:#0f172a;word-break:break-word;}</style></head>
 <body><div class="layout"><aside class="sidebar"></aside><main class="main"><header class="page-head"><div class="page-head-left"><div class="breadcrumb">商户管理 / 商户审核 / 详情</div><h1 class="page-title">商户审核详情 - MID-882193</h1><p class="page-subtitle">按业务区域展示商户、支付、结算、AFP、企业、商铺信息。</p></div><div class="page-actions"><span class="badge warning">商户审核状态：基础资料待审核</span></div></header>
 <section class="card"><div class="tabs"><button class="tab active" data-tab-group="merchant-ops" data-tab-target="tab-base">商户基础信息</button><button class="tab" data-tab-group="merchant-ops" data-tab-target="tab-product">产品与支付方式</button><button class="tab" data-tab-group="merchant-ops" data-tab-target="tab-settle">结算信息</button><button class="tab" data-tab-group="merchant-ops" data-tab-target="tab-supp">渠道/业务补充信息</button><button class="tab" data-tab-group="merchant-ops" data-tab-target="tab-afp">AFP相关信息</button><button class="tab" data-tab-group="merchant-ops" data-tab-target="tab-cid">企业信息</button><button class="tab" data-tab-group="merchant-ops" data-tab-target="tab-sid">商铺信息</button><button class="tab" data-tab-group="merchant-ops" data-tab-target="tab-log">时间轴/审核记录</button></div></section>
+<section class="card"><h3>商户审核动作（状态流转演示）</h3><div class="notice">分配审核、转交审核、取消签约、风险评分风控核查、退回审核：暂不做交互，仅展示操作入口。</div><div class="grid-2"><dl class="kv"><dt>当前商户审核状态</dt><dd id="merchant-audit-state"><span class="badge warning">基础资料待审核</span></dd></dl><dl class="kv"><dt>状态流转结果</dt><dd id="merchant-audit-next">当前状态：基础资料待审核</dd></dl></div><div class="page-actions" style="margin-top:10px;flex-wrap:wrap;"><button class="btn" data-mflow="start">开始审核</button><a class="btn" href="merchant-edit.html">编辑</a><button class="btn" data-mflow="submit">递交审核</button><a class="btn" href="merchant-edit-review-audit.html">开始核查</a><button class="btn" data-mflow="risk">递交风控</button><button class="btn" data-mflow="pass">审核通过</button><button class="btn" data-mflow="os">通知BD（OS补件）</button><button class="btn">分配审核</button><button class="btn">转交审核</button><button class="btn">取消签约</button><button class="btn">风险评分风控核查</button><button class="btn">退回审核</button></div></section>
 <section class="card" data-tab-panel="merchant-ops" id="tab-base"><h3>商户基础信息</h3><div class="field-grid" id="base-fields"></div></section>
 <section class="card" data-tab-panel="merchant-ops" id="tab-product" style="display:none;"><h3>产品与支付方式</h3><div class="field-grid" id="product-fields"></div></section>
 <section class="card" data-tab-panel="merchant-ops" id="tab-settle" style="display:none;"><h3>结算信息</h3><div class="field-grid" id="settle-fields"></div></section>
@@ -142,4 +143,28 @@ const fields=[
 const valueMap={MID:'MID-882193',CID:'CID-100238',SID:'SID-330019','渠道编码':'CHN-AFP-HK-01','服务编码':'SVC-PAYMENT-01','AFP Store ID':'ST-22001','AFP merchant account ID':'MA-009','產品開通':'是','結算幣種':'HKD','打款銀行':'HSBC','AH':'AH-9981','Terminal/POS':'POS-2台','余额账户ID':'BA-2201','打款工具ID':'TI-8722','费率模板ID':'RATE-001'};
 function isLong(label){return /連結|腳本|文本|文件|路由|預授權|服務商授權|月結單/.test(label);}
 fields.forEach(f=>{const el=document.createElement('dl');el.className='field-item'+(isLong(f.label)?' long':'');el.innerHTML=`<dt>${f.id}. ${f.label}</dt><dd>${valueMap[f.label]||'--'}</dd>`;document.getElementById(f.group+'-fields').appendChild(el);});
+var currentState='基础资料待审核';
+function renderMerchantFlowState(){
+  var stateEl=document.getElementById('merchant-audit-state');
+  var textEl=document.getElementById('merchant-audit-next');
+  if(stateEl) stateEl.innerHTML='<span class="badge warning">'+currentState+'</span>';
+  if(textEl) textEl.textContent='当前状态：'+currentState;
+}
+document.querySelectorAll('[data-mflow]').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var action=btn.getAttribute('data-mflow');
+    if(action==='start' && currentState==='基础资料待审核'){ currentState='基础资料审核中'; }
+    else if(action==='submit' && currentState==='基础资料审核中'){ currentState='风控核查-1'; }
+    else if(action==='risk' && currentState==='风控核查-2'){ currentState='风控初级审核'; }
+    else if(action==='pass' && currentState==='风控初级审核'){ currentState='风控中级审核'; }
+    else if(action==='pass' && currentState==='风控中级审核'){ currentState='总经理审核'; }
+    else if(action==='pass' && currentState==='总经理审核'){ currentState='风控审核完成'; }
+    renderMerchantFlowState();
+  });
+});
+var checkBtn=document.querySelector('a[href="merchant-edit-review-audit.html"]');
+if(checkBtn){checkBtn.addEventListener('click',function(){ if(currentState==='风控核查-1'){ currentState='风控核查-2'; renderMerchantFlowState(); } });}
+var osBtn=document.querySelector('[data-mflow="os"]');
+if(osBtn){osBtn.addEventListener('click',function(){ renderMerchantFlowState(); });}
+renderMerchantFlowState();
 </script></body></html>

@@ -13,6 +13,7 @@
       <section class="card"><h3>维护边界</h3><dl class="kv"><dt>修改企业信息</dt><dd>跳转企业详情/编辑页。</dd></dl><dl class="kv"><dt>修改商铺信息</dt><dd>跳转商铺详情/编辑页。</dd></dl><dl class="kv"><dt>修改商户资料</dt><dd>进入商户资料修改待审核流程。</dd></dl><dl class="kv"><dt>AFP 数据</dt><dd>禁止前端直接编辑，仅展示与记录。</dd></dl></section>
       <section class="card"><h3>AFP 审核逻辑</h3><p>AFP 场景中 OBS 完成基础审核后直接进 AFP，跳过 OBS 内部风控。AFP 承担 KYC 审核并回传状态，状态变化映射 MID 状态。</p></section>
       <section class="card"><h3>接口与开发要求</h3><ul><li>状态同步：AFP 回调 + 定时拉取兜底。</li><li>快照能力：进件请求/响应报文留痕可追溯。</li><li>日志能力：操作日志与状态日志按 MID 聚合。</li><li>非页面项：DMO 采集页、boss 配置页不在本页面实现。</li></ul></section>
+      <section class="card"><h3>本轮补充逻辑</h3><ul><li>开始审核后状态变更为基础资料审核中；递交审核进入风控核查-1；开始核查进入风控核查-2；递交风控进入风控初级审核。</li><li>审核通过按三级流转至风控审核完成（风控初级审核→风控中级审核→总经理审核→风控审核完成）。</li><li>通知BD（OS补件）支持多条补件内容，确认后状态不变并进入时间轴。</li><li>商户编辑页仅允许维护 MID 内容，CID/SID 区域只读展示。</li><li>商户编辑页去掉保存草稿，仅保留提交审核。</li></ul></section>
     </div>
   </main>
 </div>
