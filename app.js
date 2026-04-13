@@ -50,20 +50,28 @@
   var descMap = {
     'company-list.html': { text: '企业管理功能说明', href: 'pages/company-list-desc.html' },
     'company-detail.html': { text: '企业详情功能说明', href: 'pages/company-detail-desc.html' },
-    'company-edit.html': { text: '企业新增编辑功能说明', href: 'pages/company-edit-desc.html' },
+    'company-create.html': { text: '企业新增功能说明', href: 'pages/company-edit-desc.html' },
+    'company-edit.html': { text: '企业编辑功能说明', href: 'pages/company-edit-desc.html' },
     'company-edit-review-list.html': { text: '企业待审核功能说明', href: 'pages/company-edit-review-desc.html' },
     'company-edit-review.html': { text: '企业待审核功能说明', href: 'pages/company-edit-review-desc.html' },
+    'company-audit.html': { text: '企业审核功能说明', href: 'pages/company-edit-review-desc.html' },
     'store-list.html': { text: '商铺管理功能说明', href: 'pages/store-list-desc.html' },
     'store-detail.html': { text: '商铺详情功能说明', href: 'pages/store-detail-desc.html' },
-    'store-edit.html': { text: '商铺新增编辑功能说明', href: 'pages/store-edit-desc.html' },
+    'store-create.html': { text: '商铺新增功能说明', href: 'pages/store-edit-desc.html' },
+    'store-edit.html': { text: '商铺编辑功能说明', href: 'pages/store-edit-desc.html' },
     'store-edit-review-list.html': { text: '商铺待审核功能说明', href: 'pages/store-edit-review-desc.html' },
     'store-edit-review.html': { text: '商铺待审核功能说明', href: 'pages/store-edit-review-desc.html' },
+    'store-audit.html': { text: '商铺审核功能说明', href: 'pages/store-edit-review-desc.html' },
     'store-device-order-list.html': { text: '终端设备申请单说明', href: 'pages/store-edit-review-desc.html' },
     'store-device-order-detail.html': { text: '终端设备申请单说明', href: 'pages/store-edit-review-desc.html' },
-    'merchant-list.html': { text: '商户管理功能说明', href: 'pages/merchant-list-desc.html' },
+    'merchant-list.html': { text: '商户审核功能说明', href: 'pages/merchant-list-desc.html' },
+    'merchant-create.html': { text: '商户新增功能说明', href: 'pages/merchant-edit-review-desc.html' },
+    'merchant-edit.html': { text: '商户编辑功能说明', href: 'pages/merchant-edit-review-desc.html' },
     'merchant-detail.html': { text: '商户详情功能说明', href: 'pages/merchant-detail-desc.html' },
     'merchant-edit-review-list.html': { text: '商户待审核功能说明', href: 'pages/merchant-edit-review-desc.html' },
-    'merchant-edit-review.html': { text: '商户待审核功能说明', href: 'pages/merchant-edit-review-desc.html' },
+    'merchant-edit-review.html': { text: '商户资料修改待审核说明', href: 'pages/merchant-edit-review-desc.html' },
+    'merchant-edit-review-audit.html': { text: '商户资料审核说明', href: 'pages/merchant-review-desc.html' },
+    'merchant-audit.html': { text: '商户审核功能说明', href: 'pages/merchant-review-desc.html' },
     'merchant-signed-list.html': { text: '已签约功能说明', href: 'pages/merchant-signed-detail-desc.html' },
     'merchant-signed-detail.html': { text: '已签约功能说明', href: 'pages/merchant-signed-detail-desc.html' },
     'merchant-cancel-list.html': { text: '取消签约功能说明', href: 'pages/merchant-cancel-detail-desc.html' },
@@ -199,13 +207,35 @@
 
   function normalizeToolbarActions() {
     document.querySelectorAll('.toolbar').forEach(function (toolbar) {
-      if (toolbar.querySelector('.toolbar-actions')) return;
-      var btns = Array.from(toolbar.querySelectorAll('button.btn'));
-      var actionBtns = btns.filter(function (b) { return /查询|重置|收起筛选|展开筛选/.test(b.textContent.trim()); });
+      var existingWrap = toolbar.querySelector('.toolbar-actions');
+      var actionBtns = Array.from(toolbar.querySelectorAll('button.btn')).filter(function (b) {
+        return /查询|重置|收起筛选|展开筛选/.test(b.textContent.trim());
+      });
       if (!actionBtns.length) return;
-      var wrap = document.createElement('div'); wrap.className = 'toolbar-actions';
-      actionBtns.forEach(function (b) { wrap.appendChild(b); });
-      toolbar.appendChild(wrap);
+
+      if (!existingWrap) {
+        existingWrap = document.createElement('div');
+        existingWrap.className = 'toolbar-actions';
+        toolbar.appendChild(existingWrap);
+      }
+
+      var queryBtn = actionBtns.find(function (b) { return b.textContent.trim() === '查询'; });
+      var resetBtn = actionBtns.find(function (b) { return b.textContent.trim() === '重置'; });
+      var toggleBtn = actionBtns.find(function (b) { return /收起筛选|展开筛选/.test(b.textContent.trim()); });
+      [queryBtn, resetBtn, toggleBtn].forEach(function (btn) {
+        if (btn) existingWrap.appendChild(btn);
+      });
+    });
+  }
+
+  function setupAuditModal() {
+    var modal = document.getElementById('audit-modal');
+    if (!modal) return;
+    document.querySelectorAll('[data-open-audit-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () { modal.style.display = 'flex'; });
+    });
+    modal.querySelectorAll('[data-close-modal]').forEach(function (btn) {
+      btn.addEventListener('click', function () { modal.style.display = 'none'; });
     });
   }
 
@@ -323,4 +353,5 @@
   setupCollapsibleToolbars();
   setupContractActions();
   setupImagePreview();
+  setupAuditModal();
 })();
