@@ -1,86 +1,288 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>编辑企业</title><link rel="stylesheet" href="../styles.css"/><style>body.form-page{height:100vh;overflow:hidden;}body.form-page .layout{height:calc(100vh - 56px);}body.form-page .sidebar{position:sticky;top:0;height:calc(100vh - 56px);overflow-y:auto;}body.form-page .main{height:calc(100vh - 56px);overflow-y:auto;}@media (max-width:1200px){body.form-page{overflow:auto;}body.form-page .layout{height:auto;min-height:calc(100vh - 56px);}body.form-page .main{height:auto;overflow:visible;}}</style></head>
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>编辑企业</title>
+  <link rel="stylesheet" href="../styles.css"/>
+  <style>
+    body.form-page{height:100vh;overflow:hidden;}
+    body.form-page .layout{height:calc(100vh - 56px);}
+    body.form-page .sidebar{position:sticky;top:0;height:calc(100vh - 56px);overflow-y:auto;}
+    body.form-page .main{height:calc(100vh - 56px);overflow-y:auto;padding-bottom:96px;}
+    .readonly-field{display:flex;flex-direction:column;gap:6px;}
+    .readonly-field .label{font-size:13px;color:#64748b;}
+    .readonly-field .value{min-height:38px;padding:9px 10px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;color:#0f172a;display:flex;align-items:center;gap:8px;}
+    .page-anchor-nav{position:sticky;top:0;z-index:1000;background:rgba(243,245,248,.96);backdrop-filter:saturate(160%) blur(6px);padding:10px 0 12px;margin:0 0 14px;border-bottom:1px solid #e2e8f0;}
+    .anchor-tabs{display:flex;gap:8px;flex-wrap:wrap;}
+    .anchor-tab{border:1px solid #cbd5e1;background:#f8fafc;color:#334155;padding:6px 10px;border-radius:999px;font-size:13px;cursor:pointer;}
+    .anchor-tab.active{background:#e2e8f0;border-color:#94a3b8;color:#0f172a;}
+    .section-card{scroll-margin-top:72px;}
+    .sub-block{border:1px dashed #dbe2ea;border-radius:10px;padding:12px;margin-top:10px;background:#fcfdff;}
+    .sub-block h4{margin:0 0 10px;font-size:14px;color:#334155;}
+    .copy-btn{border:0;background:#e2e8f0;padding:2px 8px;border-radius:10px;font-size:12px;color:#334155;cursor:pointer;}
+    .file-table td{vertical-align:middle;}
+    .file-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+    .warn-note{margin-top:10px;padding:10px 12px;border-radius:8px;background:#fff7ed;color:#9a3412;font-size:13px;}
+    .bottom-action-bar{position:fixed;left:260px;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:saturate(180%) blur(6px);border-top:1px solid #e2e8f0;padding:12px 24px;display:flex;justify-content:flex-end;gap:10px;z-index:1000;}
+    .btn[disabled]{opacity:.45;cursor:not-allowed;}
+    @media (max-width:1200px){
+      body.form-page{overflow:auto;}
+      body.form-page .layout{height:auto;min-height:calc(100vh - 56px);}
+      body.form-page .main{height:auto;overflow:visible;}
+      .bottom-action-bar{left:0;}
+    }
+  </style>
+</head>
 <body class="form-page">
 <div class="layout"><aside class="sidebar"></aside><main class="main">
-<header class="page-head"><div class="page-head-left"><div class="breadcrumb">企业管理 / 编辑企业</div><h1 class="page-title">编辑企业</h1><p class="page-subtitle">编辑页显示企业对象ID，仅用于查看不可修改。</p></div><div class="page-actions"><button class="btn primary">提交审核</button></div></header>
+  <header class="page-head">
+    <div class="page-head-left">
+      <div class="breadcrumb">企业管理 / 编辑企业</div>
+      <h1 class="page-title">编辑企业 - CID-100238</h1>
+      <p class="page-subtitle">编辑提交后进入企业资料修改待审核流程，不直接覆盖正式数据。</p>
+    </div>
+  </header>
 
-<section class="card"><h3>对象信息</h3><div class="grid-2"><div class="form-item"><label>企业对象ID</label><input class="input" value="CID-100238" readonly/></div></div></section>
+  <section id="overview" class="card section-card">
+    <h3>页面顶部基础信息区</h3>
+    <div class="grid-2">
+      <div class="form-item"><label class="form-required">企业名称</label><input class="input" name="企业名称" value="星河数字科技（香港）有限公司"/></div>
+      <div class="readonly-field"><span class="label">企业编号</span><span class="value">CID-100238 <button type="button" class="copy-btn" data-copy="CID-100238">复制</button></span></div>
+      <div class="readonly-field"><span class="label">地区</span><span class="value">HK</span></div>
+      <div class="readonly-field"><span class="label">企业启用状态</span><span class="value"><span class="badge success">启用</span></span></div>
+      <div class="readonly-field"><span class="label">企业审核状态</span><span class="value"><span class="badge info">审核中</span></span></div>
+      <div class="readonly-field"><span class="label">服务通道</span><span class="value">Adyen_AFP</span></div>
+      <div class="readonly-field"><span class="label">上單來源</span><span class="value">CE</span></div>
+      <div class="readonly-field"><span class="label">创建人</span><span class="value">ce_amy</span></div>
+      <div class="readonly-field"><span class="label">创建时间</span><span class="value">2026-03-01 10:33</span></div>
+      <div class="readonly-field"><span class="label">更新时间</span><span class="value">2026-04-18 14:10</span></div>
+    </div>
+  </section>
 
-<section class="card"><h3>企业基础录入</h3><div class="grid-2">
-<div class="form-item"><label class="form-required">進件通道(必須)</label><select><option>Adyen_AFP</option><option>Stripe_AFP</option></select></div>
-<div class="form-item"><label>每宗交易平均金額</label><input class="input" value="HKD 420"/></div>
-<div class="form-item"><label>每宗交易最大交易額</label><input class="input" value="HKD 28000"/></div>
-<div class="form-item"><label>預計每年交易宗數</label><input class="input" value="-"/></div>
-<div class="form-item"><label>平均每月營業額</label><input class="input" value="HKD 1800000"/></div>
-<div class="form-item"><label>經營方式</label><input class="input" value="門店零售"/></div>
-<div class="form-item"><label>是否對公</label><select><option>是</option><option>否</option></select></div>
-<div class="form-item"><label>小費功能</label><select><option>不開啟</option><option>開啟</option></select></div>
-<div class="form-item"><label>合約期</label><input class="input" value="24個月"/></div>
-<div class="form-item"><label>是否高額商戶</label><select><option>否</option><option>是</option></select></div>
-</div></section>
+  <section class="page-anchor-nav" aria-label="顶部悬浮导航标签区">
+    <div class="anchor-tabs" id="anchor-tabs">
+      <button class="anchor-tab active" data-target="overview">企业概览</button>
+      <button class="anchor-tab" data-target="pk-relation">企业主键与关联</button>
+      <button class="anchor-tab" data-target="name-info">企业名称信息</button>
+      <button class="anchor-tab" data-target="subject-operation">企业主体与经营信息</button>
+      <button class="anchor-tab" data-target="basic-operation">企业基础经营数据</button>
+      <button class="anchor-tab" data-target="contact-info">企业联系信息</button>
+      <button class="anchor-tab" data-target="address-info">企业地址信息</button>
+      <button class="anchor-tab" data-target="file-info">企业文件信息</button>
+      <button class="anchor-tab" data-target="risk-business">风控 / 业务信息</button>
+      <button class="anchor-tab" data-target="shop-readonly">关联商铺</button>
+      <button class="anchor-tab" data-target="mid-readonly">关联 MID</button>
+    </div>
+  </section>
 
-<section class="card"><h3>企业名称与主体</h3><div class="grid-2">
-<div class="form-item"><label class="form-required">商戶中文名稱</label><input class="input" value="星河数字科技（香港）有限公司"/></div>
-<div class="form-item"><label>商戶中文簡稱</label><input class="input" value="星河数字"/></div>
-<div class="form-item"><label class="form-required">商戶英文名稱</label><input class="input" value="Star River Digital Technology (HK) Limited"/></div>
-<div class="form-item"><label>商戶英文簡稱</label><input class="input" value="Star River"/></div>
-<div class="form-item"><label>企业营业名称 / DBA</label><input class="input" value="Star River Tech HK"/></div>
-<div class="form-item"><label>商業登記證名稱</label><input class="input" value="Star River Digital Technology (HK) Limited"/></div>
-<div class="form-item"><label>MCC Code</label><input class="input" value="5311"/></div>
-<div class="form-item"><label>進階MCC Code</label><input class="input" value="5311-ONLINE"/></div>
-<div class="form-item"><label>公司模式</label><input class="input" value="有限公司"/></div>
-<div class="form-item"><label>法律地位</label><input class="input" value="Limited Company"/></div>
-<div class="form-item"><label>成立日期</label><input class="input" type="date" value="2018-03-16"/></div>
-<div class="form-item"><label>注冊資本</label><input class="input" value="HKD 5000000"/></div>
-</div></section>
+  <section id="pk-relation" class="card section-card"><h3>企业主键与关联信息区</h3><div class="grid-2">
+    <div class="form-item"><label>默认主联系人人员ID</label><div style="display:flex;gap:8px;"><input class="input" value="PER-9011"/><button type="button" class="btn" data-copy="PER-9011">复制</button></div></div>
+    <div class="form-item"><label>上級公司ID</label><div style="display:flex;gap:8px;"><input class="input" value="CID-100001"/><button type="button" class="btn" data-copy="CID-100001">复制</button></div></div>
+  </div></section>
 
-<section class="card"><h3>税务与风控</h3><div class="grid-2">
-<div class="form-item"><label>企业税务国家</label><input class="input" value="HK"/></div>
-<div class="form-item"><label>企业税号</label><input class="input" value="TRN-882019"/></div>
-<div class="form-item"><label>企业税号类型</label><input class="input" value="BR"/></div>
-<div class="form-item"><label>VAT号</label><input class="input" value="-"/></div>
-<div class="form-item"><label>税务申报分类</label><input class="input" value="一般纳税"/></div>
-<div class="form-item"><label>税务业务类型</label><input class="input" value="本地贸易"/></div>
-<div class="form-item"><label>風控類型</label><select><option>标准</option><option>增强审查</option></select></div>
-<div class="form-item"><label>風險等級</label><select><option>中</option><option>低</option><option>高</option></select></div>
-<div class="form-item"><label>審核類型</label><select><option>标准审核</option><option>增强审核</option></select></div>
-<div class="form-item"><label>上單來源</label><select><option>CE</option><option>OPS</option><option>合作伙伴</option></select></div>
-</div></section>
+  <section id="name-info" class="card section-card"><h3>企业名称信息区</h3>
+    <div class="sub-block"><h4>中文名称</h4><div class="grid-2">
+      <div class="form-item"><label class="form-required">商戶中文名稱</label><input class="input" value="星河数字科技（香港）有限公司"/></div>
+      <div class="form-item"><label>商戶中文簡稱</label><input class="input" value="星河数字"/></div>
+      <div class="form-item"><label>商戶所有名稱（中文）</label><textarea class="input" rows="2">星河数字科技（香港）有限公司</textarea></div>
+    </div></div>
+    <div class="sub-block"><h4>英文名称</h4><div class="grid-2">
+      <div class="form-item"><label class="form-required">商戶英文名稱</label><input class="input" value="Star River Digital Technology (HK) Limited"/></div>
+      <div class="form-item"><label>商戶英文簡稱</label><input class="input" value="Star River"/></div>
+      <div class="form-item"><label>商戶所有名稱（英文）</label><textarea class="input" rows="2">Star River Digital Technology (HK) Limited</textarea></div>
+    </div></div>
+    <div class="sub-block"><h4>其他名称</h4><div class="grid-2">
+      <div class="form-item"><label>商戶其它名稱</label><textarea class="input" rows="2">-</textarea></div>
+      <div class="form-item"><label>商業登記證名稱</label><input class="input" value="Star River Digital Technology (HK) Limited"/></div>
+      <div class="form-item"><label>公司登記証名稱(非必須)</label><input class="input" value="-"/></div>
+    </div></div>
+  </section>
 
-<section class="card"><h3>地址与联系</h3><div class="grid-2">
-<div class="form-item"><label class="form-required">註冊辦事處地址</label><input class="input" value="香港九龍觀塘偉業街202號18F"/></div>
-<div class="form-item"><label>註冊辦事處地址(英文)</label><input class="input" value="18/F, 202 Wai Yip Street, Kwun Tong"/></div>
-<div class="form-item"><label>郵寄地址</label><input class="input" value="香港九龍觀塘偉業街202號18F"/></div>
-<div class="form-item"><label>電郵地址</label><input class="input" value="ops@starriver.hk"/></div>
-<div class="form-item"><label>公司電話</label><input class="input" value="+852 3188 2211"/></div>
-<div class="form-item"><label>手提電話</label><input class="input" value="+852 6123 8899"/></div>
-<div class="form-item"><label>管理員電郵</label><input class="input" value="admin@starriver.hk"/></div>
-<div class="form-item"><label>運營電郵</label><input class="input" value="ops@starriver.hk"/></div>
-<div class="form-item"><label>微信ID</label><input class="input" value="starriver_ops"/></div>
-<div class="form-item"><label>接收營銷資訊</label><select><option>否</option><option>是</option></select></div>
-</div></section>
+  <section id="subject-operation" class="card section-card"><h3>企业主体与经营信息区</h3>
+    <div class="sub-block"><h4>主体属性</h4><div class="grid-2">
+      <div class="form-item"><label>公司模式</label><select><option>有限公司</option></select></div>
+      <div class="form-item"><label>是否子公司</label><select><option>否</option><option>是</option></select></div>
+      <div class="form-item"><label>公司結構</label><select><option>单层</option><option>控股</option></select></div>
+      <div class="form-item"><label>小微商戶</label><select><option>否</option><option>是</option></select></div>
+      <div class="form-item"><label>SME 設定</label><select><option>标准</option><option>SME</option></select></div>
+      <div class="form-item"><label>成立日期</label><input type="date" class="input" value="2018-03-16"/></div>
+      <div class="form-item"><label>法律地位</label><select><option>Limited Company</option></select></div>
+      <div class="form-item"><label>僱員人數</label><input class="input" value="126"/></div>
+      <div class="form-item"><label>注冊資本</label><input class="input" value="5000000"/></div>
+      <div class="form-item"><label>公司層級</label><select><option>一级</option></select></div>
+    </div></div>
+    <div class="sub-block"><h4>行业与经营分类</h4><div class="grid-2">
+      <div class="form-item"><label>行業分類 / 業務性質 / 產品服務</label><textarea class="input" rows="2">跨境零售支付</textarea></div>
+      <div class="form-item"><label>MCC Code</label><select><option>5311</option></select></div>
+      <div class="form-item"><label>進階MCC Code</label><select><option>5311-ONLINE</option></select></div>
+      <div class="form-item"><label>special MCC 附件</label><input class="input" type="file"/></div>
+      <div class="form-item"><label>周年申報表 / 法團成立表(非必須)</label><input class="input" type="file"/></div>
+    </div></div>
+    <div class="sub-block"><h4>税务与法务属性</h4><div class="grid-2">
+      <div class="form-item"><label>企业成立 / 适用法国家</label><select><option>HK</option></select></div>
+      <div class="form-item"><label>企业治理法律所在国</label><select><option>HK</option></select></div>
+      <div class="form-item"><label>企业税务申报分类</label><select><option>一般纳税</option></select></div>
+      <div class="form-item"><label>企业税务业务类型</label><select><option>本地贸易</option></select></div>
+    </div></div>
+  </section>
 
-<section class="card"><h3>文件上传</h3><div class="grid-2">
-<div class="form-item"><label>商業登記證副本照片</label><input class="input" type="file"/></div>
-<div class="form-item"><label>商戶篩查報告</label><input class="input" type="file"/></div>
-<div class="form-item"><label>企業架構文件</label><input class="input" type="file"/></div>
-<div class="form-item"><label>財務報表文件</label><input class="input" type="file"/></div>
-<div class="form-item"><label>special MCC 附件</label><input class="input" type="file"/></div>
-<div class="form-item"><label>NP其他文檔</label><input class="input" type="file"/></div>
-</div></section>
+  <section id="basic-operation" class="card section-card"><h3>企业基础经营数据区</h3>
+    <div class="sub-block"><h4>6.1 交易与经营指标</h4><div class="grid-2">
+      <div class="form-item"><label>每宗交易平均金額</label><input class="input" value="420"/></div><div class="form-item"><label>每宗交易最大交易額</label><input class="input" value="28000"/></div>
+      <div class="form-item"><label>預計每年交易宗數</label><input class="input" value="120000"/></div><div class="form-item"><label>過往拒付比例</label><input class="input" value="0.3%"/></div>
+      <div class="form-item"><label>拒付平均處理日數</label><input class="input" value="7"/></div><div class="form-item"><label>過往退款比例</label><input class="input" value="1.2%"/></div>
+      <div class="form-item"><label>退款平均處理日數</label><input class="input" value="3"/></div><div class="form-item"><label>平均每月營業額</label><input class="input" value="1800000"/></div>
+      <div class="form-item"><label>經營方式</label><select><option>门店零售</option></select></div><div class="form-item"><label>提前收款日數</label><input class="input" value="2"/></div>
+      <div class="form-item"><label>貨物 / 服務最短送達時間</label><input class="input" value="1"/></div><div class="form-item"><label>貨物 / 服務最長送達時間</label><input class="input" value="14"/></div>
+      <div class="form-item"><label>經營年限</label><input class="input" value="8"/></div>
+    </div></div>
+    <div class="sub-block"><h4>6.2 合约与业务属性</h4><div class="grid-2">
+      <div class="form-item"><label class="form-required">進件通道(必須)</label><select name="進件通道(必須)"><option>Adyen_AFP</option><option>Stripe_AFP</option></select></div>
+      <div class="form-item"><label>T1特選商戶</label><select><option>否</option><option>是</option></select></div>
+      <div class="form-item"><label>是否對公</label><select><option>是</option><option>否</option></select></div><div class="form-item"><label>小費功能</label><select><option>关闭</option><option>开启</option></select></div>
+      <div class="form-item"><label>合約期</label><input class="input" value="24个月"/></div><div class="form-item"><label>是否首次申請卡機商戶（包括KPay及其他卡機）</label><select><option>否</option><option>是</option></select></div>
+      <div class="form-item"><label>申請過的卡機品牌（多選）</label><select multiple><option selected>KPay</option><option>PAX</option><option>Verifone</option></select></div>
+      <div class="form-item"><label>在上述卡機中，商戶預計使用KPay的業務占比</label><input class="input" value="60%"/></div>
+      <div class="form-item"><label>是否NGO</label><select><option>否</option><option>是</option></select></div><div class="form-item"><label>重複簽約原因</label><input class="input" value="-"/></div>
+      <div class="form-item"><label>商戶營業狀態（企業口徑）</label><select><option>经营中</option><option>暂停</option></select></div>
+    </div></div>
+    <div class="sub-block"><h4>6.3 税务与注册信息</h4><div class="grid-2">
+      <div class="form-item"><label>企业税务国家</label><select><option>HK</option></select></div><div class="form-item"><label>企业税号</label><input class="input" value="TRN-882019"/></div>
+      <div class="form-item"><label>企业税号类型</label><select><option>BR</option></select></div><div class="form-item"><label>VAT号</label><input class="input" value="-"/></div>
+      <div class="form-item"><label>无VAT原因</label><input class="input" value="不适用"/></div><div class="form-item"><label>税务申报分类</label><select><option>一般纳税</option></select></div>
+      <div class="form-item"><label>税务业务类型</label><select><option>本地贸易</option></select></div><div class="form-item"><label>公司註冊証號碼(非必須)</label><input class="input" value="CR-772922"/></div>
+      <div class="form-item"><label>周年申報表有效期(非必須)</label><input type="date" class="input" value="2027-12-31"/></div>
+    </div></div>
+    <div class="sub-block"><h4>6.4 上市与补充说明</h4><div class="grid-2">
+      <div class="form-item"><label>上市市场标识</label><select><option>未上市</option></select></div><div class="form-item"><label>股票代码</label><input class="input" value="-"/></div>
+      <div class="form-item"><label>股票简称</label><input class="input" value="-"/></div><div class="form-item"><label>企业营业名称 / DBA</label><input class="input" value="Star River Tech HK"/></div>
+      <div class="form-item"><label>企业描述</label><textarea class="input" rows="2">跨境零售支付服务商</textarea></div><div class="form-item"><label>官网 / App Store URL</label><input class="input" value="https://starriver.example"/></div>
+      <div class="form-item"><label>職稱 / 職位</label><input class="input" value="Finance Director"/></div><div class="form-item"><label>歸屬國編號</label><input class="input" value="344"/></div>
+      <div class="form-item"><label>歸屬省編號</label><input class="input" value="HK-KLN"/></div><div class="form-item"><label>分行號</label><input class="input" value="001"/></div>
+      <div class="form-item"><label>開戶費合計</label><input class="input" value="1800"/></div><div class="form-item"><label>类型（企业）</label><select><option>Company</option></select></div>
+    </div></div>
+    <div class="sub-block"><h4>6.5 附件与文档型字段</h4><div class="grid-2">
+      <div class="form-item"><label>退貨政策</label><textarea class="input" rows="2">7天内可退货</textarea></div><div class="form-item"><label>退貨政策截圖</label><input class="input" type="file"/></div>
+      <div class="form-item"><label>財務報表審計</label><input class="input" type="file"/></div><div class="form-item"><label>NP其他文檔</label><input class="input" type="file"/></div>
+      <div class="form-item"><label>公司章程大綱包括章程細則（如適用）(非必須)</label><input class="input" type="file"/></div>
+    </div></div>
+  </section>
 
-<section class="card"><h3>相关人员（支持多条）</h3>
-  <div class="notice">每条人员关系先选择身份，再填写人员信息；支持董事、股东、UBO、授权签字人、主联系人、财务联系人、技术联系人等多条记录。</div>
-  <table><thead><tr><th>身份</th><th>姓名</th><th>证件/人员ID</th><th>联系方式</th><th>邮箱</th><th>操作</th></tr></thead>
-  <tbody>
-    <tr><td><select><option>董事</option><option>股东</option><option>UBO</option><option>授权签字人</option><option>主联系人</option><option>财务联系人</option><option>技术联系人</option></select></td><td><input class="input" value="陈嘉文"/></td><td><input class="input" value="PER-9011"/></td><td><input class="input" value="+852 6123 8899"/></td><td><input class="input" value="admin@starriver.hk"/></td><td><button class="btn">删除</button></td></tr>
-    <tr><td><select><option>股东</option><option>董事</option><option>UBO</option><option>授权签字人</option><option>主联系人</option><option>财务联系人</option><option>技术联系人</option></select></td><td><input class="input" value="林家豪"/></td><td><input class="input" value="PER-9038"/></td><td><input class="input" value="+852 6228 1902"/></td><td><input class="input" value="finance@starriver.hk"/></td><td><button class="btn">删除</button></td></tr>
-  </tbody></table>
-  <div style="margin-top:10px;"><button class="btn">新增人员</button></div>
-</section>
+  <section id="contact-info" class="card section-card"><h3>企业联系信息区</h3><div class="grid-2">
+    <div class="form-item"><label class="form-required">公司電話</label><div style="display:flex;gap:8px;"><input class="input" name="公司電話" value="+852 3188 2211"/><button type="button" class="btn" data-copy="+852 3188 2211">复制</button></div></div>
+    <div class="form-item"><label>手提電話</label><div style="display:flex;gap:8px;"><input class="input" value="+852 6123 8899"/><button type="button" class="btn" data-copy="+852 6123 8899">复制</button></div></div>
+    <div class="form-item"><label class="form-required">管理員電郵</label><div style="display:flex;gap:8px;"><input class="input" name="管理員電郵" value="admin@starriver.hk"/><button type="button" class="btn" data-copy="admin@starriver.hk">复制</button></div></div>
+    <div class="form-item"><label>運營電郵</label><div style="display:flex;gap:8px;"><input class="input" value="ops@starriver.hk"/><button type="button" class="btn" data-copy="ops@starriver.hk">复制</button></div></div>
+    <div class="form-item"><label>接收營銷資訊</label><select><option>否</option><option>是</option></select></div>
+    <div class="form-item"><label>微信ID</label><input class="input" value="starriver_ops"/></div>
+    <div class="form-item"><label>企业电话类型</label><select><option>公司总机</option><option>移动电话</option></select></div>
+  </div></section>
+
+  <section id="address-info" class="card section-card"><h3>企业地址信息区</h3>
+    <div class="sub-block"><h4>8.1 注册办事处地址</h4><div class="grid-2">
+      <div class="form-item"><label class="form-required">註冊辦事處地址</label><input class="input" value="香港九龍觀塘偉業街202號18F"/></div>
+      <div class="form-item"><label>註冊辦事處地址(英文)</label><input class="input" value="18/F, 202 Wai Yip Street, Kwun Tong"/></div>
+    </div></div>
+    <div class="sub-block"><h4>8.2 注册地址</h4><div class="grid-2">
+      <div class="form-item"><label>注册地址（原始全文）</label><textarea class="input" rows="2">-</textarea></div><div class="form-item"><label>注册地址-街道</label><input class="input" value="Wai Yip Street"/></div>
+      <div class="form-item"><label>注册地址-补充地址</label><input class="input" value="18/F"/></div><div class="form-item"><label>注册地址-城市</label><input class="input" value="香港"/></div>
+      <div class="form-item"><label>注册地址-州 / 省</label><input class="input" value="九龙"/></div><div class="form-item"><label>注册地址-邮编</label><input class="input" value="999077"/></div>
+      <div class="form-item"><label>注册地址-国家</label><input class="input" value="中国"/></div>
+    </div></div>
+    <div class="sub-block"><h4>8.3 主要营业地址</h4><div class="grid-2">
+      <div class="form-item"><label>主要营业地址（原始全文）</label><textarea class="input" rows="2">-</textarea></div><div class="form-item"><label>主要营业地址-街道</label><input class="input" value="Hoi Bun Road"/></div>
+      <div class="form-item"><label>主要营业地址-补充地址</label><input class="input" value="Suite 22"/></div><div class="form-item"><label>主要营业地址-城市</label><input class="input" value="香港"/></div>
+      <div class="form-item"><label>主要营业地址-州 / 省</label><input class="input" value="九龙"/></div><div class="form-item"><label>主要营业地址-邮编</label><input class="input" value="999077"/></div>
+      <div class="form-item"><label>主要营业地址-国家</label><input class="input" value="中国"/></div>
+    </div></div>
+    <div class="sub-block"><h4>8.4 其他地址 / 联系</h4><div class="grid-2">
+      <div class="form-item"><label>郵寄地址</label><input class="input" value="香港九龍觀塘偉業街202號18F"/></div>
+      <div class="form-item"><label>電郵地址</label><input class="input" value="ops@starriver.hk"/></div>
+    </div></div>
+  </section>
+
+  <section id="file-info" class="card section-card"><h3>企业文件信息区</h3>
+    <table class="file-table"><thead><tr><th>字段</th><th>当前文件 / 值</th><th>操作</th></tr></thead><tbody>
+      <tr><td>商戶篩查報告</td><td>screening-report.pdf</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>企業架構文件</td><td>org-chart.pdf</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>財務報表文件</td><td>finance-2025.pdf</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>商業登記證號碼</td><td><input class="input" value="BR-7782911"/></td><td>-</td></tr>
+      <tr><td>證書有效期</td><td><input type="date" class="input" value="2027-12-31"/></td><td>-</td></tr>
+      <tr><td>商業登記證副本照片</td><td>br-photo.png</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>請提供重複簽約證明附件</td><td>-</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>商業登記冊內的資料的電子摘錄（獨資經營者 / 合夥人適用）</td><td>-</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>公司註冊證明書(非必須)</td><td>certificate.pdf</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>慈善機構資料</td><td>-</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>教育資料</td><td>-</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>社團 / 協會資料</td><td>-</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>業主立案法團資料</td><td>-</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>入貨單</td><td>invoice-list.zip</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>閉路電視錄影</td><td>cctv.mp4</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+      <tr><td>最高交易金額的客戶單據</td><td>high-ticket-receipt.pdf</td><td><div class="file-actions"><input type="file"/><button class="btn">查看</button></div></td></tr>
+    </tbody></table>
+  </section>
+
+  <section id="risk-business" class="card section-card"><h3>风控 / 业务信息区</h3>
+    <div class="sub-block"><h4>风控信息</h4><div class="grid-2">
+      <div class="form-item"><label>風控類型</label><select><option>标准</option></select></div>
+      <div class="form-item"><label>風險等級</label><select><option>中</option><option>低</option><option>高</option></select></div>
+      <div class="form-item"><label>風險評估報告</label><input class="input" type="file"/></div>
+      <div class="form-item"><label>審核類型</label><select><option>标准审核</option></select></div>
+    </div></div>
+    <div class="sub-block"><h4>业务协作信息</h4><div class="grid-2">
+      <div class="readonly-field"><span class="label">上單來源</span><span class="value">CE</span></div>
+      <div class="form-item"><label>服務類型</label><select><option>支付服务</option></select></div>
+      <div class="form-item"><label>合作夥伴推薦人</label><input class="input" value="Amy Chan"/></div>
+      <div class="form-item"><label>合作夥伴編號</label><div style="display:flex;gap:8px;"><input class="input" value="P-0091"/><button class="btn" type="button" data-copy="P-0091">复制</button></div></div>
+      <div class="form-item"><label>交單備註</label><textarea class="input" rows="2">-</textarea></div>
+      <div class="form-item"><label>是否高額商戶</label><select><option>否</option><option>是</option></select></div>
+    </div></div>
+  </section>
+
+  <section id="shop-readonly" class="card section-card"><h3>关联商铺信息展示区</h3>
+    <div class="warn-note">关联商铺不可在本页编辑，仅可查看详情。</div>
+    <table><thead><tr><th>商铺名称</th><th>商铺编号</th><th>地区</th><th>启用状态</th><th>审核状态</th><th>操作</th></tr></thead>
+      <tbody><tr><td>星河商城·观塘店</td><td>SID-330019</td><td>HK</td><td><span class="badge success">启用</span></td><td><span class="badge info">审核通过</span></td><td><a href="store-detail.html" target="_blank" rel="noopener">查看详情</a></td></tr></tbody>
+    </table>
+  </section>
+
+  <section id="mid-readonly" class="card section-card"><h3>关联 MID 信息展示区</h3>
+    <div class="warn-note">关联 MID 不可在本页编辑，仅可查看详情。</div>
+    <table><thead><tr><th>MID 编号</th><th>所属商铺</th><th>服务通道</th><th>当前状态</th><th>更新时间</th><th>操作</th></tr></thead>
+      <tbody><tr><td>MID-882193</td><td>星河商城·观塘店</td><td>Adyen_AFP</td><td><span class="badge warning">待审核</span></td><td>2026-04-18 14:10</td><td><a href="merchant-detail.html" target="_blank" rel="noopener">查看详情</a></td></tr></tbody>
+    </table>
+  </section>
 
 </main></div>
+
+<section class="bottom-action-bar" aria-label="底部悬浮操作区">
+  <button class="btn" onclick="history.back()">取消</button>
+  <button class="btn primary" id="submit-btn" disabled>提交修改</button>
+</section>
+
 <script src="../app.js"></script>
+<script>
+  (function(){
+    var tabs=[].slice.call(document.querySelectorAll('.anchor-tab'));
+    var ids=tabs.map(function(t){return t.dataset.target;});
+    tabs.forEach(function(tab){tab.addEventListener('click',function(){document.getElementById(tab.dataset.target).scrollIntoView({behavior:'smooth',block:'start'});});});
+    var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){tabs.forEach(function(t){t.classList.toggle('active',t.dataset.target===entry.target.id);});}});},{root:document.querySelector('.main'),threshold:0.35});
+    ids.forEach(function(id){var el=document.getElementById(id);if(el) observer.observe(el);});
+
+    document.querySelectorAll('[data-copy]').forEach(function(btn){btn.addEventListener('click',function(){var v=btn.getAttribute('data-copy');navigator.clipboard&&navigator.clipboard.writeText(v);btn.textContent='已复制';setTimeout(function(){btn.textContent='复制';},1000);});});
+
+    var requiredSelectors=['input[name="企业名称"]','select[name="進件通道(必須)"]','input[name="公司電話"]','input[name="管理員電郵"]'];
+    var submitBtn=document.getElementById('submit-btn');
+    function validate(){
+      var ok=requiredSelectors.every(function(sel){var el=document.querySelector(sel);return el&&String(el.value||'').trim()!=='';});
+      submitBtn.disabled=!ok;
+    }
+    requiredSelectors.forEach(function(sel){var el=document.querySelector(sel);if(el){el.addEventListener('input',validate);el.addEventListener('change',validate);}});
+    validate();
+
+    submitBtn.addEventListener('click',function(){if(submitBtn.disabled) return;alert('修改已提交，进入企业资料修改待审核流程。');});
+  })();
+</script>
 </body>
 </html>
